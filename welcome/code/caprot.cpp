@@ -42,9 +42,9 @@ int main(int argc, char *argv[]) {
                 else {
                     index = i + shift;
                 }
-                cout << index << endl;
+                // cout << index << endl;
                 cpyString[index] = toupper(result[index]); 
-                cout << "after: " << cpyString[index] << endl;
+                // cout << "after: " << cpyString[index] << endl;
             }
             else{
                 cpyString[i] = tolower(result[i]);
