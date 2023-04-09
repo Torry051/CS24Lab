@@ -4,6 +4,9 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     string result;
+    if (argc!= 2) {
+        exit(-1);
+    }
     int shift = stoi(argv[1]);
     int index = 0;
     cin >> result;
