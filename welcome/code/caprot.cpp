@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 int main(int argc, char *argv[]) {
@@ -15,13 +16,22 @@ int main(int argc, char *argv[]) {
     
 
     string cpyString = result;
+    vector<int> a;
     for (int i = 0; i < size; i++) {
         if (isupper(result[i])) {
+            cpyString[i] = tolower(result[i]);
+            a.push_back(i);
+        }
+    }
+
+    for (unsigned i = 0; i < a.size(); i++) {
+        // if (isupper(result[i])) {
+            int num = a.at(i);
             if (shift >= 0) {
-                cpyString[i] = tolower(result[i]);
+                // cpyString[i] = tolower(result[i]);
                 // cout << "before: " << result[i]<< endl;
-                if (shift > size-i-1) {
-                    newShift = shift - (size - 1 -i);
+                if (shift > size-num-1) {
+                    newShift = shift - (size - 1 -num);
                     // cout << "1: "<< shift << endl; 
                     if (newShift > size) {
                         newShift = newShift - size;
@@ -40,15 +50,15 @@ int main(int argc, char *argv[]) {
                     }
                 }
                 else {
-                    index = i + shift;
+                    index = num + shift;
                 }
                 // cout << index << endl;
                 cpyString[index] = toupper(result[index]); 
                 // cout << "after: " << cpyString[index] << endl;
             }
             else{
-                cpyString[i] = tolower(result[i]);
-                index = i + shift;
+                cpyString[num] = tolower(result[num]);
+                index = num + shift;
                 if(index>= 0){
                     cpyString[index] = toupper(result[index]);
                 }
@@ -60,7 +70,7 @@ int main(int argc, char *argv[]) {
                     cpyString[index] = toupper(result[index]);
                 }
             }
-        }
+        // }
         
     }
     cout << cpyString << endl;
