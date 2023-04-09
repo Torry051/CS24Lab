@@ -25,11 +25,8 @@ int main(int argc, char *argv[]) {
     }
 
     for (unsigned i = 0; i < a.size(); i++) {
-        // if (isupper(result[i])) {
             int num = a.at(i);
             if (shift >= 0) {
-                // cpyString[i] = tolower(result[i]);
-                // cout << "before: " << result[i]<< endl;
                 if (shift > size-num-1) {
                     newShift = shift - (size - 1 -num);
                     // cout << "1: "<< shift << endl; 
@@ -70,7 +67,7 @@ int main(int argc, char *argv[]) {
                     cpyString[index] = toupper(result[index]);
                 }
             }
-        // }
+
         
     }
     cout << cpyString << endl;
