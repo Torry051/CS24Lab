@@ -40,7 +40,10 @@ int main(int argc, char *argv[]) {
                     cpyString[index] = toupper(result[index]);
                 }
                 else{
-                    index = (index % size )+ size;
+                    index = (index % size);
+                    if (index != 0) {
+                        index = index + size;
+                    }
                     cpyString[index] = toupper(result[index]);
                 }
             }
