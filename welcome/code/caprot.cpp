@@ -35,15 +35,16 @@ int main(int argc, char *argv[]) {
                         // cout << "2: " << index << endl;
                     }
                     else{
-                    index = shift -1;
+                    index = newShift -1;
+                    // cout << "3: " << index << endl;
                     }
                 }
                 else {
                     index = i + shift;
                 }
-                // cout << index << endl;
+                cout << index << endl;
                 cpyString[index] = toupper(result[index]); 
-                // cout << "after: " << cpyString[index] << endl;
+                cout << "after: " << cpyString[index] << endl;
             }
             else{
                 cpyString[i] = tolower(result[i]);
