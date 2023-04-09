@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     }
     int shift = stoi(argv[1]);
     int index = 0;
-    cin >> result;
+    getline(cin, result);
     int size = result.size();
     
 
