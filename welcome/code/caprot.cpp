@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
     int index = 0;
     getline(cin, result);
     int size = result.size();
+    int newShift = 0;
     
 
     string cpyString = result;
@@ -18,20 +19,31 @@ int main(int argc, char *argv[]) {
         if (isupper(result[i])) {
             if (shift >= 0) {
                 cpyString[i] = tolower(result[i]);
-                index = i + shift;
-                if (index > size-1) {
-                    index = (index +1)% size;
-                    if (index==0){
-                        index = size-1;
+                // cout << "before: " << result[i]<< endl;
+                if (shift > size-i-1) {
+                    newShift = shift - (size - 1 -i);
+                    // cout << "1: "<< shift << endl; 
+                    if (newShift > size) {
+                        newShift = newShift - size;
+                        index = newShift % size;
+                        if (index == 0) {
+                            index = size -1;
+                        }
+                        else {
+                            index = index -1;
+                        }
+                        // cout << "2: " << index << endl;
                     }
-                    else {
-                        index = index -1;
+                    else{
+                    index = shift -1;
                     }
-                    cpyString[index] = toupper(result[index]);
                 }
                 else {
-                    cpyString[index] = toupper(result[index]); 
+                    index = i + shift;
                 }
+                // cout << index << endl;
+                cpyString[index] = toupper(result[index]); 
+                // cout << "after: " << cpyString[index] << endl;
             }
             else{
                 cpyString[i] = tolower(result[i]);
