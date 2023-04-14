@@ -103,8 +103,12 @@ void FibVec::push(int value){
 
 int FibVec::remove(size_t index) {
 
-  if (index > counts-1) {
+  if (index > counts-1 || counts == 0) {
     throw std::out_of_range ("out of range!");
+  }
+
+  if( index == counts-1 ) {
+    return pop();
   }
 
   int result = Values[index];
@@ -116,6 +120,8 @@ int FibVec::remove(size_t index) {
   for (size_t i=0; i<counts; i++) {
     arr[i] = Values[i];
   }
+
+
   for (size_t i=index; i<counts-1; i++) {
     arr[i] = arr[i+1];
   }

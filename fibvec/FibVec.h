@@ -8,7 +8,7 @@
 
 class FibVec {
   // Member Variables
-public:
+// public:
   int * Values;
   size_t size;
   size_t indices;
