@@ -68,7 +68,7 @@ void FibVec::insert(int value, size_t index) {
 }
 
 int FibVec::lookup(size_t index) const {
-  if (index > counts-1) {
+  if (index > counts-1 || counts ==0) {
     throw std::out_of_range("out of range!");
   }
   return Values[index];
