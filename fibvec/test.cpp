@@ -17,29 +17,29 @@ int main() {
   fibvec.insert(100,2);
   fibvec.insert(520,1);
 
-  for (size_t i=0; i<fibvec.counts;i++) {
-    std::cout << fibvec.Values[i] << " ";
-  }
-  std::cout << std::endl;
+  // for (size_t i=0; i<fibvec.counts;i++) {
+  //   std::cout << fibvec.Values[i] << " ";
+  // }
+  // std::cout << std::endl;
 
-  std::cout <<"size: " << fibvec.size << " indices: " << fibvec.indices << std::endl;
+  // std::cout <<"size: " << fibvec.size << " indices: " << fibvec.indices << std::endl;
   // int index;
   // std::cout << "input the index:" << std::endl;
   // std:: cin >> index;
   // std::cout << "the index: " << index << " the number: " << fibvec.lookup(index) << std::endl;
 
-  std::cout << "pop number: " << fibvec.pop() << std::endl;
-  std::cout << "pop number: " << fibvec.pop() << std::endl;
-  std::cout << "pop number: " << fibvec.pop() << std::endl;
   // std::cout << "pop number: " << fibvec.pop() << std::endl;
-  fibvec.remove(0);
-  std::cout << "The vector: ";
-  for (size_t i=0; i<fibvec.counts;i++) {
-    std::cout << fibvec.Values[i] << " ";
-  }
-  std::cout << std::endl;
+  // std::cout << "pop number: " << fibvec.pop() << std::endl;
+  // std::cout << "pop number: " << fibvec.pop() << std::endl;
+  // std::cout << "pop number: " << fibvec.pop() << std::endl;
+  // fibvec.remove(0);
+  // std::cout << "The vector: ";
+  // for (size_t i=0; i<fibvec.counts;i++) {
+  //   std::cout << fibvec.Values[i] << " ";
+  // }
+  // std::cout << std::endl;
 
-  std::cout <<"size: " << fibvec.size << " indices: " << fibvec.indices << " counts:" << fibvec.counts << std::endl;
+  // std::cout <<"size: " << fibvec.size << " indices: " << fibvec.indices << " counts:" << fibvec.counts << std::endl;
   // fibvec.push(111);
   // fibvec.push(112);
   // fibvec.push(113);
