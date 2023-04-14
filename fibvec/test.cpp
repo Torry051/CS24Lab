@@ -10,12 +10,12 @@ int main() {
   // fibvec.insert(3,3);
   // std::cout << "This program doesn't do anything interesting yet...\n";
   // std::cout << fibvec.f(6) << std::endl;
-  fibvec.insert(5,0);
-  fibvec.insert(10,0);
-  fibvec.insert(15,1);
-  fibvec.insert(20,3);
-  fibvec.insert(100,2);
-  fibvec.insert(520,1);
+  // fibvec.insert(5,0);
+  // fibvec.insert(10,0);
+  // fibvec.insert(15,1);
+  // fibvec.insert(20,3);
+  // fibvec.insert(100,2);
+  // fibvec.insert(520,1);
 
   // for (size_t i=0; i<fibvec.counts;i++) {
   //   std::cout << fibvec.Values[i] << " ";

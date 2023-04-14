@@ -34,11 +34,11 @@ size_t FibVec::f(int n) {
   return (f(n-1) + f(n-2));
 }
 
-size_t FibVec::capacity() {
+size_t FibVec::capacity() const{
   return size;
 }
 
-size_t FibVec::count() {
+size_t FibVec::count() const{
   return counts;
 }
 
