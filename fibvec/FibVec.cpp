@@ -50,25 +50,20 @@ void FibVec::insert(int value, size_t index) {
   if (counts + 1 > size) {
     indices = indices + 1;
     size = f(indices);
-    int * array = new int[size];
-    for (size_t i=0; i<counts; i++) {
-      array[i] = Values[i];
-    }
-    delete [] Values;
-    Values = array;
+  }
+  int * array = new int[size];
+  for (size_t i=0; i<counts; i++) {
+    array[i] = Values[i];
   }
   
-  int arr[counts];
-  for (size_t i=0; i<counts; i++) {
-    arr[i] = Values[i];
-  }
 
-  Values[index] = value;
+  array[index] = value;
 
   for (size_t i=index;i<counts+1;i++) {
-    Values[i+1] = arr[i];
+    array[i+1] = Values[i];
   }
-
+  delete [] Values;
+  Values = array;
   counts = counts +1;
 }
 
