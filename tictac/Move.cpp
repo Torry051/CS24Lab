@@ -58,23 +58,24 @@ bool Move::format(const std::string& input) {
         return false;
     }
 
-    if (input[6]=='#') {
+    if (input.size()>6) {
+        if (input[6]=='#') {
         // std::cout << "6" <<std::endl;
         return false;
-    }
-
-
-    if (input.size() > 7) {
-        if (input[7] == '#') {
-            if (!isspace(input[6])) {
-                // std::cout << "7" <<std::endl;
-                return false;
-            }
-            else {
-                com = true;
+        }
+        else if (!isspace(input[6])) {
+            return false;
+        } 
+        else {
+            for (unsigned i = 7; i<input.size()-1; i++) {
+                if (input[i] == '#') {
+                    com = true;
+                }
             }
         }
-    }
+
+    } 
+
     return true;
 }
 
