@@ -20,14 +20,11 @@ Move::Move(const std::string& input) {
     inf >> player;
     inf >> location; 
 
+    // std::cout << location << std::endl;
     if (com == true) {
         inf >> comment;
     }
 
-    // std::cout << number << std::endl;
-    // std::cout << input[5] << std::endl;
-    // int a('1');
-    // std::cout << a << std::endl;
     row = location[0];
     column = location[1]; 
 
@@ -37,23 +34,27 @@ bool Move::format(const std::string& input) {
     if (input.size() < 6) {
         return false;
     }
-    if (input[0] < 49 ||input[0] > 57) {
+    if (input[0] < '1' ||input[0] > '9') {
         // std::cout << "1" <<std::endl;
         return false;
     }
-    if (!isspace(input[1]) || !isspace(input[3])) { //
+
+    if (!isspace(input[1]) || !isspace(input[3])) { 
         // std::cout << "2" <<std::endl;
         return false;
     }
-    if (input[2]!='X'&& input[2]!='x'&& input[2]!='O'&& input[2]!='o'){
+    // if (input[2]!='X' && input[2]!='x'&& input[2]!='O'&& input[2]!='o'){
+    if (input[2]<'A'||(input[2]>'Z'&&input[2]<'a')||input[2]>'z') {
         // std::cout << "3" <<std::endl;
         return false;
     }
-    if (input[4]!='A'&& input[4]!='B'&& input[4]!='C'&& input[4]!='a'&&input[4]!='b'&& input[4]!='c'){
+    // if (input[4]!='A' && input[4]!='B'&& input[4]!='C'&& input[4]!='a'&&input[4]!='b'&& input[4]!='c'){
+    if (input[4]<'A'||(input[4]>'Z'&&input[4]<'a')||input[4]>'z') {
         // std::cout << "4" <<std::endl;
         return false;
     }
-    if (input[5]!='1'&& input[5]!='2'&& input[5]!='3'){
+    // if (input[5]!='1'&& input[5]!='2'&& input[5]!='3'){
+    if (input[0] < '1' ||input[0] > '9') {
         // std::cout << "5" <<std::endl;
         return false;
     }

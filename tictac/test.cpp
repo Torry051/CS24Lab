@@ -1,6 +1,7 @@
 # include "Move.h"
 # include <iostream>
 # include <string>
+# include <sstream>
 
 
 int main() {
@@ -9,12 +10,14 @@ int main() {
     // std::getline(std::cin,input);
     // Move a(input);
 
-    // char a = 97 - 32;
-    // std::cout<<a<<std::endl;
-    // string test('1sad');
-    // int num(test);
-    // std::cout << num << std::endl;
-    std::string input("2 X b3#we");
+    // std::istringstream b("2 X C3");
+    // int a;
+    // b >> a;
+    // a = a -1 ;
+    // std::cout << a << std::endl;
+
+
+    std::string input("1 o q3 #qweq");
     Move a(input);
     // std::cout << a.number << " " <<  a.player << " " << a.row  << " " <<a.column<< std::endl;
     std::cout << a << std::endl; 
