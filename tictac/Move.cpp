@@ -41,7 +41,7 @@ bool Move::format(const std::string& input) {
         // std::cout << "1" <<std::endl;
         return false;
     }
-    if (!isspace(input[1]) && !isspace(input[3])) {
+    if (!isspace(input[1]) || !isspace(input[3])) { //
         // std::cout << "2" <<std::endl;
         return false;
     }
@@ -60,8 +60,7 @@ bool Move::format(const std::string& input) {
 
     if (input.size()>6) {
         if (input[6]=='#') {
-        // std::cout << "6" <<std::endl;
-        return false;
+            return false;
         }
         else if (!isspace(input[6])) {
             return false;
