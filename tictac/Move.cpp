@@ -21,11 +21,13 @@ Move::Move(const std::string& input) {
 
     std::istringstream inf(input);
     std::string location;
+    std::string num;
 
-    inf >> number;
-    if (inf.fail()) {
-        throw ParseError("error");
-    }
+    inf >> num;
+    number = stoi(num);
+    // if (inf.fail()) {
+    //     throw ParseError("error");
+    // }
 
     inf >> player;
     inf >> location; 

@@ -10,16 +10,18 @@ int main() {
     // std::getline(std::cin,input);
     // Move a(input);
 
-    // std::istringstream b("2 X C3");
-    // int a;
+    // std::istringstream b("1 X C3");
+    // std::string a;
     // b >> a;
-    // a = a -1 ;
-    // std::cout << a << std::endl;
+    // int c;
+    
+    // c = stoi(a);
+    // std::cout << c << std::endl;
 
 
-    std::string input("1 o q3 #qweq");
+    std::string input("1 o c3 #qweq");
     Move a(input);
-    // std::cout << a.number << " " <<  a.player << " " << a.row  << " " <<a.column<< std::endl;
+    std::cout << a.number << " " <<  a.player << " " << a.row  << " " <<a.column<< std::endl;
     std::cout << a << std::endl; 
     // std::cout << input.size() << std::endl;
     // if(format(input)) {
