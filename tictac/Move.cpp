@@ -25,9 +25,9 @@ Move::Move(const std::string& input) {
 
     inf >> num;
     number = stoi(num);
-    // if (inf.fail()) {
-    //     throw ParseError("error");
-    // }
+    if (inf.fail()) {
+        throw ParseError("error");
+    }
 
     inf >> player;
     inf >> location; 
@@ -37,8 +37,11 @@ Move::Move(const std::string& input) {
         inf >> comment;
     }
 
-    row = location[0];
-    column = location[1]; 
+    char * r = &location[0];
+    char * c = &location[1];
+
+    row = *r;
+    column = atoi(c);
 
 }
 
@@ -107,8 +110,7 @@ std::ostream& operator << (std::ostream& stream, const Move& move) {
         r = move.row - 0;
     }
 
-    int c = move.column - 48;
-    stream << r << c;
+    stream << r << move.column;
 
 
     if (move.com == true) {

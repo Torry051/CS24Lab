@@ -12,8 +12,35 @@ int main() {
 
     // std::istringstream b("1 X C3");
     // std::string a;
-    // b >> a;
+    // char ab;
+    // std::string abc;
     // int c;
+    // b >> a;
+    // if (b.fail()) {
+    //     std::cout << "report" << std::endl;
+    //     return 1;
+    // }
+
+
+    // b >> ab;
+    // if (b.fail()) {
+    //     std::cout << "report" << std::endl;
+    //     return 1;
+    // }
+    
+
+    // b >> abc;
+    // if (b.fail()) {
+    //     std::cout << "report" << std::endl;
+    //     return 1;
+    // }
+    // char * o = &abc[0];
+
+    // c = *o;
+    // std::cout << c << std::endl;
+
+
+
     
     // c = stoi(a);
     // std::cout << c << std::endl;
