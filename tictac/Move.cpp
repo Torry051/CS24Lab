@@ -24,7 +24,7 @@ Move::Move(const std::string& input) {
     std::string location;
 
     inf >> number;
-    if (number < 1|| number >10) {
+    if (number < 1|| number >9) {
         throw ParseError("error");
     }
 
