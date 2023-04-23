@@ -19,7 +19,7 @@ Move::Move(const std::string& input) {
     //     throw ParseError("error");
     // }
 
-    int num = 10;
+    number = 10;
     std::istringstream inf(input);
     std::string location;
 
