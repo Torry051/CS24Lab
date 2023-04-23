@@ -9,14 +9,25 @@
 
 Move::Move(const std::string& input) {
     if (!format(input)) {
-        // std::cout << "y" <<std::endl;
         throw ParseError("error");
     }
 
+    // if (input.size() < 6) {
+    //     throw ParseError("error");
+    // }
+    // if (!isspace(input[1]) || !isspace(input[3])) { 
+    //     throw ParseError("error");
+    // }
+
+    int num = 10;
     std::istringstream inf(input);
     std::string location;
 
     inf >> number;
+    if (number < 1|| number >10) {
+        throw ParseError("error");
+    }
+
     inf >> player;
     inf >> location; 
 
@@ -35,26 +46,24 @@ bool Move::format(const std::string& input) {
         return false;
     }
     if (input[0] < '1' ||input[0] > '9') {
-        // std::cout << "1" <<std::endl;
         return false;
     }
 
     if (!isspace(input[1]) || !isspace(input[3])) { 
-        // std::cout << "2" <<std::endl;
         return false;
     }
-    // if (input[2]!='X' && input[2]!='x'&& input[2]!='O'&& input[2]!='o'){
-    if (input[2]<'A'||(input[2]>'Z'&&input[2]<'a')||input[2]>'z') {
+    if (input[2]!='X' && input[2]!='x'&& input[2]!='O'&& input[2]!='o'){
+    // if (input[2]<'A'||(input[2]>'Z'&&input[2]<'a')||input[2]>'z') {
         // std::cout << "3" <<std::endl;
         return false;
     }
-    // if (input[4]!='A' && input[4]!='B'&& input[4]!='C'&& input[4]!='a'&&input[4]!='b'&& input[4]!='c'){
-    if (input[4]<'A'||(input[4]>'Z'&&input[4]<'a')||input[4]>'z') {
+    if (input[4]!='A' && input[4]!='B'&& input[4]!='C'&& input[4]!='a'&&input[4]!='b'&& input[4]!='c'){
+    // if (input[4]<'A'||(input[4]>'Z'&&input[4]<'a')||input[4]>'z') {
         // std::cout << "4" <<std::endl;
         return false;
     }
-    // if (input[5]!='1'&& input[5]!='2'&& input[5]!='3'){
-    if (input[0] < '1' ||input[0] > '9') {
+    if (input[5]!='1'&& input[5]!='2'&& input[5]!='3'){
+    // if (input[0] < '1' ||input[0] > '9') {
         // std::cout << "5" <<std::endl;
         return false;
     }
