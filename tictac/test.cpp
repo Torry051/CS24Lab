@@ -16,27 +16,16 @@ int main() {
     // std::string abc;
     // int c;
     // b >> a;
-    // if (b.fail()) {
-    //     std::cout << "report" << std::endl;
-    //     return 1;
-    // }
-
 
     // b >> ab;
-    // if (b.fail()) {
-    //     std::cout << "report" << std::endl;
-    //     return 1;
-    // }
+
     
 
     // b >> abc;
-    // if (b.fail()) {
-    //     std::cout << "report" << std::endl;
-    //     return 1;
-    // }
-    // char * o = &abc[0];
+ 
+    // char o = abc[0];
 
-    // c = *o;
+    // c = static_cast<int>(o);
     // std::cout << c << std::endl;
 
 
@@ -46,7 +35,7 @@ int main() {
     // std::cout << c << std::endl;
 
 
-    std::string input("1 o c3 #qweq");
+    std::string input("1 o C2 #w");
     Move a(input);
     std::cout << a.number << " " <<  a.player << " " << a.row  << " " <<a.column<< std::endl;
     std::cout << a << std::endl; 
