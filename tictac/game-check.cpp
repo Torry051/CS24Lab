@@ -2,6 +2,9 @@
 #include "Errors.h"
 #include "Move.h"
 
-int main() {
 
+int main() {
+    sdt::string line;
+    getline(cin,line);
+    
 }

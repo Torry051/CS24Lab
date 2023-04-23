@@ -10,7 +10,7 @@
 Move::Move(const std::string& input) {
     if (!format(input)) {
         // std::cout << "y" <<std::endl;
-        throw ParseError::ParseError("error");
+        throw ParseError("error");
     }
 
     std::istringstream inf(input);
