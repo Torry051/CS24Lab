@@ -19,12 +19,11 @@ Move::Move(const std::string& input) {
     //     throw ParseError("error");
     // }
 
-    number = 10;
     std::istringstream inf(input);
     std::string location;
 
     inf >> number;
-    if (number < 1|| number >9) {
+    if (inf.fail()) {
         throw ParseError("error");
     }
 
