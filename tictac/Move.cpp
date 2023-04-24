@@ -13,18 +13,19 @@ Move::Move(const std::string& input) {
     // }
 
 
-    if (input.size() < 6) {
-        throw ParseError("error 1");
-    }
+    // if (input.size() < 6) {
+    //     throw ParseError("error 1");
+    // }
     unsigned index = 0;
     for (unsigned i=0; i < input.size(); i++) {
         if (input[i]=='x'||input[i] =='X'||input[i]=='O' || input[i]=='o') {
             index = i;
+            // std::cout<< index  << std::endl;
             break;
         }
     }
 
-    if (input.size()<=index+1){
+    if (input.size()<=index+4){
         throw ParseError("error 3");
     }
 
