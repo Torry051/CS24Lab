@@ -23,9 +23,16 @@ int main() {
                 Move new_move(line);
                 board.play(new_move);
             }
+            // else {
+            //     break;
+            // }   
             else {
-                break;
-            }   
+                getline(std::cin,line);
+                if (std::cin.eof()){
+                    break;
+                }
+                throw InvalidMove("extra move");
+            }
         }
         board.game_result();
         return 0;
