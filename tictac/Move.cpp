@@ -15,6 +15,8 @@ Move::Move(const std::string& input) {
     std::string location;
     std::string num;
 
+    
+
     if (input.size() < 6) {
         throw ParseError("error 1");
     }
@@ -86,8 +88,18 @@ Move::Move(const std::string& input) {
         throw ParseError("column error");
     }
     com = false;
+
+    unsigned index2 = 0;
+    for (unsigned i=0; i<input.size();i++ ){
+        if (input[i]=='1'||input[i]=='2'||input[i]=='3'){
+            index2 = i;
+        }
+    }
+    if (index2 == 0) {
+        throw ParseError("error");
+    }
     if (!inf.eof()){
-        for (unsigned i=6; i<input.size();i++) {
+        for (unsigned i=index2; i<input.size();i++) {
             if (input[i] == '#'){
                 com = true;
             }
@@ -99,6 +111,13 @@ Move::Move(const std::string& input) {
             }
             if (comment[0]!= '#') {
                 // throw ParseError("comment error");
+            }
+        }
+        else {
+            for (unsigned i = index2; i<input.size();i++){
+                if (input[i]!= ' '){
+                    throw ParseError("error 6");
+                }
             }
         }
        
