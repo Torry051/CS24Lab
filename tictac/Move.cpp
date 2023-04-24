@@ -58,7 +58,7 @@ Move::Move(const std::string& input) {
     if (column<1 || column >3) {
         throw ParseError("column error");
     }
-    // com = false;
+    com = false;
     if (!inf.eof()){
         for (unsigned i=6; i<input.size();i++) {
             if (input[i] == '#'){
