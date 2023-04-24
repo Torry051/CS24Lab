@@ -11,12 +11,15 @@ int main() {
     
     try {
         Board board;
-        getline(std::cin,line);
-        Move new_move(line);
-        board.play(new_move);
+        // getline(std::cin,line);
+        // Move new_move(line);
+        // board.play(new_move);
         while (!std::cin.eof()) {
             if (!board.game_over()) {
                 getline(std::cin,line);  
+                if (std::cin.eof()){
+                    break;
+                }
                 Move new_move(line);
                 board.play(new_move);
             }
@@ -28,7 +31,7 @@ int main() {
         return 0;
     }
     catch (const ParseError& erro) {
-        std::cout << "Parse error."  << std::endl;
+        std::cout << "Parse error."  << " "<< erro.what()<< std::endl;
         return 1;
     }
     catch (const InvalidMove& erro) {

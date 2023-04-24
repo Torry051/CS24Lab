@@ -11,6 +11,7 @@ Move::Move(const std::string& input) {
     // if (!format(input)) {
     //     throw ParseError("error");
     // }
+    
 
     if (input.size() < 6) {
         throw ParseError("error 1");
