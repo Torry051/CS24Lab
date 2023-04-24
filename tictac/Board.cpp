@@ -71,7 +71,7 @@ char Board::winner() {
         }
     }
     else if (arr[0][2] == arr[1][1] && arr[0][2] == arr[2][0] && arr[0][2]!=0) {
-        if (arr[0][0] == 1) {
+        if (arr[0][2] == 1) {
             return 'X';
         }
         else {
@@ -137,6 +137,7 @@ bool Board::game_over() {
     if(rounds == 9) {
         return true;
     }
+    // std::cout << rounds << std::endl;
     if(this->winner()== 'X' || this->winner()=='O'){
         return true;
     }

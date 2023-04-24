@@ -12,15 +12,17 @@ int main() {
     try {
         Board board;
         getline(std::cin,line);
+        Move new_move(line);
+        board.play(new_move);
         while (!std::cin.eof()) {
             if (!board.game_over()) {
+                getline(std::cin,line);  
                 Move new_move(line);
                 board.play(new_move);
-                getline(std::cin,line);  
             }
             else {
                 break;
-            }
+            }   
         }
         board.game_result();
         return 0;
