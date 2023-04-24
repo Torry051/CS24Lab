@@ -11,11 +11,14 @@ Move::Move(const std::string& input) {
     // if (!format(input)) {
     //     throw ParseError("error");
     // }
-
+    std::istringstream inf(input);
+    std::string location;
+    std::string num;
 
     // if (input.size() < 6) {
     //     throw ParseError("error 1");
     // }
+
     unsigned index = 0;
     for (unsigned i=0; i < input.size(); i++) {
         if (input[i]=='x'||input[i] =='X'||input[i]=='O' || input[i]=='o') {
@@ -24,18 +27,22 @@ Move::Move(const std::string& input) {
             break;
         }
     }
-
+    
     if (input.size()-1<index+3){
         throw ParseError("error 3");
     }
 
-    if (!isspace(input[index-1]) || !isspace(input[index+1])) { 
-        throw ParseError("error 2");
+    // std::cout<< index << " " << input.size() << std::endl;
+    if (index!=0) {
+        if (!isspace(input[index-1]) || !isspace(input[index+1])) { 
+            throw ParseError("error 2");
+        }
+    }
+    else {
+        throw ParseError("error 4");
     }
 
-    std::istringstream inf(input);
-    std::string location;
-    std::string num;
+
 
     inf >> num;
     number = stoi(num);
