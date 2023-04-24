@@ -16,7 +16,15 @@ Move::Move(const std::string& input) {
     if (input.size() < 6) {
         throw ParseError("error 1");
     }
-    if (!isspace(input[1]) || !isspace(input[3])) { 
+    unsigned index = 0;
+    for (unsigned i=0; i < input.size(); i++) {
+        if (input[i]=='x'||input[i] =='X'||input[i]=='O' || input[i]=='o') {
+            index = i;
+            break;
+        }
+    }
+
+    if (!isspace(input[index-1]) || !isspace(input[index+1])) { 
         throw ParseError("error 2");
     }
 
