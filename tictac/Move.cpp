@@ -11,7 +11,7 @@ Move::Move(const std::string& input) {
     // if (!format(input)) {
     //     throw ParseError("error");
     // }
-    
+
 
     if (input.size() < 6) {
         throw ParseError("error 1");
@@ -147,9 +147,9 @@ std::ostream& operator << (std::ostream& stream, const Move& move) {
     stream << r << move.column;
 
 
-    if (move.com == true) {
-        stream << " " << move.comment;
-    }
+    // if (move.com == true) {
+    //     stream << " " << move.comment;
+    // }
 
     return stream;
 
