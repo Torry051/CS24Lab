@@ -15,9 +15,9 @@ Move::Move(const std::string& input) {
     std::string location;
     std::string num;
 
-    // if (input.size() < 6) {
-    //     throw ParseError("error 1");
-    // }
+    if (input.size() < 6) {
+        throw ParseError("error 1");
+    }
 
     unsigned index = 0;
     for (unsigned i=0; i < input.size(); i++) {
