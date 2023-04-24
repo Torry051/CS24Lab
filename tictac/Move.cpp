@@ -16,9 +16,13 @@ Move::Move(const std::string& input) {
     std::string num;
 
     
+ 
 
     if (input.size() < 6) {
         throw ParseError("error 1");
+    }
+    if (input[0]<'1'||input[0]>'9'){
+        throw ParseError("error");
     }
 
     unsigned index = 0;
