@@ -28,9 +28,11 @@ int main() {
             // }   
             else {
                 getline(std::cin,line);
+                // std::cout << line << std::endl;
                 if (std::cin.eof()){
                     break;
                 }
+                Move move(line);
                 throw InvalidMove("extra move");
             }
         }

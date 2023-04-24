@@ -147,6 +147,7 @@ bool Board::game_over() {
 
 void Board::game_result() {
     if (game_over()) {
+        // std::cout << "yes" << std::endl;
         if (winner() == 'X'){
             std::cout << "Game over: X wins." << std::endl;
         }
@@ -158,6 +159,7 @@ void Board::game_result() {
         }
     }
     else {
+        // std::cout << "yes " << rounds << std::endl;
         if (rounds== 0) {
             std::cout << "Game in progress: New game." << std::endl;
         }
