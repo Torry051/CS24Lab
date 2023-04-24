@@ -162,10 +162,10 @@ void Board::game_result() {
         }
         else {
             if (turn == 'X'||turn == 'x'){
-                std::cout<<"Game in progress: X's turn" << std::endl;
+                std::cout<<"Game in progress: O's turn." << std::endl;
             }
             else {
-                std::cout<<"Game in progress: O's turn" << std::endl;
+                std::cout<<"Game in progress: X's turn." << std::endl;
             }
         }
     }
