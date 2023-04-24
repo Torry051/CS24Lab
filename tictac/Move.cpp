@@ -25,7 +25,7 @@ Move::Move(const std::string& input) {
         }
     }
 
-    if (input.size()<=index+2){
+    if (input.size()-1<=index+1){
         throw ParseError("error 3");
     }
 
