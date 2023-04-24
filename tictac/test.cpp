@@ -2,6 +2,7 @@
 # include <iostream>
 # include <string>
 # include <sstream>
+# include <vector>
 
 
 int main() {
@@ -33,12 +34,15 @@ int main() {
     
     // c = stoi(a);
     // std::cout << c << std::endl;
+    // char a('C');
+    // int b;
+    // b = a - '@';
+    // std::cout << b << std::endl;
 
-
-    std::string input("1 o C2 #w");
-    Move a(input);
-    std::cout << a.number << " " <<  a.player << " " << a.row  << " " <<a.column<< std::endl;
-    std::cout << a << std::endl; 
+    // std::string input("1 o C2 #");
+    // Move a(input);
+    // std::cout << a.number << " " <<  a.player << " " << a.row  << " " <<a.column<< std::endl;
+    // std::cout << a << std::endl; 
     // std::cout << input.size() << std::endl;
     // if(format(input)) {
     //     std::cout << "yes" << std::endl;
@@ -46,5 +50,25 @@ int main() {
     // else {
     //     std::cout << "no" << std::endl;
     // }
+
+
+    int count = 0;
+    std::string line;
+    std::vector<std::string> moves;
+    while (!std::cin.eof()) {
+       
+        if (count < 3) {
+            std::cout << "> ";
+            getline(std::cin, line);
+            count++;
+        }
+        else {
+            std::cout << "break" << std::endl;
+            break;
+        }
+    }
+
+
+
     return 0;
 }

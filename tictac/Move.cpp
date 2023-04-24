@@ -13,7 +13,7 @@ Move::Move(const std::string& input) {
     // }
 
     if (input.size() < 6) {
-        throw ParseError("error");
+        throw ParseError("error 1");
     }
     if (!isspace(input[1]) || !isspace(input[3])) { 
         throw ParseError("error");
