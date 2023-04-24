@@ -53,20 +53,25 @@ int main() {
 
 
     int count = 0;
-    std::string line;
-    std::vector<std::string> moves;
+    
     while (!std::cin.eof()) {
-       
-        if (count < 3) {
-            std::cout << "> ";
-            getline(std::cin, line);
-            count++;
-        }
-        else {
-            std::cout << "break" << std::endl;
-            break;
-        }
+        std::string line;
+        getline(std::cin,line);
     }
+
+
+
+
+        // if (count < 3) {
+        //     std::cout << "> ";
+        //     getline(std::cin, line);
+        //     count++;
+        // }
+        // else {
+        //     std::cout << "break" << std::endl;
+        //     break;
+        // }
+    
 
 
 
