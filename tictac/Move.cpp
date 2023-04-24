@@ -24,6 +24,10 @@ Move::Move(const std::string& input) {
         }
     }
 
+    if (input.size()<=index+1){
+        throw ParseError("error 3");
+    }
+
     if (!isspace(input[index-1]) || !isspace(input[index+1])) { 
         throw ParseError("error 2");
     }
