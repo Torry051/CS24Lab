@@ -108,9 +108,16 @@ void Board::play(const Move & move) {
         throw InvalidMove("round error");
     }
 
-    int ro = move.row - '@';
+    int ro;
+    if (move.row == 'a'|| move.row == 'b' || move.row == 'c') {
+        ro = move.row - 32 - '@';
+    }
+    else {
+        ro = move.row - '@';
+    }
+    
     if (arr[ro-1][move.column-1] != 0) {
-        // std::cout << ro << " " << move.column << " " << arr[ro][move.column] << std::endl;
+        // std::cout << ro-1 << " " << move.column-1 << " " << arr[ro-1][move.column-1] << std::endl;
         throw InvalidMove("location error");
     }
 

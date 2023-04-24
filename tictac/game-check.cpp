@@ -30,7 +30,7 @@ int main() {
         return 1;
     }
     catch (const InvalidMove& erro) {
-        std::cout << "Invalid move."<< std::endl;
+        std::cout << "Invalid move." << std::endl;
         return 2;
     }
     
