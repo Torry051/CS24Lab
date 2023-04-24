@@ -32,7 +32,7 @@ int main() {
                 if (std::cin.eof()){
                     break;
                 }
-                Move move(line);
+                // Move move(line);
                 throw InvalidMove("extra move");
             }
         }
@@ -44,7 +44,7 @@ int main() {
         return 1;
     }
     catch (const InvalidMove& erro) {
-        std::cout << "Invalid move." << std::endl;
+        std::cout << "Invalid move."  << std::endl;
         return 2;
     }
     
