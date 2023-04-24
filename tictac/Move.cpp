@@ -89,39 +89,48 @@ Move::Move(const std::string& input) {
     }
     com = false;
 
-    unsigned index2 = 0;
-    for (unsigned i=0; i<input.size();i++ ){
-        if (input[i]=='1'||input[i]=='2'||input[i]=='3'){
-            index2 = i;
+    if (!inf.eof()) {
+        inf >> comment;
+        if (!inf.fail()){
+            if (comment[0]!='#'){
+                throw ParseError("comment error");
+            }
         }
     }
-    if (index2 == 0) {
-        throw ParseError("error");
-    }
-    if (!inf.eof()){
-        for (unsigned i=index2; i<input.size();i++) {
-            if (input[i] == '#'){
-                com = true;
-            }
-        }
-        if (com == true) {
-            inf >> comment;
-            if (inf.fail()) {
-                // throw ParseError("comment error 1");
-            }
-            if (comment[0]!= '#') {
-                // throw ParseError("comment error");
-            }
-        }
-        else {
-            for (unsigned i = index2; i<input.size();i++){
-                if (input[i]!= ' '){
-                    throw ParseError("error 6");
-                }
-            }
-        }
+
+    // unsigned index2 = 0;
+    // for (unsigned i=0; i<input.size();i++ ){
+    //     if (input[i]=='1'||input[i]=='2'||input[i]=='3'){
+    //         index2 = i;
+    //     }
+    // }
+    // if (index2 == 0) {
+    //     throw ParseError("error");
+    // }
+    // if (!inf.eof()){
+    //     for (unsigned i=index2; i<input.size();i++) {
+    //         if (input[i] == '#'){
+    //             com = true;
+    //         }
+    //     }
+    //     if (com == true) {
+    //         inf >> comment;
+    //         if (inf.fail()) {
+    //             // throw ParseError("comment error 1");
+    //         }
+    //         if (comment[0]!= '#') {
+    //             // throw ParseError("comment error");
+    //         }
+    //     }
+    //     else {
+    //         for (unsigned i = index2; i<input.size();i++){
+    //             if (input[i]!= ' '){
+    //                 throw ParseError("error 6");
+    //             }
+    //         }
+    //     }
        
-    }
+    // }
 
 }
 
