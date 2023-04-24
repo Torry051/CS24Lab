@@ -27,11 +27,11 @@ int main() {
         board.game_result();
         return 0;
     }
-    catch (const ParseError erro) {
+    catch (const ParseError& erro) {
         std::cout << "Parse error. " << erro.what() << std::endl;
         return 1;
     }
-    catch (const InvalidMove erro) {
+    catch (const InvalidMove& erro) {
         std::cout << "Invalid move. " << erro.what() << std::endl;
         return 2;
     }
