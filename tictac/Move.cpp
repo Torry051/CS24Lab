@@ -13,12 +13,12 @@ Move::Move(const std::string& input) {
     // }
 
 
-    // if (input.size() < 6) {
-    //     throw ParseError("error 1");
-    // }
-    if (!isspace(input[1]) || !isspace(input[3])) { 
-        throw ParseError("error");
+    if (input.size() < 6) {
+        throw ParseError("error 1");
     }
+    // if (!isspace(input[1]) || !isspace(input[3])) { 
+    //     throw ParseError("error 2");
+    // }
 
     std::istringstream inf(input);
     std::string location;
@@ -30,9 +30,15 @@ Move::Move(const std::string& input) {
         throw ParseError("number input error");
     }
 
-    inf >> player;
+    std::string str;
+    inf >> str;
+    if (str.size()!= 1) {
+        throw ParseError("space error");
+    }
+    player = str[0];
+    // std::cout << player << std::endl;
     if (inf.fail()) {
-        throw ParseError("plaer input error");
+        throw ParseError("player input error");
     }
     if (player!='x' && player!='X' && player!='o' && player != 'O') {
         throw ParseError("player error");
