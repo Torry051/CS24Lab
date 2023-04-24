@@ -52,6 +52,9 @@ Move::Move(const std::string& input) {
 
     inf >> num;
     number = stoi(num);
+    if (number <1  || number > 9){
+        throw ParseError("number error");
+    }
     if (inf.fail()) {
         throw ParseError("number input error");
     }
