@@ -31,7 +31,7 @@ int main() {
         return 0;
     }
     catch (const ParseError& erro) {
-        std::cout << "Parse error."  << " "<< erro.what()<< std::endl;
+        std::cout << "Parse error."  << std::endl;
         return 1;
     }
     catch (const InvalidMove& erro) {
