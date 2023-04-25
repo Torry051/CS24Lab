@@ -20,8 +20,6 @@ struct Move {
 
   // The constructor parses a string.
   Move(const std::string& input);
-  //helper function.
-  // bool format(const std::string& input);
 };
 
 // Adding a << operator allows easy printing to std::cout.

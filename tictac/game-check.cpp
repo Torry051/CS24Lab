@@ -14,12 +14,8 @@ int main() {
         // getline(std::cin,line);
         // Move new_move(line);
         // board.play(new_move);
-        while (!std::cin.eof()) {
+        while (getline(std::cin, line)) {
             if (!board.game_over()) {
-                getline(std::cin,line);  
-                if (std::cin.eof()){
-                    break;
-                }
                 Move new_move(line);
                 board.play(new_move);
             }
@@ -27,11 +23,7 @@ int main() {
             //     break;
             // }   
             else {
-                getline(std::cin,line);
                 // std::cout << line << std::endl;
-                if (std::cin.eof()){
-                    break;
-                }
                 // Move move(line);
                 throw InvalidMove("extra move");
             }
