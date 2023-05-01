@@ -86,6 +86,7 @@ const std::string& Set::lookup(size_t n) const{
 
 void Set::print() const {
     if (this->mRoot == nullptr){
+        std::cout << "wrong" << std::endl;
         std::cout << "-" << std::endl;
         return;
     }
