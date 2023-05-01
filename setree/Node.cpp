@@ -18,7 +18,7 @@ Node::Node(const std::string &n) {
 
 Node * Conhelper( const Node * root) {
     Node * node = new Node(root->element);
-    // std::cout << "num: " << root->element << std::endl;
+    std::cout << "running "<< std::endl;
     if(root->leftchild == nullptr && root->rightchild == nullptr) {
         return node;
     }
@@ -171,28 +171,6 @@ const std::string & lookh(Node *n, size_t num){
     }
 }
 
-
-// const std::string printh(Node * n, std::string str){
-//     if(n->leftchild== nullptr&&n->rightchild == nullptr) {
-//         return n->element;
-//     }
-//     if(n->leftchild!=nullptr) {
-//         str = printh(n->leftchild, " ") + " " + n->element;
-//         if (n->rightchild !=nullptr) {
-//             str = str + " " + printh(n->rightchild, " ");
-//         }
-//         else {
-//             str = str + " -";
-//         }
-//         return str;
-//     }
-
-//     if(n->rightchild!=nullptr){
-//         str = "- " + n->element + " " + printh(n->rightchild," ");
-//         return str;
-//     }
-//     return "";
-// }
 
 
 const std::string printh(Node * n){

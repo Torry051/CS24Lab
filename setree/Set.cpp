@@ -67,7 +67,10 @@ size_t Set::insert(const std::string& value) {
     if (contains(value)){
         return 0;
     }
-    inserth(mRoot, value);
+    size_t s = inserth(mRoot, value);
+    if (s== 0) {
+        std::cout << "wrong"<<std::endl;
+    }
     return 1;
 }
 
