@@ -65,7 +65,7 @@ void debug(){
 }
 
 size_t Set::insert(const std::string& value) {
-    if (Node::contains(value)){
+    if (contains(value)){
         return 0;
     }
     size_t s = inserth(mRoot, value);
