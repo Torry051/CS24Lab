@@ -14,6 +14,14 @@ class Node {
 
     Node();
     Node(const std::string &);
+    // static Node * Conhelper(const Node *);
+    // static size_t clearh(Node *, size_t);
+    // static bool containh(Node *, const std::string &);
+    // static size_t counth(Node *,size_t);
+    // static size_t inserth(Node *, const std::string &);
+    // static const std::string & lookh(Node *, size_t);
+    // static const std::string printh(Node *);
+    // static Node * removeh(Node *,const std::string &);
 };
 
 Node * Conhelper(const Node *);
@@ -24,6 +32,8 @@ size_t inserth(Node *, const std::string &);
 const std::string & lookh(Node *, size_t);
 const std::string printh(Node *);
 Node * removeh(Node *,const std::string &);
+
+
 
 
 #endif

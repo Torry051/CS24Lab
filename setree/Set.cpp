@@ -14,6 +14,7 @@ Set::Set(const Set& other):mRoot(nullptr){
         this->mRoot = new Node(other.mRoot->element);
     }
     else {
+        std::cout << "running1" << std::endl;
         this->mRoot = Conhelper(other.mRoot);
     }
 }
@@ -64,7 +65,7 @@ void debug(){
 }
 
 size_t Set::insert(const std::string& value) {
-    if (contains(value)){
+    if (Node::contains(value)){
         return 0;
     }
     size_t s = inserth(mRoot, value);
