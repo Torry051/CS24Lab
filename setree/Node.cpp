@@ -172,26 +172,43 @@ const std::string & lookh(Node *n, size_t num){
 }
 
 
-const std::string printh(Node * n, std::string str){
-    if(n->leftchild== nullptr&&n->rightchild == nullptr) {
+// const std::string printh(Node * n, std::string str){
+//     if(n->leftchild== nullptr&&n->rightchild == nullptr) {
+//         return n->element;
+//     }
+//     if(n->leftchild!=nullptr) {
+//         str = printh(n->leftchild, " ") + " " + n->element;
+//         if (n->rightchild !=nullptr) {
+//             str = str + " " + printh(n->rightchild, " ");
+//         }
+//         else {
+//             str = str + " -";
+//         }
+//         return str;
+//     }
+
+//     if(n->rightchild!=nullptr){
+//         str = "- " + n->element + " " + printh(n->rightchild," ");
+//         return str;
+//     }
+//     return "";
+// }
+
+
+const std::string printh(Node * n){
+    if (n->leftchild == nullptr && n->rightchild == nullptr){
         return n->element;
     }
-    if(n->leftchild!=nullptr) {
-        str = printh(n->leftchild, " ") + " " + n->element;
-        if (n->rightchild !=nullptr) {
-            str = str + " " + printh(n->rightchild, " ");
-        }
-        else {
-            str = str + " -";
-        }
-        return str;
+    if (n->leftchild != nullptr && n->rightchild != nullptr){
+        return "(" + printh(n->leftchild) + " " + n->element + " " + printh(n->rightchild) + ")";
     }
-
-    if(n->rightchild!=nullptr){
-        str = "- " + n->element + " " + printh(n->rightchild," ");
-        return str;
+    if (n->leftchild == nullptr && n->rightchild!= nullptr){
+        return "(- " + n->element + " " + printh(n->rightchild)+ ")";
     }
-    return "";
+    if (n->leftchild != nullptr && n->rightchild == nullptr){
+        return "(" + printh(n->leftchild) + " " + n->element + " -)"; 
+    }
+    return "wrong";  
 }
 
 

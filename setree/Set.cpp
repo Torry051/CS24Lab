@@ -79,32 +79,12 @@ const std::string& Set::lookup(size_t n) const{
 }
 
 void Set::print() const {
-    // if (mRoot == nullptr){
-    //     std::cout << "( - )" << std::endl;
-    //     return;
-    // }
-    
-    // std::cout << "(";
-    // std::cout << "(";
-    // if (mRoot->leftchild!=nullptr){
-    //     std::cout << printh(mRoot->leftchild," ");
-
-    // }
-    // else{
-    //     std::cout << " - ";
-    // }
-    // std::cout << ")";
-    // std::cout << " " << mRoot->element << " ";
-    // std::cout << "(";
-    // if (mRoot->rightchild!=nullptr){
-    //     std::cout<< printh(mRoot->rightchild," ");
-    // }
-    // else {
-    //     std::cout << " - ";
-    // }
-    // std::cout << ")";
-    // std::cout << ")";
-    std::cout << "wrong" << std::endl;
+    if (mRoot == nullptr){
+        std::cout << "-" << std::endl;
+        return;
+    }
+    std::string str = printh(mRoot);
+    std::cout << str;
 }
 
 size_t Set::remove(const std::string& value){
