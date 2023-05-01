@@ -14,7 +14,7 @@ class Set {
 public:
   Set();
   Set(const Set& other);
-  Set(Set && other);
+  Set(Set&& other);
   ~Set();
 
   size_t clear();
