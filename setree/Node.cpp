@@ -1,5 +1,6 @@
 #include "Node.h"
 #include <iostream>
+#include <string>
 
 Node::Node()  {
     element = "";
@@ -30,31 +31,220 @@ Node * Conhelper( const Node * root) {
     return node;
 }
 
-Node::Node(const std::string &n, Node * left, Node * right) {
-    element = n;
-    leftchild = left;
-    rightchild = right;
-    count = 1;
-}
 
-size_t clearh(const Node *node, size_t size){
-    if (node->leftchild == nullptr && node->rightchild ==nullptr) {
-        delete node;
-        size = 1;
-    }
-    if (node->leftchild != nullptr) {
-        size = 1 + clearh(node->leftchild,0) + size;
-        
 
+size_t clearh(Node *n, size_t num){
+    if (n==nullptr) {
+        return 0;
     }
-    if (node->rightchild != nullptr) {
-        size = 1 + clearh(node->rightchild,0) + size;
+
+    if (n->leftchild == nullptr && n->rightchild == nullptr) {
+        num = 1;
+        // std::cout << "run3" << std::endl;
+        delete n;
+        n = nullptr;
+        return num;
+    }
     
+    if (n->leftchild != nullptr) {
+        num = 1 + clearh(n->leftchild,0);
+        if (n->rightchild != nullptr) {
+            num = num + clearh(n->rightchild,0);
+        }
+        // std::cout << "run2" << std::endl;
+        delete n;
+        n = nullptr;
+        return num;
+    }
+    if (n->rightchild != nullptr){
+        num = 1 + clearh(n->rightchild,0);
+    
+        //  std::cout << "run1" << std::endl;
+        delete n;
+        n = nullptr;
+        return num;
+    }
+    return 0;
+}
+
+bool containh(Node * n, const std::string &value){
+    if (n->element == value){
+        return true;
+    }
+    if(n->leftchild == nullptr && n->rightchild == nullptr) {
+        return false;
+    }
+    if (n->leftchild != nullptr){
+        if (containh(n->leftchild,value)){
+            return true;
+        }
+        else if (n->rightchild != nullptr){
+            if (containh(n->rightchild,value)){
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+    if (n->rightchild != nullptr){
+        return containh(n->rightchild,value);
+    }
+    return false;
+}
+
+size_t counth(Node *n, size_t num) {
+    if (n==nullptr) {
+        return 0;
     }
 
-    delete node;
-    return size;
+    if (n->leftchild == nullptr && n->rightchild == nullptr) {
+        num = 1;
+        // std::cout << "run3" << std::endl;
+        return num;
+    }
+    
+    if (n->leftchild != nullptr) {
+        num = 1 + counth(n->leftchild,0);
+        if (n->rightchild != nullptr) {
+            num = num + counth(n->rightchild,0);
+        }
+        // std::cout << "run2" << std::endl;
+
+        return num;
+    }
+    if (n->rightchild != nullptr){
+        num = 1 + counth(n->rightchild,0);
+    
+        //  std::cout << "run1" << std::endl;
+
+        return num;
+    }
+    return 0;
+}
+
+size_t inserth(Node* n, const std::string & value){
+    if (n == nullptr){
+        return 1;
+        // std::cout << "run3" << std::endl;
+    }
+    if (n->element > value){
+        // std::cout << "run1" << std::endl;
+        if (inserth(n->leftchild, value) == 1){
+            Node * newnode = new Node(value);
+            n->leftchild = newnode;
+        }
+
+    }
+    else {
+        // std::cout << "run2" << std::endl;
+        if (inserth(n->rightchild,value) == 1){
+            Node * newnode = new Node(value);
+            n->rightchild = newnode;
+        }
+    }
+    return 0;
+}
+
+const std::string & lookh(Node *n, size_t num){
+    if (num == 0){
+        if(n->leftchild == nullptr){
+            return n->element;
+        }
+        else {
+            return lookh(n->leftchild,0);
+        }
+    }
+    if (n->leftchild != nullptr) {
+        if (counth(n->leftchild,0) > num){
+            return lookh(n->leftchild,num);
+        }
+        else if (counth(n->leftchild,0) == num) {
+            return n->element;
+        }
+        else{
+            return lookh(n->rightchild,num-counth(n->leftchild,0)-1);
+        }
+    }
+    else {
+        return lookh(n->rightchild,num);
+    }
 }
 
 
+const std::string printh(Node * n, std::string str){
+    if(n->leftchild== nullptr&&n->rightchild == nullptr) {
+        return n->element;
+    }
+    if(n->leftchild!=nullptr) {
+        str = printh(n->leftchild, " ") + " " + n->element;
+        if (n->rightchild !=nullptr) {
+            str = str + " " + printh(n->rightchild, " ");
+        }
+        else {
+            str = str + " -";
+        }
+        return str;
+    }
 
+    if(n->rightchild!=nullptr){
+        str = "- " + n->element + " " + printh(n->rightchild," ");
+        return str;
+    }
+    return "";
+}
+
+
+Node * removeh(Node * n, const std::string & value){
+    
+    if (n->element == value){
+        if (n->leftchild !=nullptr && n->rightchild!= nullptr){
+            Node * cpyr = n->rightchild;
+            Node * cpyl = n->leftchild;
+
+            delete n;
+            n = cpyr;
+            n->leftchild = cpyl;
+            return n;
+        }
+        else if (n->leftchild == nullptr && n->rightchild == nullptr){
+            delete n;
+            return nullptr;
+        }
+        else if (n->leftchild != nullptr && n->rightchild == nullptr){
+            Node * cpyl = n->leftchild;
+            delete n;
+            n = cpyl;
+            return n;
+        }
+        else{
+            Node * cpyr = n->rightchild;
+            delete n;
+            n = cpyr;
+            return n;
+        }
+    }
+    
+    
+    
+    if (n->element > value){
+        if (n->leftchild!=nullptr) {
+            n->leftchild = removeh(n->leftchild, value);
+            return n;
+        }
+        else{
+            std::cout << "wrong" << std::endl;
+            return n;
+        }
+    }
+
+    if (n->element < value){
+        if (n->rightchild != nullptr){
+             n->rightchild = removeh(n->rightchild,value);
+            return n;
+        }
+    }
+
+    std::cout << "wrong" << std::endl;
+    return n;
+}

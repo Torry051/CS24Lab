@@ -14,11 +14,16 @@ class Node {
 
     Node();
     Node(const std::string &);
-    Node(const std::string &, Node * leftchild, Node * rightchild);
 };
 
-Node * Conhelper(const Node * );
-size_t clearh(const Node *, size_t size);
+Node * Conhelper(const Node *);
+size_t clearh(Node *, size_t);
+bool containh(Node *, const std::string &);
+size_t counth(Node *,size_t);
+size_t inserth(Node *, const std::string &);
+const std::string & lookh(Node *, size_t);
+const std::string printh(Node *, std::string);
+Node * removeh(Node *, const std::string &);
 
 
 #endif
