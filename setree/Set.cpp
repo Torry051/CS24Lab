@@ -6,17 +6,17 @@ Set::Set(){
     mRoot = nullptr;
 }
 
-Set::Set(const Set& other):mRoot(nullptr){
+Set::Set(const Set& other){
     if (other.mRoot == nullptr) {
-        std::cout << "running2" << std::endl;
+        // std::cout << "running2" << std::endl;
         return;
     }
     else if (other.mRoot->leftchild == nullptr && other.mRoot->rightchild == nullptr) {
-        std::cout << "running3" << std::endl;
+        // std::cout << "running3" << std::endl;
         this->mRoot = new Node(other.mRoot->element);
     }
     else {
-        std::cout << "running1" << std::endl;
+        // std::cout << "running1" << std::endl;
         this->mRoot = Conhelper(other.mRoot);
     }
 }

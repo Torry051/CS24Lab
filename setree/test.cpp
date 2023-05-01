@@ -4,7 +4,6 @@
 
 // Use this file to test your Set class.
 // This file won't be graded - do whatever you want.
-
 int main() {
   // Set set;
 
@@ -16,15 +15,16 @@ int main() {
   // Node * n4 = new Node("13");
   // Node * n5 = new Node("1");
   // Node * n6 = new Node("6");
-  Node * n1 = new Node("Fides");
-  Node * n2 = new Node("Operatio");
-  Node * n3 = new Node("Pudicitia");
-  n2->leftchild =n1;
-  n2->rightchild=n3;
-  s.mRoot = n2;
+  // Node * n1 = new Node("Fides");
+  // Node * n2 = new Node("Operatio");
+  // Node * n3 = new Node("Pudicitia");
+  // n2->leftchild =n1;
+  // n2->rightchild=n3;
+  // s.mRoot = n2;
   Set s1(s);
-  s1.print();
-  std::cout << std::endl;
+  // Std::cout << s.mRoot->element;
+  // s1.print();
+  // std::cout << std::endl;
   // Node * n4 = new Node("d");
   // Node * n5 = new Node("e");
   // Node * n6 = new Node("f");
@@ -72,5 +72,6 @@ int main() {
   // std::string s;
   // s = "1 0" + "-)";
   // std::cout << s << std::endl;
+
   return 0;
 }
