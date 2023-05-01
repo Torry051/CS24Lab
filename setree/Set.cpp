@@ -31,13 +31,12 @@ Set::Set(Set&& other){
 
 size_t Set::clear() {
     size_t result = clearh(mRoot,0);
-    mRoot = nullptr;
+    this->mRoot = nullptr;
     return result;
-
 }   
 
 Set::~Set(){
-    if (mRoot == nullptr) {
+    if (this->mRoot == nullptr) {
         return;
     }
     else {
@@ -47,11 +46,11 @@ Set::~Set(){
 }
 
 bool Set::contains(const std::string& value) const {
-    if (mRoot == nullptr){
+    if (this->mRoot == nullptr){
         return false;
     }
 
-    if (containh(mRoot,value)){
+    if (containh(this->mRoot,value)){
         return true;
     }
     else {
@@ -60,7 +59,7 @@ bool Set::contains(const std::string& value) const {
 }
 
 size_t Set::count() const{
-    return counth(mRoot,0);
+    return counth(this->mRoot,0);
 }
 
 void debug(){
@@ -71,7 +70,7 @@ size_t Set::insert(const std::string& value) {
     if (contains(value)){
         return 0;
     }
-    size_t s = inserth(mRoot, value);
+    size_t s = inserth(this->mRoot, value);
     if (s== 0) {
         std::cout << "wrong"<<std::endl;
     }
@@ -86,11 +85,11 @@ const std::string& Set::lookup(size_t n) const{
 }
 
 void Set::print() const {
-    if (mRoot == nullptr){
+    if (this->mRoot == nullptr){
         std::cout << "-" << std::endl;
         return;
     }
-    std::string str = printh(mRoot);
+    std::string str = printh(this->mRoot);
     std::cout << str;
 }
 
