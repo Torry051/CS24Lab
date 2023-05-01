@@ -94,7 +94,7 @@ bool containh(Node * n, const std::string &value){
 }
 
 size_t counth(Node *n, size_t num) {
-    if (n==nullptr) {
+    if(n==nullptr) {
         return 0;
     }
 
