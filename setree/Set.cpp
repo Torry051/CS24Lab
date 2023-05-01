@@ -14,8 +14,7 @@ Set::Set(const Set& other):mRoot(nullptr){
         this->mRoot = new Node(other.mRoot->element);
     }
     else {
-        Node * temp = other.mRoot;
-        this->mRoot = Conhelper(temp);
+        this->mRoot = Conhelper(other.mRoot);
     }
 }
 
@@ -44,6 +43,10 @@ Set::~Set(){
 }
 
 bool Set::contains(const std::string& value) const {
+    if (mRoot == nullptr){
+        return false;
+    }
+
     if (containh(mRoot,value)){
         return true;
     }

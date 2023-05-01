@@ -18,7 +18,7 @@ Node::Node(const std::string &n) {
 
 Node * Conhelper( const Node * root) {
     Node * node = new Node(root->element);
-    std::cout << "num: " << root->element << std::endl;
+    // std::cout << "num: " << root->element << std::endl;
     if(root->leftchild == nullptr && root->rightchild == nullptr) {
         return node;
     }
