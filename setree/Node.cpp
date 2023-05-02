@@ -187,7 +187,7 @@ const std::string & lookh(Node *n, size_t num){
         }
     }
     else {
-        return lookh(n->rightchild,num);//
+        return lookh(n->rightchild,num-1);//
     }
 }
 
