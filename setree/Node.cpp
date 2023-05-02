@@ -170,9 +170,14 @@ const std::string & lookh(Node *n, size_t num){
             return lookh(n->leftchild,0);
         }
     }
-    if (n->leftchild != nullptr) {
+
+    if (n->leftchild == nullptr && n->rightchild == nullptr){
+        static std::string str = "wrong";
+        return str;
+    }
+    if (n->leftchild != nullptr) { //
         if (counth(n->leftchild,0) > num){
-            return lookh(n->leftchild,num);
+            return lookh(n->leftchild,num);//
         }
         else if (counth(n->leftchild,0) == num) {
             return n->element;
@@ -182,9 +187,10 @@ const std::string & lookh(Node *n, size_t num){
         }
     }
     else {
-        return lookh(n->rightchild,num);
+        return lookh(n->rightchild,num);//
     }
 }
+
 
 
 
