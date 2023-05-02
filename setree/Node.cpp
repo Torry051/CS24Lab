@@ -219,11 +219,12 @@ void insertNode(Node* n, Node * root){
         return;
     }
     if (root->leftchild == nullptr){
-        root ->leftchild = n;
+        root->leftchild = n;
     }
 
     if(root->leftchild != nullptr){
         insertNode(n,root->leftchild);
+        return;
     }
 }
 
