@@ -123,43 +123,43 @@ size_t counth(Node *n, size_t num) {
     return 0;
 }
 
-size_t inserth(Node* n, const std::string & value){
-    if (n == nullptr){
-        return 1;
-        // std::cout << "run3" << std::endl;
-    }
-    if (n->element > value){
-        // std::cout << "run1" << std::endl;
-        if (inserth(n->leftchild, value) == 1){
-            Node * newnode = new Node(value);
-            n->leftchild = newnode;
-        }
-
-    }
-    else {
-        // std::cout << "run2" << std::endl;
-        if (inserth(n->rightchild,value) == 1){
-            Node * newnode = new Node(value);
-            n->rightchild = newnode;
-        }
-    }
-    return 1;
-}
-
-// Node * inserth(Node* n, const std::string & value){
+// size_t inserth(Node* n, const std::string & value){
 //     if (n == nullptr){
-//         Node newnode = new Node(value);
-//         return newnode;
+//         return 1;
+//         // std::cout << "run3" << std::endl;
 //     }
-
 //     if (n->element > value){
-//         n->leftchild = inserth(n->leftchild,value);
-//     }
-//     else{
-//         n->rightchild = inserth(n->rightchild,value);
-//     }
+//         // std::cout << "run1" << std::endl;
+//         if (inserth(n->leftchild, value) == 1){
+//             Node * newnode = new Node(value);
+//             n->leftchild = newnode;
+//         }
 
+//     }
+//     else {
+//         // std::cout << "run2" << std::endl;
+//         if (inserth(n->rightchild,value) == 1){
+//             Node * newnode = new Node(value);
+//             n->rightchild = newnode;
+//         }
+//     }
+//     return 1;
 // }
+
+Node * inserth(Node* n, const std::string & value){
+    if (n == nullptr){
+        Node newnode = new Node(value);
+        return newnode;
+    }
+
+    if (n->element > value){
+        n->leftchild = inserth(n->leftchild,value);
+    }
+    else{
+        n->rightchild = inserth(n->rightchild,value);
+    }
+
+}
 
 const std::string & lookh(Node *n, size_t num){
     if (num == 0){
