@@ -213,16 +213,37 @@ const std::string printh(Node * n){
 }
 
 
+void insertNode(Node* n, Node * root){
+    if(n==nullptr){
+        std::cout << "wrong help function" << std::endl;
+        return;
+    }
+    if (root->leftchild == nullptr){
+        root ->leftchild = n;
+    }
+
+    if(root->leftchild != nullptr){
+        insertNode(n,root->leftchild);
+    }
+}
+
 Node * removeh(Node * n, const std::string & value){
     
     if (n->element == value){
         if (n->leftchild !=nullptr && n->rightchild!= nullptr){
             Node * cpyr = n->rightchild;
             Node * cpyl = n->leftchild;
-
-            delete n;
-            n = cpyr;
-            n->leftchild = cpyl;
+            if (counth(cpyr,0)==1){
+                delete n;
+                n = cpyr;
+                n->leftchild = cpyl;
+                n->rightchild = nullptr;
+            }
+            else{
+                delete n;
+                n = cpyr;
+                insertNode(cpyl,n);  
+            }
             return n;
         }
         else if (n->leftchild == nullptr && n->rightchild == nullptr){
@@ -233,6 +254,7 @@ Node * removeh(Node * n, const std::string & value){
             Node * cpyl = n->leftchild;
             delete n;
             n = cpyl;
+            
             return n;
         }
         else{
@@ -258,7 +280,7 @@ Node * removeh(Node * n, const std::string & value){
 
     if (n->element < value){
         if (n->rightchild != nullptr){
-             n->rightchild = removeh(n->rightchild,value);
+            n->rightchild = removeh(n->rightchild,value);
             return n;
         }
     }
