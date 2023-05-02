@@ -186,7 +186,7 @@ const std::string printh(Node * n){
     if (n->leftchild != nullptr && n->rightchild == nullptr){
         return "(" + printh(n->leftchild) + " " + n->element + " -)"; 
     }
-      
+    return "printh wrong";  
 }
 
 
@@ -228,7 +228,7 @@ Node * removeh(Node * n, const std::string & value){
             return n;
         }
         else{
-            std::cout << "wrong" << std::endl;
+            std::cout << "remove wrong1" << std::endl;
             return n;
         }
     }
@@ -240,6 +240,6 @@ Node * removeh(Node * n, const std::string & value){
         }
     }
 
-    std::cout << "wrong" << std::endl;
+    std::cout << "remove wrong2" << std::endl;
     return n;
 }
