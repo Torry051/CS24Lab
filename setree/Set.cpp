@@ -95,7 +95,7 @@ void Set::print() const {
         return;
     }
     std::string str = printh(this->mRoot);
-    std::cout << str;
+    std::cout << str<<std::endl;
 }
 
 size_t Set::remove(const std::string& value){
