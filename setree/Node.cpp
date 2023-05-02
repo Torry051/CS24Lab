@@ -158,7 +158,7 @@ Node * inserth(Node* n, const std::string & value){
     else{
         n->rightchild = inserth(n->rightchild,value);
     }
-
+    return n;
 }
 
 const std::string & lookh(Node *n, size_t num){
