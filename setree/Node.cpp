@@ -213,19 +213,22 @@ const std::string printh(Node * n){
 }
 
 
-void insertNode(Node* n, Node * root){
+Node * insertNode(Node* n, Node * root){
     if(n==nullptr){
         std::cout << "wrong help function" << std::endl;
-        return;
+        return n;
     }
     if (root->leftchild == nullptr){
         root->leftchild = n;
+        return root;
     }
 
     if(root->leftchild != nullptr){
-        insertNode(n,root->leftchild);
-        return;
+        n->leftchild = insertNode(n,root->leftchild);
+        return n;
     }
+    std::cout << "wrong help function" << std::endl;
+    return n;
 }
 
 Node * removeh(Node * n, const std::string & value){
@@ -243,7 +246,7 @@ Node * removeh(Node * n, const std::string & value){
             else{
                 delete n;
                 n = cpyr;
-                insertNode(cpyl,n);  
+                n = insertNode(cpyl,n);  
             }
             return n;
         }

@@ -32,7 +32,7 @@ Node * inserth(Node *, const std::string &);
 const std::string & lookh(Node *, size_t);
 const std::string printh(Node *);
 Node * removeh(Node *,const std::string &);
-void insertNode(Node* n, Node * root);
+Node * insertNode(Node* n, Node * root);
 
 
 
