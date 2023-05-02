@@ -28,7 +28,7 @@ Node * Conhelper(const Node *);
 size_t clearh(Node *, size_t);
 bool containh(Node *, const std::string &);
 size_t counth(Node *,size_t);
-size_t inserth(Node *, const std::string &);
+Node * inserth(Node *, const std::string &);
 const std::string & lookh(Node *, size_t);
 const std::string printh(Node *);
 Node * removeh(Node *,const std::string &);
