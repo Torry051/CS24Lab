@@ -190,7 +190,9 @@ const std::string & lookh(Node *n, size_t num){
 
 const std::string printh(Node * n){
     if (n->leftchild == nullptr && n->rightchild == nullptr){
-        return n->element;
+        if (n != nullptr){
+            return n->element;
+        }
     }
     if (n->leftchild != nullptr && n->rightchild != nullptr){
         return "(" + printh(n->leftchild) + " " + n->element + " " + printh(n->rightchild) + ")";
