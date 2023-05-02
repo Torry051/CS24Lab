@@ -8,7 +8,7 @@ int main() {
   // Set set;
 
   // std::cout << "This program doesn't do anything interesting yet...\n";
-  Set s;
+  // Set s;
   // Node * n1 = new Node("10");
   // Node * n2 = new Node("5");
   // Node * n3 = new Node("15");
@@ -21,7 +21,7 @@ int main() {
   // n2->leftchild =n1;
   // n2->rightchild=n3;
   // s.mRoot = n2;
-  Set s1(s);
+  // Set s1(s);
   // Std::cout << s.mRoot->element;
   // s1.print();
   // std::cout << std::endl;
@@ -72,6 +72,8 @@ int main() {
   // std::string s;
   // s = "1 0" + "-)";
   // std::cout << s << std::endl;
+
+
 
   return 0;
 }
