@@ -18,7 +18,7 @@ Node::Node(const std::string &n) {
 
 Node * Conhelper( const Node * root) {
     Node * node = new Node(root->element);
-    std::cout << "running "<< std::endl;
+    // std::cout << "running "<< std::endl;
     if(root->leftchild == nullptr && root->rightchild == nullptr) {
         return node;
     }
@@ -186,7 +186,7 @@ const std::string printh(Node * n){
     if (n->leftchild != nullptr && n->rightchild == nullptr){
         return "(" + printh(n->leftchild) + " " + n->element + " -)"; 
     }
-    return "wrong";  
+      
 }
 
 
