@@ -148,7 +148,7 @@ size_t counth(Node *n, size_t num) {
 
 Node * inserth(Node* n, const std::string & value){
     if (n == nullptr){
-        Node newnode = new Node(value);
+        Node * newnode = new Node(value);
         return newnode;
     }
 
