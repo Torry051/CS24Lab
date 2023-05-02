@@ -76,7 +76,9 @@ size_t Set::insert(const std::string& value) {
         return 1;
     }
     size_t s = inserth(this->mRoot, value);
-    
+    if (s == 0){
+        std::cout << "insert wrong"<< std::endl;
+    }
     return 1;
 }
 
