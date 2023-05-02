@@ -143,8 +143,23 @@ size_t inserth(Node* n, const std::string & value){
             n->rightchild = newnode;
         }
     }
-    return 0;
+    return 1;
 }
+
+// Node * inserth(Node* n, const std::string & value){
+//     if (n == nullptr){
+//         Node newnode = new Node(value);
+//         return newnode;
+//     }
+
+//     if (n->element > value){
+//         n->leftchild = inserth(n->leftchild,value);
+//     }
+//     else{
+//         n->rightchild = inserth(n->rightchild,value);
+//     }
+
+// }
 
 const std::string & lookh(Node *n, size_t num){
     if (num == 0){
