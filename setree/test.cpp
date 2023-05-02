@@ -69,9 +69,28 @@ int main() {
   // s.print();
   // std::cout << std::endl;
 
-  // std::string s;
-  // s = "1 0" + "-)";
-  // std::cout << s << std::endl;
+  Set s;
+
+  s.insert("50");
+  s.insert("20");
+  s.insert("60");
+  s.insert("10");
+  s.insert("30");
+  s.insert("35");
+  s.insert("25");
+  // s.insert("20");
+  // s.insert("19");
+  s.print();
+  s.remove("20");
+  s.print();
+  // std::cout << s.mRoot->rightchild->element <<std::endl;
+  
+  // std::string s1 = "15";
+  // std::string s2 = "5";
+  
+  // if(s2>s1){
+  //   std::cout << "yes" <<std::endl;
+  // }
 
 
 

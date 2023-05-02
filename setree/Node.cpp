@@ -110,6 +110,7 @@ size_t counth(Node *n, size_t num) {
             num = num + counth(n->rightchild,0);
         }
         // std::cout << "run2" << std::endl;
+        // std::cout << num << std::endl;
 
         return num;
     }
@@ -224,8 +225,8 @@ Node * insertNode(Node* n, Node * root){
     }
 
     if(root->leftchild != nullptr){
-        n->leftchild = insertNode(n,root->leftchild);
-        return n;
+        root->leftchild = insertNode(n,root->leftchild);
+        return root;
     }
     std::cout << "wrong help function" << std::endl;
     return n;
@@ -238,6 +239,7 @@ Node * removeh(Node * n, const std::string & value){
             Node * cpyr = n->rightchild;
             Node * cpyl = n->leftchild;
             if (counth(cpyr,0)==1){
+                // std::cout << "running5" << std::endl;
                 delete n;
                 n = cpyr;
                 n->leftchild = cpyl;
@@ -246,9 +248,12 @@ Node * removeh(Node * n, const std::string & value){
             else{
                 delete n;
                 n = cpyr;
+                // std::cout << n->element << std::endl;
                 n = insertNode(cpyl,n);  
             }
+            // std::cout << n->element << std::endl;
             return n;
+            // std::cout << "running5" << std::endl;
         }
         else if (n->leftchild == nullptr && n->rightchild == nullptr){
             delete n;

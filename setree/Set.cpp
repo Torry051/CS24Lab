@@ -99,13 +99,17 @@ void Set::print() const {
 }
 
 size_t Set::remove(const std::string& value){
+    // std::cout << "running" << std::endl;
     if (!contains(value)){
+        // std::cout << "running2" << std::endl;
         return 0;
     } 
     if (mRoot == nullptr){
         return 0;
     }
     mRoot = removeh(mRoot,value);
+    // std::cout << "running3" << std::endl;
     return 1;
+    // std::cout << "running3" << std::endl;
 }
 
