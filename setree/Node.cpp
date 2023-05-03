@@ -239,7 +239,10 @@ Node * lgNode(Node * root, const std::string & value){
     }
     if (root->element == value){
         if (root->leftchild != nullptr){
-            return root->leftchild;
+            Node * result = root->leftchild;
+            delete root;
+            root = result;
+            return root;
         }
         else{
             delete root;
