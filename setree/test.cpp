@@ -78,10 +78,15 @@ int main() {
   s.insert("30");
   s.insert("35");
   s.insert("25");
+  s.insert("55");
+  s.insert("70");
+  s.insert("80");
+  s.insert("65");
   // s.insert("20");
   // s.insert("19");
   s.print();
   s.remove("20");
+  // s.remove("80");
   s.print();
   // std::cout << s.mRoot->rightchild->element <<std::endl;
   

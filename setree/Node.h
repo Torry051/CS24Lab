@@ -33,6 +33,7 @@ const std::string & lookh(Node *, size_t);
 const std::string printh(Node *);
 Node * removeh(Node *,const std::string &);
 Node * insertNode(Node* n, Node * root);
+std::string lgelement (Node * root);
 
 
 

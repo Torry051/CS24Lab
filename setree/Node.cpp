@@ -214,23 +214,61 @@ const std::string printh(Node * n){
 }
 
 
-Node * insertNode(Node* n, Node * root){
-    if(n==nullptr){
-        std::cout << "wrong help function" << std::endl;
-        return n;
+// Node * insertNode(Node* n, Node * root){
+//     if(n==nullptr){
+//         std::cout << "wrong help function" << std::endl;
+//         return n;
+//     }
+//     if (root->leftchild == nullptr){
+//         root->leftchild = n;
+//         return root;
+//     }
+
+//     if(root->leftchild != nullptr){
+//         root->leftchild = insertNode(n,root->leftchild);
+//         return root;
+//     }
+//     std::cout << "wrong help function" << std::endl;
+//     return n;
+// }
+
+Node * lgNode(Node * root, const std::string & value){
+    if (root == nullptr){
+        std::cout << "Wrong" << std::endl;
+        return root;
     }
-    if (root->leftchild == nullptr){
-        root->leftchild = n;
+    if (root->element == value){
+        if (root->leftchild != nullptr){
+            return root->leftchild;
+        }
+        else{
+            delete root;
+            root = nullptr;
+            return root;
+        }
+    }
+    if (root->rightchild!=nullptr){
+        root->rightchild = lgNode(root->rightchild,value);
         return root;
     }
 
-    if(root->leftchild != nullptr){
-        root->leftchild = insertNode(n,root->leftchild);
-        return root;
-    }
-    std::cout << "wrong help function" << std::endl;
-    return n;
+    std::cout << "wrong1" <<std::endl;
+    return root;
 }
+
+std::string lgelement (Node * root){
+    if (root == nullptr){
+        return "wrong";
+    }
+    if (root->rightchild != nullptr){
+        return lgelement(root->rightchild);
+    }
+    if (root->rightchild == nullptr){
+        return root->element;
+    }
+    return "WRONG";
+}
+
 
 Node * removeh(Node * n, const std::string & value){
     
@@ -238,22 +276,20 @@ Node * removeh(Node * n, const std::string & value){
         if (n->leftchild !=nullptr && n->rightchild!= nullptr){
             Node * cpyr = n->rightchild;
             Node * cpyl = n->leftchild;
-            if (counth(cpyr,0)==1){
+            if (counth(cpyl,0)==1){
                 // std::cout << "running5" << std::endl;
                 delete n;
-                n = cpyr;
-                n->leftchild = cpyl;
-                n->rightchild = nullptr;
+                n = cpyl;
+                n->rightchild = cpyr;
+                n->leftchild = nullptr;
             }
             else{
-                delete n;
-                n = cpyr;
-                // std::cout << n->element << std::endl;
-                n = insertNode(cpyl,n);  
+                n->element = lgelement(n->leftchild);
+                n->leftchild = lgNode(n->leftchild,n->element);
+            
             }
-            // std::cout << n->element << std::endl;
             return n;
-            // std::cout << "running5" << std::endl;
+  
         }
         else if (n->leftchild == nullptr && n->rightchild == nullptr){
             delete n;
