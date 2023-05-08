@@ -13,7 +13,7 @@
 
 class Person {
   // Member Variables
-  public:
+  // public:
   std::string Name;
   Gender Gen;
   Person * Mother;
