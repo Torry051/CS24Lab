@@ -423,22 +423,33 @@ std::set<Person*> Person::grandsons(){
 
 std::set<Person*> Person::grandparents(PMod pmod ){
     std::set<Person*> result;
+    if (mother()==nullptr && father() ==nullptr){
+        return result;
+    }
     if (pmod == PMod::MATERNAL){
-        for(auto & grand: Mother->parents()){
-            result.insert(grand);
+        if (mother() != nullptr){
+            for(auto & grand: Mother->parents()){
+                result.insert(grand);
+            }
         }
     }
     else if (pmod == PMod::PATERNAL){
-        for(auto & grand: Father->parents()){
-            result.insert(grand);
+        if (father() !=nullptr){
+            for(auto & grand: Father->parents()){
+                result.insert(grand);
+            }
         }
     }
     else{
-        for(auto & grand: Mother->parents()){
-            result.insert(grand);
+        if (mother()!=nullptr){
+            for(auto & grand: Mother->parents()){
+                result.insert(grand);
+            }
         }
-        for(auto & grand: Father->parents()){
-            result.insert(grand);
+        if (father()!=nullptr){
+            for(auto & grand: Father->parents()){
+                result.insert(grand);
+            }
         }
     }
     return result;
@@ -446,7 +457,7 @@ std::set<Person*> Person::grandparents(PMod pmod ){
 
 std::set<Person*> Person::parents(PMod pmod ){
     std::set<Person*> result;
-    
+
     if (pmod == PMod::MATERNAL){
         if (Mother!=nullptr){
             result.insert(Mother);
@@ -471,15 +482,27 @@ std::set<Person*> Person::parents(PMod pmod ){
 
 std::set<Person*> Person::grandmothers(PMod pmod ){
     std::set<Person*> result;
+    if (mother()==nullptr && father() == nullptr){
+        return result;
+    }
     if (pmod == PMod::MATERNAL){
-        result.insert(Mother->Mother);
+        if (mother()!= nullptr && mother()->mother()!=nullptr){
+            result.insert(Mother->Mother);
+        }
     }
     else if (pmod == PMod::PATERNAL){
-        result.insert(Father->Mother);
+        if(father() !=nullptr && father()->mother()!=nullptr){
+            result.insert(Father->Mother);
+        }
     }
     else {
-        result.insert(Mother->Mother);
-        result.insert(Father->Mother);
+        if (mother()!= nullptr && mother()->mother()!=nullptr){
+            result.insert(Mother->Mother);
+        }
+        if(father() !=nullptr && father()->father()!=nullptr){
+            result.insert(Father->Mother);
+        }
+
     }
 
 
@@ -488,15 +511,28 @@ std::set<Person*> Person::grandmothers(PMod pmod ){
 
 std::set<Person*> Person::grandfathers(PMod pmod ){
     std::set<Person*> result;
+
+    if (mother()==nullptr && father() == nullptr){
+        return result;
+    }
     if (pmod == PMod::MATERNAL){
-        result.insert(Mother->Father);
+        if (mother()!= nullptr && mother()->father()!=nullptr){
+            result.insert(Mother->Father);
+        }
     }
     else if (pmod == PMod::PATERNAL){
-        result.insert(Father->Father);
+        if(father() !=nullptr && father()->father()!=nullptr){
+            result.insert(Father->Father);
+        }
     }
     else {
-        result.insert(Mother->Father);
-        result.insert(Father->Father);
+        if (mother()!= nullptr && mother()->father()!=nullptr){
+            result.insert(Mother->Father);
+        }
+        if(father() !=nullptr && father()->father()!=nullptr){
+            result.insert(Father->Father);
+        }
+
     }
 
 
