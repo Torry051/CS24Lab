@@ -132,15 +132,24 @@ std::set<Person*> Person::ancestors(PMod pmod){
 std::set<Person*> Person::brothers(PMod pmod, SMod smod){
     std::set<Person*> result;
     std::set<Person*> all;
-    for (auto & child: Father->Children){
-        if (child->gender() == Gender::MALE&&child->name ()!= Name){
+    
+    if (fatherN()!="???" &&Father->children().size()!=0){
+        // std::cout << "running" <<std::endl;
+        for (auto & child: Father->children()){
 
-            all.insert(child);
+            if (child->gender() == Gender::MALE&&child->name ()!= Name){
+
+                all.insert(child);
+            }
         }
     }
-    for (auto & child: Mother->Children){
-        if (child->gender() == Gender::MALE && child->name() != Name){
-            all.insert(child);
+    // std::cout << "running1" <<std::endl;
+    if (motherN() !="???"   &&Mother->children().size()!=0){
+        // std::cout << "running2" <<std::endl;
+        for (auto & childr: Mother->children()){
+            if (childr->gender() == Gender::MALE && childr->name() != Name){
+                all.insert(childr);
+            }   
         }
     }
     if (pmod == PMod::ANY && smod == SMod::ANY){
@@ -226,16 +235,34 @@ std::set<Person*> Person::brothers(PMod pmod, SMod smod){
  std::set<Person*> Person::sisters(PMod pmod , SMod smod ){
     std::set<Person*> result;
     std::set<Person*> all;
-    for (auto & child: Father->Children){
-        if (child->gender() == Gender::FEMALE&&child->name ()!= Name){
-            all.insert(child);
+
+
+
+    if (fatherN()!="???" &&Father->children().size()!=0){
+        // std::cout << "running" <<std::endl;
+        for (auto & child: Father->Children){
+            if (child->gender() == Gender::FEMALE&&child->name ()!= Name){
+                all.insert(child);
+            }
         }
     }
-    for (auto & child: Mother->Children){
-        if (child->gender() == Gender::FEMALE && child->name() != Name){
-            all.insert(child);
+
+    if (fatherN()!="???" &&Father->children().size()!=0){
+        // std::cout << "running" <<std::endl;
+        for (auto & child: Mother->Children){
+            if (child->gender() == Gender::FEMALE && child->name() != Name){
+                all.insert(child);
+            }
         }
     }
+
+
+    // for (auto & child: Father->Children){
+    //     if (child->gender() == Gender::FEMALE&&child->name ()!= Name){
+    //         all.insert(child);
+    //     }
+    // }
+    
     if (pmod == PMod::ANY && smod == SMod::ANY){
         return all;
     }

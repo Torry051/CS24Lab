@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
     // std::cout << pool.mymap["Fairy Bridge"]->name()  << std::endl;
     // std::cout << pool.mymap["Fairy Bridge"]->name()  << std::endl;
     // std::cout << pool.find("Danzig")->MotherName << "        " << pool.find("Danzig")->FatherName << std::endl;
-    std::set<Person*> cdr(pool.mymap["Agrios"]->siblings(PMod::PATERNAL , SMod::FULL));
+    std::set<Person*> cdr(pool.mymap["Matti"]->brothers());
     // std::cout << "running" << std::endl;
     for (auto & ch: cdr){
         std::cout << ch->name() << std::endl;
