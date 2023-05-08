@@ -258,7 +258,7 @@ std::set<Person*> Person::brothers(PMod pmod, SMod smod){
         }
     }
 
-    if (fatherN()!="???" &&Father->children().size()!=0){
+    if (motherN()!="???" &&Mother->children().size()!=0){
         // std::cout << "running" <<std::endl;
         for (auto & child: Mother->Children){
             if (child->gender() == Gender::FEMALE && child->name() != Name){
@@ -444,15 +444,24 @@ std::set<Person*> Person::grandparents(PMod pmod ){
 
 std::set<Person*> Person::parents(PMod pmod ){
     std::set<Person*> result;
+    
     if (pmod == PMod::MATERNAL){
-        result.insert(Mother);
+        if (Mother!=nullptr){
+            result.insert(Mother);
+        }
     }
     else if(pmod == PMod::PATERNAL){
-        result.insert(Father);
+        if (Father!=nullptr){
+            result.insert(Father);
+        }
     }
     else {
-        result.insert(Mother);
-        result.insert(Father);
+        if (Mother!=nullptr){
+            result.insert(Mother);
+        }
+        if (Father!=nullptr){
+            result.insert(Father);
+        }
     }
 
     return result;
