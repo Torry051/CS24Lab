@@ -248,21 +248,23 @@ std::set<Person*> Person::brothers(PMod pmod, SMod smod){
     std::set<Person*> all;
 
 
-
-    if (fatherN()!="???" &&Father->children().size()!=0){
+    if(father()!=nullptr){
+        if (Father->children().size()!=0){
         // std::cout << "running" <<std::endl;
-        for (auto & child: Father->Children){
-            if (child->gender() == Gender::FEMALE&&child->name ()!= Name){
-                all.insert(child);
+            for (auto & child: Father->Children){
+                if (child->gender() == Gender::FEMALE&&child->name ()!= Name){
+                    all.insert(child);
+                }
             }
         }
     }
-
-    if (motherN()!="???" &&Mother->children().size()!=0){
+    if(mother()!=nullptr){
+        if (Mother->children().size()!=0){
         // std::cout << "running" <<std::endl;
-        for (auto & child: Mother->Children){
-            if (child->gender() == Gender::FEMALE && child->name() != Name){
-                all.insert(child);
+            for (auto & child: Mother->Children){
+                if (child->gender() == Gender::FEMALE && child->name() != Name){
+                    all.insert(child);
+                }
             }
         }
     }
@@ -503,66 +505,95 @@ std::set<Person*> Person::grandfathers(PMod pmod ){
 
 std::set<Person*> Person::aunts(PMod pmod, SMod smod ){
     std::set<Person*> result;
+    if(mother()==nullptr && father() == nullptr){
+        return result;
+    }
+
     if(pmod == PMod::ANY && smod == SMod::ANY){
-        for(auto & aunt: Mother->sisters()){
-            result.insert(aunt);
+        if(mother()!= nullptr){
+            for( auto & aunt: Mother->sisters()){
+                result.insert(aunt);
+            }
         }
-        for(auto & aunt: Father->sisters()){
-            result.insert(aunt);
+        if (father() !=nullptr){
+            for(auto & aunt: Father->sisters()){
+                result.insert(aunt);
+            }
         }
         return result;
     }
     if (pmod == PMod::MATERNAL && smod == SMod::ANY){
-        for(auto & aunt: Mother->sisters()){
-            result.insert(aunt);
+        if(mother()!= nullptr){
+            for( auto & aunt: Mother->sisters()){
+                result.insert(aunt);
+            }
         }
+        
         return result;
     }
     if (pmod == PMod::PATERNAL && smod == SMod::ANY){
-        for(auto & aunt: Father->sisters()){
-            result.insert(aunt);
+        if (father() !=nullptr){
+            for(auto & aunt: Father->sisters()){
+                result.insert(aunt);
+            }
         }
         return result;
     }
     if (pmod == PMod::ANY && smod == SMod::FULL){
-        for(auto & aunt: Father->sisters(PMod::ANY,SMod::FULL)){
-            result.insert(aunt);
+        if (father()!=nullptr){
+            for(auto & aunt: Father->sisters(PMod::ANY,SMod::FULL)){
+                result.insert(aunt);
+            }
         }
-        for(auto & aunt: Mother->sisters(PMod::ANY,SMod::FULL)){
-            result.insert(aunt);
+        if (mother()!=nullptr){
+            for(auto & aunt: Mother->sisters(PMod::ANY,SMod::FULL)){
+                result.insert(aunt);
+            }
         }
         return result;
     }
     if (pmod == PMod::ANY && smod == SMod::HALF){
-        for(auto & aunt: Father->sisters(PMod::ANY,SMod::HALF)){
-            result.insert(aunt);
+        if (father()!=nullptr){
+            for(auto & aunt: Father->sisters(PMod::ANY,SMod::HALF)){
+                result.insert(aunt);
+            }
         }
-        for(auto & aunt: Mother->sisters(PMod::ANY,SMod::HALF)){
-            result.insert(aunt);
+        if (mother()!=nullptr){
+            for(auto & aunt: Mother->sisters(PMod::ANY,SMod::HALF)){
+                result.insert(aunt);
+            }
         }
         return result;
     }
     if (pmod == PMod::MATERNAL && smod == SMod::HALF){
-        for(auto & aunt: Mother->sisters(PMod::ANY,SMod::HALF)){
-            result.insert(aunt);
+        if (mother()!=nullptr){
+            for(auto & aunt: Mother->sisters(PMod::ANY,SMod::HALF)){
+                result.insert(aunt);
+            }
         }
         return result;
     }
     if (pmod == PMod::MATERNAL && smod == SMod::FULL){
-        for(auto & aunt: Mother->sisters(PMod::ANY,SMod::FULL)){
-            result.insert(aunt);
+        if (mother()!=nullptr){
+            for(auto & aunt: Mother->sisters(PMod::ANY,SMod::FULL)){
+                result.insert(aunt);
+            }
         }
         return result;
     }
     if (pmod == PMod::PATERNAL && smod == SMod::HALF){
-        for(auto & aunt: Father->sisters(PMod::ANY,SMod::HALF)){
-            result.insert(aunt);
+        if (father()!=nullptr){
+            for(auto & aunt: Father->sisters(PMod::ANY,SMod::HALF)){
+                result.insert(aunt);
+            }
         }
         return result;
     }
     if (pmod == PMod::PATERNAL && smod == SMod::FULL){
-        for(auto & aunt: Father->sisters(PMod::ANY,SMod::FULL)){
-            result.insert(aunt);
+        if (father()!=nullptr){
+            for(auto & aunt: Father->sisters(PMod::ANY,SMod::FULL)){
+                result.insert(aunt);
+            }
         }
         return result;
     }
@@ -573,67 +604,94 @@ std::set<Person*> Person::aunts(PMod pmod, SMod smod ){
 
 std::set<Person*> Person::uncles(PMod pmod, SMod smod){
     std::set<Person*> result;
+    if(mother()==nullptr && father() == nullptr){
+        return result;
+    }
 
     if(pmod == PMod::ANY && smod == SMod::ANY){
-        for(auto & uncle: Mother->brothers()){
-            result.insert(uncle);
+        if (mother() != nullptr){
+            for(auto & uncle: Mother->brothers()){
+                result.insert(uncle);
+            }
         }
-        for(auto & uncle: Father->brothers()){
-            result.insert(uncle);
+        if (father() != nullptr){
+            for(auto & uncle: Father->brothers()){
+                result.insert(uncle);
+            }
         }
         return result;
     }
     if (pmod == PMod::MATERNAL && smod == SMod::ANY){
-        for(auto & uncle: Mother->brothers()){
-            result.insert(uncle);
+        if (mother() != nullptr){
+            for(auto & uncle: Mother->brothers()){
+                result.insert(uncle);  
+            }
         }
         return result;
     }
     if (pmod == PMod::PATERNAL && smod == SMod::ANY){
-        for(auto & uncle: Father->brothers()){
-            result.insert(uncle);
+        if (father() != nullptr){
+            for(auto & uncle: Father->brothers()){
+                result.insert(uncle);
+            }
         }
         return result;
     }
     if (pmod == PMod::ANY && smod == SMod::FULL){
-        for(auto & uncle: Father->brothers(PMod::ANY,SMod::FULL)){
-            result.insert(uncle);
+        if (father() != nullptr){
+            for(auto & uncle: Father->brothers(PMod::ANY,SMod::FULL)){
+                result.insert(uncle);
+            }
         }
-        for(auto & uncle: Mother->brothers(PMod::ANY,SMod::FULL)){
-            result.insert(uncle);
+        if (mother() != nullptr){
+            for(auto & uncle: Mother->brothers(PMod::ANY,SMod::FULL)){
+                result.insert(uncle);
+            }
         }
         return result;
     }
     if (pmod == PMod::ANY && smod == SMod::HALF){
-        for(auto & uncle: Father->brothers(PMod::ANY,SMod::HALF)){
-            result.insert(uncle);
+        if (father()!=nullptr){
+            for(auto & uncle: Father->brothers(PMod::ANY,SMod::HALF)){
+                result.insert(uncle);
+            }
         }
-        for(auto & uncle: Mother->brothers(PMod::ANY,SMod::HALF)){
-            result.insert(uncle);
+        if (mother() != nullptr){
+            for(auto & uncle: Mother->brothers(PMod::ANY,SMod::HALF)){
+                result.insert(uncle);
+            }
         }
         return result;
     }
     if (pmod == PMod::MATERNAL && smod == SMod::HALF){
-        for(auto & uncle: Mother->brothers(PMod::ANY,SMod::HALF)){
-            result.insert(uncle);
+        if (mother()!=nullptr){
+            for(auto & uncle: Mother->brothers(PMod::ANY,SMod::HALF)){
+                result.insert(uncle);
+            }
         }
         return result;
     }
     if (pmod == PMod::MATERNAL && smod == SMod::FULL){
-        for(auto & uncle: Mother->brothers(PMod::ANY,SMod::FULL)){
-            result.insert(uncle);
+        if (mother()!=nullptr){
+            for(auto & uncle: Mother->brothers(PMod::ANY,SMod::FULL)){
+                result.insert(uncle);
+            }
         }
         return result;
     }
     if (pmod == PMod::PATERNAL && smod == SMod::HALF){
-        for(auto & uncle: Father->brothers(PMod::ANY,SMod::HALF)){
-            result.insert(uncle);
+        if (father()!=nullptr){
+            for(auto & uncle: Father->brothers(PMod::ANY,SMod::HALF)){
+                result.insert(uncle);
+            }
         }
         return result;
     }
     if (pmod == PMod::PATERNAL && smod == SMod::FULL){
-        for(auto & uncle: Father->brothers(PMod::ANY,SMod::FULL)){
-            result.insert(uncle);
+        if (father()!=nullptr){
+            for(auto & uncle: Father->brothers(PMod::ANY,SMod::FULL)){
+                result.insert(uncle);
+            }
         }
         return result;
     }
