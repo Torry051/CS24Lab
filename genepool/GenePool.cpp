@@ -45,22 +45,25 @@ GenePool::GenePool(std::istream& stream){
         if (motherName == "???" ){
             All.at(i)->m(nullptr);
         }
+        else {
+            for(unsigned j = 0; j<Allname.size();j++){
+                if(Allname.at(j)==motherName){
+                    All.at(i)->m(All.at(j));
+                }
+            }
+        }
         if (fatherName == "???") {
             All.at(i)->f(nullptr);
         }
-        // std::cout << "running2"<< std::endl;
-        if(motherName == "???" && fatherName == "???"){
-            continue;
+        else {
+            for(unsigned j = 0; j<Allname.size();j++){
+                if(Allname.at(j)==fatherName){
+                    All.at(i)->f(All.at(j));
+                }   
+            } 
         }
 
-        for(unsigned j = 0; j<Allname.size();j++){
-            if(Allname.at(j)==motherName){
-                All.at(i)->m(All.at(j));
-            }
-            if(Allname.at(j)==fatherName){
-                All.at(i)->f(All.at(j));
-            }
-        } 
+        
     }
       
     for(auto & person: mymap){
