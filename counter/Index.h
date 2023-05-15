@@ -11,6 +11,10 @@ struct item{
     std::string _key;
     Node * node;
     item():node(nullptr){};
+    ~item(){
+        if (node )
+        node = nullptr;
+    }
 };
 
 

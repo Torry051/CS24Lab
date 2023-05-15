@@ -213,5 +213,13 @@ void Index::decrement(std::string k, int by){
 }
 
 Index::~Index(){
+    // delete [] arr;
+    // arr = nullptr;
+    delete _data;
+    // std::cout << "working" << std::endl;
+    // for (size_t i = 0; i<capacity;i++){
+    //     arr[i].node = nullptr;
+    // }
     delete [] arr;
+    arr = nullptr;
 }

@@ -17,6 +17,7 @@ struct Node {
     Node * last;
     Node():count(0),next(nullptr),last(nullptr){};
     Node(int val,std::string k):count(val),str(k),next(nullptr),last(nullptr){};
+
 };
 
 class DataStore {

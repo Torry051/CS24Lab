@@ -81,4 +81,5 @@ bool    Counter::Iterator::operator != (const Iterator& other) const{
 
 Counter::Iterator::~Iterator(){
     delete nod;
+    nod = nullptr;
 }
