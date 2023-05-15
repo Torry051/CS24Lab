@@ -46,6 +46,7 @@ int main(int argc, char** argv) {
   Counter totals;
 
   print_header();
+  // std::cout << "wrong" << std::endl;
   for(int argi = 1; argi < argc; ++ argi) {
     std::ifstream stream(argv[argi]);
     if(stream.fail()) {

@@ -35,6 +35,10 @@ size_t Counter::count() const{
     return size;
 }
 
+int   Counter::total() const{
+    return table.tot;
+}   
+
 
 Counter::Iterator Counter::begin() const{
     Iterator result(table._data->head);
@@ -66,7 +70,7 @@ bool    Counter::Iterator::operator == (const Iterator& other) const{
     return false;
 }
 
-bool     Counter::Iterator::operator != (const Iterator& other) const{
+bool    Counter::Iterator::operator != (const Iterator& other) const{
     if (*this == other){
         return false;
     }
