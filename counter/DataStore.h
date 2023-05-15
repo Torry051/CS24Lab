@@ -10,14 +10,13 @@
 
 
 
-class Node {
-    public:
+struct Node {
     int count;
     std::string str;
     Node * next;
     Node * last;
     Node():count(0),next(nullptr),last(nullptr){};
-    Node(int val,std::string k):count(val),next(nullptr),last(nullptr),str(k){};
+    Node(int val,std::string k):count(val),str(k),next(nullptr),last(nullptr){};
 };
 
 class DataStore {
