@@ -10,7 +10,8 @@
 
 
 
-struct Node {
+class Node {
+    public:
     int count;
     std::string str;
     Node * next;
