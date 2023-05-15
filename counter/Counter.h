@@ -19,6 +19,7 @@ public:
 
   public:
     Iterator(Node *n):nod(n){};
+    ~Iterator();
     const std::string& key() const;
     int value() const;
 
@@ -37,7 +38,7 @@ private:
   // Helper Functions
 
 public:
-  Counter();
+  Counter():table(Index()), size(0){};
   ~Counter();
 
   size_t count() const;

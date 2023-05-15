@@ -1,9 +1,11 @@
 #include "Counter.h"
 
 // Counter Member Functions
-Counter::Counter(){
-    size = 0;
-}   
+// Counter::Counter(){
+//     Index result;
+//     table = result;
+//     size = 0;
+// }   
 
 Counter::~Counter(){
 
@@ -75,4 +77,8 @@ bool    Counter::Iterator::operator != (const Iterator& other) const{
         return false;
     }
     return true;
+}
+
+Counter::Iterator~Iterator(){
+    delete nod;
 }

@@ -49,6 +49,8 @@ int main(int argc, char** argv) {
   // std::cout << "wrong" << std::endl;
   for(int argi = 1; argi < argc; ++ argi) {
     std::ifstream stream(argv[argi]);
+    // std::cout << "wrong" << std::endl;
+
     if(stream.fail()) {
       std::cerr << "ERROR: Could not open file: " << argv[argi] << '\n';
       continue;
@@ -60,6 +62,7 @@ int main(int argc, char** argv) {
     Counter counter;
 
     while(stream.get(c)) {
+      std::cout << "working" << std::endl;
       if(isspace(c)) {
         inc = !inc;
         continue;
