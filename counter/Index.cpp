@@ -107,7 +107,7 @@ int Index::search(std::string k) const{
 
 void Index::remove(std::string k) {
     int count = 0;
-    int index = idx(k);
+    size_t index = idx(k);
     if (arr[index].node == nullptr){
         return;
     }
@@ -139,7 +139,7 @@ void Index::remove(std::string k) {
 }
 
 void Index::increment(std::string k, int by){
-    int index = idx(k);
+    size_t index = idx(k);
     if (arr[index]._key == k){
         _data->incre(k,by,arr[index].node);
         tot = tot + by;
@@ -176,7 +176,7 @@ void Index::increment(std::string k, int by){
 }
 
 void Index::decrement(std::string k, int by){
-    int index = idx(k);
+    size_t index = idx(k);
     if (arr[index]._key == k){
         _data->decre(k,by,arr[index].node);
         tot = tot -by;
