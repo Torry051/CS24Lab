@@ -79,6 +79,6 @@ bool    Counter::Iterator::operator != (const Iterator& other) const{
     return true;
 }
 
-Counter::Iterator~Iterator(){
+Counter::Iterator::~Iterator(){
     delete nod;
 }
