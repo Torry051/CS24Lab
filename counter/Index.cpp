@@ -35,6 +35,7 @@ void Index::expand(){
     item * new_arr = new item[capacity];
     
     for (size_t i = 0; i< (capacity/2); i++){
+        new_arr[index].node =nullptr;
         if (arr[i].node!=nullptr){
             size_t index = idx(arr[i]._key);
             new_arr[index].node = arr[i].node;
@@ -52,7 +53,7 @@ void Index::insert(std::string key, int count){
     }
     size_t index = idx(key);
     int ind = index;
-    if(arr[index].node == nullptr){
+    if(arr[ind].node == nullptr){
         _data->insert(count,key);
         arr[ind].node = _data->tail;
         arr[ind]._key = key;
