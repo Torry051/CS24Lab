@@ -21,7 +21,7 @@ class Index{
     public:
     size_t size;
     item * arr;
-    int capacity;
+    size_t capacity;
     DataStore  * _data;
     int tot;
 

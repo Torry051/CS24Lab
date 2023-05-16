@@ -89,7 +89,7 @@ void Index::insert(std::string key, int count){
 }
 
 int Index::search(std::string k) const{
-    int index = idx(k);
+    size_t index = idx(k);
     // std::cout << index << std::endl;
     if (arr[index].node == nullptr){
         return 0;
