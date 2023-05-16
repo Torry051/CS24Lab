@@ -50,7 +50,7 @@ void Index::insert(std::string key, int count){
     if(size >= (capacity/2)){
         expand();
     }
-    size_t index = idx(key);
+    int index = idx(key);
 
     if(arr[index].node == nullptr){
         _data->insert(count,key);
@@ -89,7 +89,7 @@ void Index::insert(std::string key, int count){
 }
 
 int Index::search(std::string k) const{
-    size_t index = idx(k);
+    int index = idx(k);
     // std::cout << index << std::endl;
     if (arr[index].node == nullptr){
         return 0;

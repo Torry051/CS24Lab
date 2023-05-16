@@ -12,7 +12,6 @@ struct item{
     Node * node;
     item():node(nullptr){};
     ~item(){
-        if (node )
         node = nullptr;
     }
 };
