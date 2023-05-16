@@ -57,7 +57,12 @@ int main(){
     map.set("torry",511);
     map.set("raissa",228);
     map.set("torry",512);
-    std::cout << map.get("torry") <<std::endl;
+    map.inc("xer",3);
+    map.inc("xer",5);
+    
+    // std::cout << map.get("torry") <<std::endl;
+    // std::cout << map.get("xer") <<std::endl;
+    
     std::cout << map.count() <<std::endl;
     std::cout << map.total() <<std::endl;
 

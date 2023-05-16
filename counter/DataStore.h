@@ -24,10 +24,10 @@ class DataStore {
     public:
     Node * head;
     Node * tail;
-    size_t size;
+    size_t S;
 
     public:
-    DataStore():head(nullptr),tail(nullptr),size(0){};
+    DataStore():head(nullptr),tail(nullptr),S(0){};
     ~DataStore();
     // void increament();
     void insert(int val, std::string k);

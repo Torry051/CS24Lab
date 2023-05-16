@@ -3,11 +3,12 @@
 // DataStore Member Functions
 
 void DataStore::insert(int val,std::string k){
+    // std::cout <<"in: " <<Size << std::endl;
     Node * new_node = new Node(val,k);
-    if(size == 0){
+    if(S == 0){
         head = new_node;
         tail = new_node;
-        size = 1;
+        S = 1;
 
     }
     else{
@@ -15,9 +16,10 @@ void DataStore::insert(int val,std::string k){
         tail = new_node;
         new_node->last = curr;
         curr->next = tail;
-        size += 1;
+        S += 1;
 
     }
+    // std::cout <<"in: " <<S << std::endl;
     
 }
 
@@ -47,7 +49,7 @@ void DataStore::remove(std::string k,Node* curr){
             Last->next = Next;
             Next->last = Last;
     }
-    size = size -1;
+    S = S -1;
 }
 
 void DataStore::incre(std::string k, int by,Node * curr){

@@ -27,6 +27,7 @@ void Counter::del(const std::string& key){
 
 void Counter::inc(const std::string& key, int by){
     table.increment(key, by);
+    size = table.size;
 }
 
 void Counter::dec(const std::string& key, int by){

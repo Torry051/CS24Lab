@@ -158,6 +158,7 @@ void Index::remove(std::string k) {
 
 void Index::increment(std::string k, int by){
     size_t index = idx(k);
+    // std::cout << "inside : "<<size <<std::endl;
     if (arr[index]._key == k){
         _data->incre(k,by,arr[index].node);
         tot = tot + by;
@@ -169,8 +170,11 @@ void Index::increment(std::string k, int by){
         // }
 
         insert(k,by);
+  
+
     }
     else {
+     
         while(arr[index].node!=nullptr){
             if (index < (capacity -1)){
                 index = index +1;
@@ -182,14 +186,17 @@ void Index::increment(std::string k, int by){
             if (arr[index]._key == k){
                 _data->incre(k,by,arr[index].node);
                 tot = tot+by;
+                return;
             }
         }
+        // std::cout << "inside3 : "<<size <<std::endl;
         // int val = 0;
         // for(size_t i =0; i<k.length();i++){
         //     val += k[i];
         // }
-
-        insert(k,+by);
+  
+        insert(k, by);
+     
     }
 }
 
@@ -206,6 +213,7 @@ void Index::decrement(std::string k, int by){
         // }
 
         insert(k,-by);
+        size+=1;
     }
     else {
         while(arr[index].node!=nullptr){
@@ -227,6 +235,7 @@ void Index::decrement(std::string k, int by){
         // }
 
         insert(k,-by);
+        size+=1;
     }
 }
 
