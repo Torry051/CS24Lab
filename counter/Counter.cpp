@@ -38,9 +38,9 @@ size_t Counter::count() const{
     return size;
 }
 
-// int Counter::total() const{
-//     return table.tot;
-// }   
+int Counter::total() const{
+    return table.tot;
+}   
 
 
 Counter::Iterator Counter::begin() const{
