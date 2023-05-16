@@ -56,10 +56,13 @@ void Index::insert(std::string key, int count){
         _data->insert(count,key);
         arr[index].node = _data->tail;
         arr[index]._key = key;
+        tot += count;
+        size += 1;
         // std::cout << key<<  " " << count<<std::endl;
     }
-    else if ( arr[index]._key == key){//
+    else if (arr[index]._key == key){//
         arr[index].node->count = count;//
+        tot = tot - arr[index].node->count + count;
     }//
     else {
         while(arr[index].node!=nullptr || arr[index]._key == key){
@@ -71,16 +74,18 @@ void Index::insert(std::string key, int count){
             } 
         }
         if (arr[index]._key == key){
+            tot = tot - arr[index].node->count + count;
             arr[index].node->count = count;
+            
         }
         else{
             _data->insert(count,key);
             arr[index].node = _data->tail;
             arr[index]._key = key;
+            tot += count;
+            size += 1;
         }
     }
-    tot += count;
-    size+=1;
 }
 
 int Index::search(std::string k) const{
