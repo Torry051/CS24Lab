@@ -35,7 +35,7 @@ void Index::expand(){
     item * new_arr = new item[capacity];
     
     for (size_t i = 0; i< (capacity/2); i++){
-        new_arr[index].node =nullptr;
+        // new_arr[i].node =nullptr;
         if (arr[i].node!=nullptr){
             size_t index = idx(arr[i]._key);
             new_arr[index].node = arr[i].node;

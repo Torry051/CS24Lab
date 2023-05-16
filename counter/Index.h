@@ -10,7 +10,7 @@
 struct item{
     std::string _key;
     Node * node;
-    item():node(nullptr){};
+    item():_key("?"),node(nullptr){};
     ~item(){
         node = nullptr;
     }
