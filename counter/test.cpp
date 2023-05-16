@@ -53,13 +53,15 @@ int main(){
     // }
     // std::cout << table.tot <<std::endl;
     Counter map;
-    map.set("nothing", 0);
-    map.set("dwaves", 7);
-    map.set("cheese", 4);
-    map.set("dwaves",12);
-    std::cout << map.get("nothing") <<std::endl;
-    std::cout << map.get("dwaves") <<std::endl;
-    std::cout << map.get("cheese") <<std::endl;
+
+    map.set("torry",511);
+    map.set("raissa",228);
+    map.set("torry",512);
+    std::cout << map.get("torry") <<std::endl;
+    std::cout << map.count() <<std::endl;
+    std::cout << map.total() <<std::endl;
+
+
     
 
     return 0;

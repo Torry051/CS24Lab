@@ -13,7 +13,7 @@ Counter::~Counter(){
 
 void Counter::set(const std::string& key, int count){
     table.insert(key,count);
-    size += 1;
+    size = table.size;
 }
 
 int Counter::get(const std::string& key) const{

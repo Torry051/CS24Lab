@@ -10,9 +10,9 @@
 struct item{
     std::string _key;
     Node * node;
-    item():_key("?"),node(nullptr){};
+    item():node(nullptr){};
     ~item(){
-        _key = "?";
+        if (node )
         node = nullptr;
     }
 };
