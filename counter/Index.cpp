@@ -67,10 +67,10 @@ void Index::insert(std::string key, int count){
     else {
         while(arr[ind].node!=nullptr || arr[ind]._key == key){
             if(index < capacity-1){
-                index+=1;
+                ind+=1;
             }
             else{
-                index = 0;
+                ind = 0;
             } 
         }
         if (arr[ind]._key == key){
@@ -102,10 +102,10 @@ int Index::search(std::string k) const{
         while(arr[ind].node!=nullptr){
             // std::cout << index << std::endl;
             if(index < capacity-1){
-                index+=1;
+                ind+=1;
             }
             else{
-                index = 0;
+                ind = 0;
             } 
 
             if (arr[ind]._key == k){
