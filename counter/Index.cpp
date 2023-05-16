@@ -51,21 +51,21 @@ void Index::insert(std::string key, int count){
         expand();
     }
     size_t index = idx(key);
-
+    int ind = index;
     if(arr[index].node == nullptr){
         _data->insert(count,key);
-        arr[index].node = _data->tail;
-        arr[index]._key = key;
+        arr[ind].node = _data->tail;
+        arr[ind]._key = key;
         tot += count;
         size += 1;
         // std::cout << key<<  " " << count<<std::endl;
     }
-    else if (arr[index]._key == key){//
-        arr[index].node->count = count;//
-        tot = tot - arr[index].node->count + count;
+    else if (arr[ind]._key == key){//
+        arr[ind].node->count = count;//
+        tot = tot - arr[ind].node->count + count;
     }//
     else {
-        while(arr[index].node!=nullptr || arr[index]._key == key){
+        while(arr[ind].node!=nullptr || arr[ind]._key == key){
             if(index < capacity-1){
                 index+=1;
             }
@@ -73,15 +73,15 @@ void Index::insert(std::string key, int count){
                 index = 0;
             } 
         }
-        if (arr[index]._key == key){
-            tot = tot - arr[index].node->count + count;
-            arr[index].node->count = count;
+        if (arr[ind]._key == key){
+            tot = tot - arr[ind].node->count + count;
+            arr[ind].node->count = count;
             
         }
         else{
             _data->insert(count,key);
-            arr[index].node = _data->tail;
-            arr[index]._key = key;
+            arr[ind].node = _data->tail;
+            arr[ind]._key = key;
             tot += count;
             size += 1;
         }
@@ -90,15 +90,16 @@ void Index::insert(std::string key, int count){
 
 int Index::search(std::string k) const{
     size_t index = idx(k);
+    int ind = index;
     // std::cout << index << std::endl;
-    if (arr[index].node == nullptr){
+    if (arr[ind].node == nullptr){
         return 0;
     }
-    else if (arr[index]._key == k){
-        return arr[index].node->count;
+    else if (arr[ind]._key == k){
+        return arr[ind].node->count;
     }
     else {
-        while(arr[index].node!=nullptr){
+        while(arr[ind].node!=nullptr){
             // std::cout << index << std::endl;
             if(index < capacity-1){
                 index+=1;
@@ -107,8 +108,8 @@ int Index::search(std::string k) const{
                 index = 0;
             } 
 
-            if (arr[index]._key == k){
-                return arr[index].node->count;
+            if (arr[ind]._key == k){
+                return arr[ind].node->count;
             }
         }
         // std::cout << "index" << std::endl;
