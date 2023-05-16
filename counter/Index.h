@@ -12,6 +12,7 @@ struct item{
     Node * node;
     item():_key("?"),node(nullptr){};
     ~item(){
+        key = "?";
         node = nullptr;
     }
 };
