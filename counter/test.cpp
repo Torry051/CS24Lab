@@ -63,8 +63,8 @@ int main(){
     // std::cout << map.get("torry") <<std::endl;
     // std::cout << map.get("xer") <<std::endl;
     
-    std::cout << map.count() <<std::endl;
-    std::cout << map.total() <<std::endl;
+    // std::cout << map.count() <<std::endl;
+    // std::cout << map.total() <<std::endl;
 
 
     

@@ -38,6 +38,7 @@ int read_value(std::istream& stream, int dfault) {
 void print(Counter& counter) {
   for(auto itr = counter.begin(); itr != counter.end(); ++itr) {
     std::cout << itr.key() << ": " << itr.value() << '\n';
+    std::cout << "running" <<std::endl;
   }
 }
 

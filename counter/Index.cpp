@@ -26,7 +26,7 @@ size_t Index::idx(std::string str) const{
     for (size_t i= 0;i<str.length(); i++){
         result += str[i];
     }
-    result = result % (capacity+1);
+    result = result % (capacity);
     return result;
 }
 
@@ -47,10 +47,12 @@ void Index::expand(){
 }
 
 void Index::insert(std::string key, int count){
+    // std::cout << "running"  << key << " " << count<<std::endl;
     if(size >= (capacity/2)){
         expand();
     }
     size_t index = idx(key);
+    // std::cout << "index: " << index  << "capacity: " << capacity<<std::endl;
 
     if(arr[index].node == nullptr){
         _data->insert(count,key);

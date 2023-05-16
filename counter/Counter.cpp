@@ -38,18 +38,20 @@ size_t Counter::count() const{
     return size;
 }
 
-int   Counter::total() const{
-    return table.tot;
-}   
+// int Counter::total() const{
+//     return table.tot;
+// }   
 
 
 Counter::Iterator Counter::begin() const{
     Iterator result(table._data->head);
+    // std::cout << "works" <<std::endl;
     return result;
 }
 
 Counter::Iterator Counter::end() const{
     Iterator result(table._data->tail);
+    // std::cout << "run2" <<std::endl;
     return result;
 }
 
@@ -62,7 +64,9 @@ int Counter::Iterator::value() const{
 }
 
 Counter::Iterator& Counter::Iterator::operator ++ (){
+    // std::cout << "run" <<std::endl;
     static Iterator result(nod->next);
+    // std::cout << "run" <<std::endl;
     return result;
 }
 
@@ -70,6 +74,7 @@ bool    Counter::Iterator::operator == (const Iterator& other) const{
     if(nod == other.nod){
         return true;
     }
+
     return false;
 }
 
