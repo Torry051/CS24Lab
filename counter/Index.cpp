@@ -56,10 +56,13 @@ void Index::insert(std::string key, int count){
         _data->insert(count,key);
         arr[index].node = _data->tail;
         arr[index]._key = key;
-        // std::cout << index <<" " << key<<  " " << count<<std::endl;
+        // std::cout << key<<  " " << count<<std::endl;
     }
+    else if ( arr[index]._key == key){//
+        arr[index].node->count = count;//
+    }//
     else {
-        while(arr[index].node!=nullptr){
+        while(arr[index].node!=nullptr || arr[index]._key == key){
             if(index < capacity-1){
                 index+=1;
             }
@@ -67,9 +70,14 @@ void Index::insert(std::string key, int count){
                 index = 0;
             } 
         }
-        _data->insert(count,key);
-        arr[index].node = _data->tail;
-        arr[index]._key = key;
+        if (arr[index]._key == key){
+            arr[index].node->count = count;
+        }
+        else{
+            _data->insert(count,key);
+            arr[index].node = _data->tail;
+            arr[index]._key = key;
+        }
     }
     tot += count;
     size+=1;
