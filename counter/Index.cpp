@@ -31,18 +31,23 @@ size_t Index::idx(std::string str) const{
 }
 
 void Index::expand(){
+    // std::cout << "running expand" <<std::endl;
     capacity = 2 * capacity;
     item * new_arr = new item[capacity];
     
     for (size_t i = 0; i< (capacity/2); i++){
         if (arr[i].node!=nullptr){
+            // std::cout<< arr[i]._key <<std::endl;
             size_t index = idx(arr[i]._key);
             if (new_arr[index].node==nullptr){
                 new_arr[index].node = arr[i].node;
                 new_arr[index]._key = arr[i]._key;
+                // if (arr[i]._key == "french hens"){
+                //     std::cout << "Index1: " << index << " " << capacity<< std::endl;
+                // }
             }
             else{
-                while(new_arr[index].node == nullptr){
+                while(new_arr[index].node != nullptr){
                     if (index < capacity-1){
                         index += 1;
                     }
@@ -52,6 +57,9 @@ void Index::expand(){
                 }
                 new_arr[index].node = arr[i].node;
                 new_arr[index]._key = arr[i]._key;
+                // if (arr[i]._key == "french hens"){
+                //     std::cout << "Index2: " << index << std::endl;
+                // }
             }
         }
     }
@@ -65,6 +73,7 @@ void Index::insert(std::string key, int count){
     
     // std::cout << "running"  << key << " " << count<<std::endl;
     if(size >= (capacity/2)){
+    
         expand();
         // std::cout << "expand:" << capacity <<std::endl;
     }
@@ -147,7 +156,7 @@ void Index::remove(std::string k) {
     int count = 0;
     size_t index = idx(k);
     if (arr[index].node == nullptr){
-        // std::cout << "wrong: "<< index <<std::endl;
+        std::cout << "wrong: "<< index <<std::endl;
         return;
     }
     else if (arr[index]._key == k){
@@ -176,7 +185,8 @@ void Index::remove(std::string k) {
                 return;
             } 
         }
-        // std::cout << "wrong: "<< index <<std::endl;
+        std::cout << "wrong1: "<< index <<std::endl;
+        std::cout << capacity << arr[13]._key <<std::endl;
     }
 }
 

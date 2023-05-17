@@ -69,22 +69,24 @@ int main(){
     // map.dec("e", -115);
     // map.inc("dsd", -147);
     // map.dec("raissa",115);
-    map.set("adsa",1);
-    map.set("bfasdas",2);
-    map.set("sds",3);
-    map.set("dsdf",4);
-    map.set("ds",5);
-    map.set("dsf",6);
-    map.set("abc",7);
-    map.set("def",8);
-    map.set("fd",9);
-    map.set("s",10);
-    map.set("t",11);
-    map.set("o",12); 
-    map.del("adsa");
-    map.del("bfasdas");
-    map.del("sds");
-    map.del("dsdf");
+    map.set("partridge in a pear tree",1);
+    map.set("turtle doves",2);
+    map.set("french hens",3);
+    map.set("calling birds",4);
+    map.set("golden rings",5);
+    map.set("geese a-laying",6);
+    map.set("swans a-swimming",7);
+    map.set("maids a-milking",8);
+    map.set("ladies dancing",9);
+    map.set("lords a-leaping",10);
+    map.set("pipers piping",11);
+    map.set("drummers drumming",12);
+
+    map.del("partridge in a pear tree");
+    map.del("turtle doves");
+    map.del("french hens");
+    map.del("calling birds");
+ 
 
 
 
