@@ -63,7 +63,9 @@ int main(){
     map.dec("torry",2);
     map.dec("map");
     map.dec("xer");
-    
+    map.dec("e", -115);
+    map.inc("dsd", -147);
+    map.dec("raissa",115);
 
     // std::cout << "tail o: " << map.table._data->tail->str << " " <<map.table._data->tail->count <<std::endl;
     
@@ -71,7 +73,7 @@ int main(){
     // std::cout << map.get("xer") <<std::endl;
     
     // std::cout << map.count() <<std::endl;
-    std::cout << map.count() <<std::endl;
+    std::cout << map.total() <<std::endl;
     for(Counter::Iterator itr = map.begin();itr != map.end();++itr){
         // std::cout << "tail: " << map.table._data->tail->str << " " <<map.table._data->tail->count <<std::endl;
         // std::cout << "tail: " << map.end().nod->str << " " <<map.end().nod->count<<std::endl;
