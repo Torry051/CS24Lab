@@ -17,6 +17,13 @@ struct Node {
     Node * last;
     Node():count(0),next(nullptr),last(nullptr){};
     Node(int val,std::string k):count(val),str(k),next(nullptr),last(nullptr){};
+    Node(Node * copy){
+        count = copy->count;
+        str = copy->str;
+        next = copy->next;
+        last = copy->last;
+        // std::cout << "r" << std::endl;
+    };
 
 };
 

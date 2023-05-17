@@ -38,21 +38,39 @@ size_t Counter::count() const{
     return size;
 }
 
-int Counter::total() const{
-    return table.tot;
-}   
+// int Counter::total() const{
+//     return table.tot;
+// }   
 
 
 Counter::Iterator Counter::begin() const{
+    // std::cout << "w: "<<  table._data->head->str << std::endl;
     Iterator result(table._data->head);
+
     // std::cout << "works" <<std::endl;
     return result;
 }
 
-Counter::Iterator Counter::end() const{
-    Iterator result(table._data->tail);
-    // std::cout << "run2" <<std::endl;
-    return result;
+Counter::Iterator Counter::end(){
+    // std::cout << "run2. " << table._data->tail->count <<std::endl;
+    // if (table._data->tail!=nullptr){
+    //     std::cout << size <<std::endl;
+    // }
+    if (e==nullptr){
+        e = table._data->tail;
+        static Iterator result(e);
+        std::cout << "run2. " << result.nod->count <<std::endl;
+        return result;
+    }
+    else{
+        std::cout << "run3 " << e->count <<std::endl;
+        static Iterator result(e);
+
+        std::cout << "run2. " << result.nod->count <<std::endl;
+        return result;
+    }
+
+ 
 }
 
 const std::string& Counter::Iterator::key() const{
@@ -65,8 +83,13 @@ int Counter::Iterator::value() const{
 
 Counter::Iterator& Counter::Iterator::operator ++ (){
     // std::cout << "run" <<std::endl;
+    // std::cout << nod->next->count <<std::endl;
     static Iterator result(nod->next);
+    // std::cout << result.nod->count <<std::endl;
     // std::cout << "run" <<std::endl;
+    // if (result.nod == nullptr){
+    //     std::cout << "yes" <<std::endl;
+    // }
     return result;
 }
 
@@ -86,6 +109,6 @@ bool    Counter::Iterator::operator != (const Iterator& other) const{
 }
 
 Counter::Iterator::~Iterator(){
-    delete nod;
-    nod = nullptr;
+  
 }
+

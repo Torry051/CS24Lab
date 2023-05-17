@@ -14,11 +14,16 @@ class Counter {
 public:
   class Iterator {
     // Member Variables
+    public:
     Node * nod;
+
     // DataStore _Data;
 
   public:
-    Iterator(Node *n):nod(n){};
+    Iterator():nod(nullptr){};
+    Iterator(Node *n):nod(n){
+      // std::cout << "running: " << nod->str <<std::endl;
+    };
     ~Iterator();
     const std::string& key() const;
     int value() const;
@@ -32,13 +37,15 @@ private:
   // Member Variables
   Index table;
   size_t size;
+  Node * e;
+ 
 
 
 private:
   // Helper Functions
 
 public:
-  Counter():table(Index()), size(0){};
+  Counter():table(Index()), size(0),e(nullptr){};
   ~Counter();
 
   size_t count() const;
@@ -51,7 +58,7 @@ public:
   void set(const std::string& key, int count);
 
   Iterator begin() const;
-  Iterator end() const;
+  Iterator end();
 };
 
 #endif
