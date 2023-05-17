@@ -37,8 +37,22 @@ void Index::expand(){
     for (size_t i = 0; i< (capacity/2); i++){
         if (arr[i].node!=nullptr){
             size_t index = idx(arr[i]._key);
-            new_arr[index].node = arr[i].node;
-            new_arr[index]._key = arr[i]._key;
+            if (new_arr[index].node==nullptr){
+                new_arr[index].node = arr[i].node;
+                new_arr[index]._key = arr[i]._key;
+            }
+            else{
+                while(new_arr[index].node == nullptr){
+                    if (index < capacity-1){
+                        index += 1;
+                    }
+                    else{
+                        index = 0;
+                    }
+                }
+                new_arr[index].node = arr[i].node;
+                new_arr[index]._key = arr[i]._key;
+            }
         }
     }
     delete [] arr;
@@ -52,6 +66,7 @@ void Index::insert(std::string key, int count){
     // std::cout << "running"  << key << " " << count<<std::endl;
     if(size >= (capacity/2)){
         expand();
+        // std::cout << "expand:" << capacity <<std::endl;
     }
     size_t index = idx(key);
     // std::cout << "index: " << index  << "capacity: " << capacity<<std::endl;
@@ -128,11 +143,11 @@ int Index::search(std::string k) const{
 }
 
 void Index::remove(std::string k) {
-    std::cout << "rem: "<< k <<std::endl;
+    // std::cout << "rem: "<< k <<std::endl;
     int count = 0;
     size_t index = idx(k);
     if (arr[index].node == nullptr){
-        std::cout << "wrong: "<< index <<std::endl;
+        // std::cout << "wrong: "<< index <<std::endl;
         return;
     }
     else if (arr[index]._key == k){
@@ -161,7 +176,7 @@ void Index::remove(std::string k) {
                 return;
             } 
         }
-        std::cout << "wrong: "<< index <<std::endl;
+        // std::cout << "wrong: "<< index <<std::endl;
     }
 }
 
