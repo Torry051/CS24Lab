@@ -53,23 +53,11 @@ Counter::Iterator Counter::begin() const{
 
 Counter::Iterator Counter::end(){
     // std::cout << "run2. " << table._data->tail->count <<std::endl;
-    // if (table._data->tail!=nullptr){
-    //     std::cout << size <<std::endl;
-    // }
-    if (e==nullptr){
-        e = table._data->tail;
-        static Iterator result(e);
-        std::cout << "run2. " << result.nod->count <<std::endl;
-        return result;
-    }
-    else{
-        std::cout << "run3 " << e->count <<std::endl;
-        static Iterator result(e);
+    // std::cout << "running" << std::endl;
+    Iterator result;
 
-        std::cout << "run2. " << result.nod->count <<std::endl;
-        return result;
-    }
-
+    // std::cout << "works" <<std::endl;
+    return result;
  
 }
 
@@ -83,14 +71,13 @@ int Counter::Iterator::value() const{
 
 Counter::Iterator& Counter::Iterator::operator ++ (){
     // std::cout << "run" <<std::endl;
-    // std::cout << nod->next->count <<std::endl;
-    static Iterator result(nod->next);
-    // std::cout << result.nod->count <<std::endl;
-    // std::cout << "run" <<std::endl;
-    // if (result.nod == nullptr){
-    //     std::cout << "yes" <<std::endl;
-    // }
-    return result;
+ 
+
+    this->nod = this->nod->next;
+    return *this;
+
+
+
 }
 
 bool    Counter::Iterator::operator == (const Iterator& other) const{
@@ -102,13 +89,15 @@ bool    Counter::Iterator::operator == (const Iterator& other) const{
 }
 
 bool    Counter::Iterator::operator != (const Iterator& other) const{
-    if (*this == other){
+   
+    if (nod == other.nod){
         return false;
     }
+    
     return true;
 }
 
 Counter::Iterator::~Iterator(){
-  
+
 }
 

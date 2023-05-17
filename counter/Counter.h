@@ -17,7 +17,7 @@ public:
     public:
     Node * nod;
 
-    // DataStore _Data;
+    // DataStore  * _Data;
 
   public:
     Iterator():nod(nullptr){};
@@ -34,10 +34,11 @@ public:
   };
 
 private:
+  public:
   // Member Variables
   Index table;
   size_t size;
-  Node * e;
+
  
 
 
@@ -45,7 +46,7 @@ private:
   // Helper Functions
 
 public:
-  Counter():table(Index()), size(0),e(nullptr){};
+  Counter():table(Index()), size(0){};
   ~Counter();
 
   size_t count() const;
