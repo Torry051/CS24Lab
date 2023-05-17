@@ -54,11 +54,14 @@ int main(){
     // std::cout << table.tot <<std::endl;
     Counter map;
 
-    map.set("torry",511);
-    map.set("raissa",228);
+    // map.set("torry",511);
+    // map.set("raissa",228);
     // map.set("torry",512);
     // map.inc("xer",3);
     // map.inc("xer",5);
+    // map.del("torry");
+    // map.del("raissa");
+
     // map.del("torry");
     // map.dec("torry",2);
     // map.dec("map");
@@ -66,12 +69,24 @@ int main(){
     // map.dec("e", -115);
     // map.inc("dsd", -147);
     // map.dec("raissa",115);
-    map.dec("abc");
-    map.dec("abc");
-    map.dec("abc");
-    map.dec("abc",110);
-    map.dec("abc");
-    map.dec("abc");
+    map.set("adsa",1);
+    map.set("bfasdas",2);
+    map.set("sds",3);
+    map.set("dsdf",4);
+    map.set("ds",5);
+    map.set("dsf",6);
+    map.set("abc",7);
+    map.set("def",8);
+    map.set("fd",9);
+    map.set("s",10);
+    map.set("t",11);
+    map.set("o",12); 
+    map.del("adsa");
+    map.del("bfasdas");
+    map.del("sds");
+    map.del("dsdf");
+
+
 
     // std::cout << "tail o: " << map.table._data->tail->str << " " <<map.table._data->tail->count <<std::endl;
     

@@ -128,10 +128,11 @@ int Index::search(std::string k) const{
 }
 
 void Index::remove(std::string k) {
-    // std::cout << "running rem" <<std::endl;
+    std::cout << "rem: "<< k <<std::endl;
     int count = 0;
     size_t index = idx(k);
     if (arr[index].node == nullptr){
+        std::cout << "wrong: "<< index <<std::endl;
         return;
     }
     else if (arr[index]._key == k){
@@ -157,8 +158,10 @@ void Index::remove(std::string k) {
                 size= size -1;
                 arr[index]._key = "";
                 tot = tot - count;
+                return;
             } 
         }
+        std::cout << "wrong: "<< index <<std::endl;
     }
 }
 
