@@ -208,7 +208,7 @@ void Index::increment(std::string k, int by){
 }
 
 void Index::decrement(std::string k, int by){
-    std::cout << "running dec" << k <<" " << by <<std::endl;
+    std::cout << "running dec: " << k << " " << by <<std::endl;
     
     size_t index = idx(k);
     if (arr[index]._key == k){
@@ -217,6 +217,7 @@ void Index::decrement(std::string k, int by){
     }
     else if (arr[index].node == nullptr){
 
+        std::cout << "using insert" <<std::endl;
         insert(k,-by);
 
     }

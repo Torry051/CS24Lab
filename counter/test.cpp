@@ -56,16 +56,22 @@ int main(){
 
     map.set("torry",511);
     map.set("raissa",228);
-    map.set("torry",512);
-    map.inc("xer",3);
-    map.inc("xer",5);
-    map.del("torry");
-    map.dec("torry",2);
-    map.dec("map");
-    map.dec("xer");
-    map.dec("e", -115);
-    map.inc("dsd", -147);
-    map.dec("raissa",115);
+    // map.set("torry",512);
+    // map.inc("xer",3);
+    // map.inc("xer",5);
+    // map.del("torry");
+    // map.dec("torry",2);
+    // map.dec("map");
+    // map.dec("xer");
+    // map.dec("e", -115);
+    // map.inc("dsd", -147);
+    // map.dec("raissa",115);
+    map.dec("abc");
+    map.dec("abc");
+    map.dec("abc");
+    map.dec("abc",110);
+    map.dec("abc");
+    map.dec("abc");
 
     // std::cout << "tail o: " << map.table._data->tail->str << " " <<map.table._data->tail->count <<std::endl;
     
