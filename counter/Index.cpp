@@ -47,7 +47,7 @@ void Index::expand(){
 }
 
 void Index::insert(std::string key, int count){
-    std::cout << "running set: " << key << " "<<count <<std::endl;
+    // std::cout << "running set: " << key << " "<<count <<std::endl;
     
     // std::cout << "running"  << key << " " << count<<std::endl;
     if(size >= (capacity/2)){
@@ -208,7 +208,7 @@ void Index::increment(std::string k, int by){
 }
 
 void Index::decrement(std::string k, int by){
-    std::cout << "running dec: " << k << " " << by <<std::endl;
+    // std::cout << "running dec: " << k << " " << by <<std::endl;
     
     size_t index = idx(k);
     if (arr[index]._key == k){
@@ -217,7 +217,7 @@ void Index::decrement(std::string k, int by){
     }
     else if (arr[index].node == nullptr){
 
-        std::cout << "using insert" <<std::endl;
+        // std::cout << "using insert" <<std::endl;
         insert(k,-by);
 
     }
@@ -233,6 +233,7 @@ void Index::decrement(std::string k, int by){
             if (arr[index]._key == k){
                 _data->decre(k,by,arr[index].node);
                 tot = tot -by;
+                return;
             }
         }
 
