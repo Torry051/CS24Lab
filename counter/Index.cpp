@@ -47,7 +47,8 @@ void Index::expand(){
 }
 
 void Index::insert(std::string key, int count){
-    std::cout << "running set" <<std::endl;
+    std::cout << "running set: " << key << " "<<count <<std::endl;
+    
     // std::cout << "running"  << key << " " << count<<std::endl;
     if(size >= (capacity/2)){
         expand();
@@ -127,7 +128,7 @@ int Index::search(std::string k) const{
 }
 
 void Index::remove(std::string k) {
-    std::cout << "running rem" <<std::endl;
+    // std::cout << "running rem" <<std::endl;
     int count = 0;
     size_t index = idx(k);
     if (arr[index].node == nullptr){
@@ -162,7 +163,7 @@ void Index::remove(std::string k) {
 }
 
 void Index::increment(std::string k, int by){
-    std::cout << "running inc" <<std::endl;
+    // std::cout << "running inc" <<std::endl;
     size_t index = idx(k);
     // std::cout << "inside : "<<size <<std::endl;
     if (arr[index]._key == k){
@@ -207,7 +208,8 @@ void Index::increment(std::string k, int by){
 }
 
 void Index::decrement(std::string k, int by){
-    std::cout << "running dec" <<std::endl;
+    std::cout << "running dec" << k <<" " << by <<std::endl;
+    
     size_t index = idx(k);
     if (arr[index]._key == k){
         _data->decre(k,by,arr[index].node);
