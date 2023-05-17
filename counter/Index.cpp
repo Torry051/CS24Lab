@@ -251,5 +251,5 @@ Index::~Index(){
     // }
     delete [] arr;
     arr = nullptr;
-    std::cout << "desct" <<std::endl;
+
 }
