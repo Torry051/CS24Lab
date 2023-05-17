@@ -69,7 +69,7 @@ void Index::expand(){
 }
 
 void Index::insert(std::string key, int count){
-    // std::cout << "running set: " << key << " "<<count <<std::endl;
+    std::cout << "running set: " << key << " "<<count <<std::endl;
     
     // std::cout << "running"  << key << " " << count<<std::endl;
     if(size >= (capacity/4)){
@@ -191,7 +191,7 @@ void Index::remove(std::string k) {
 }
 
 void Index::increment(std::string k, int by){
-    // std::cout << "running inc" <<std::endl;
+    std::cout << "running inc" << k<< ": "<< by<<std::endl;
     size_t index = idx(k);
     // std::cout << "inside : "<<size <<std::endl;
     if (arr[index]._key == k){
