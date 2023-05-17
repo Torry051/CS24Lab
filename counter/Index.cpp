@@ -35,7 +35,7 @@ void Index::expand(){
     capacity = capacity * capacity;
     item * new_arr = new item[capacity];
     
-    for (size_t i = 0; i< (capacity/4); i++){
+    for (size_t i = 0; i< (capacity/capacity); i++){
         if (arr[i].node!=nullptr){
             // std::cout<< arr[i]._key <<std::endl;
             size_t index = idx(arr[i]._key);
