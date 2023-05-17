@@ -137,6 +137,7 @@ void Index::remove(std::string k) {
         _data->remove(k,curr);
         size= size -1;
         arr[index]._key = "";
+        tot = tot - count;
     }
     else{
         while(arr[index].node!=nullptr){
@@ -152,10 +153,10 @@ void Index::remove(std::string k) {
                 _data->remove(k,curr);
                 size= size -1;
                 arr[index]._key = "";
+                tot = tot - count;
             } 
         }
     }
-    tot = tot - count;
 }
 
 void Index::increment(std::string k, int by){
@@ -215,7 +216,7 @@ void Index::decrement(std::string k, int by){
         // }
 
         insert(k,-by);
-        size+=1;
+
     }
     else {
         while(arr[index].node!=nullptr){
@@ -237,7 +238,7 @@ void Index::decrement(std::string k, int by){
         // }
 
         insert(k,-by);
-        size+=1;
+
     }
 }
 

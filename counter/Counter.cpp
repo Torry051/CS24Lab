@@ -23,6 +23,7 @@ int Counter::get(const std::string& key) const{
 
 void Counter::del(const std::string& key){
     table.remove(key);
+    size = table.size;
 }
 
 void Counter::inc(const std::string& key, int by){
@@ -32,6 +33,7 @@ void Counter::inc(const std::string& key, int by){
 
 void Counter::dec(const std::string& key, int by){
     table.decrement(key,by);
+    size = table.size;
 }
 
 size_t Counter::count() const{

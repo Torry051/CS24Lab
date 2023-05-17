@@ -59,18 +59,25 @@ int main(){
     map.set("torry",512);
     map.inc("xer",3);
     map.inc("xer",5);
+    map.del("torry");
+    map.dec("torry",2);
+    map.dec("map");
+    map.dec("xer");
+    
+
     // std::cout << "tail o: " << map.table._data->tail->str << " " <<map.table._data->tail->count <<std::endl;
     
     // std::cout << map.get("torry") <<std::endl;
     // std::cout << map.get("xer") <<std::endl;
     
     // std::cout << map.count() <<std::endl;
-    // std::cout << map.total() <<std::endl;
+    std::cout << map.count() <<std::endl;
     for(Counter::Iterator itr = map.begin();itr != map.end();++itr){
         // std::cout << "tail: " << map.table._data->tail->str << " " <<map.table._data->tail->count <<std::endl;
         // std::cout << "tail: " << map.end().nod->str << " " <<map.end().nod->count<<std::endl;
-        std::cout << "runing: " << itr.nod->str << " " <<itr.nod->count <<std::endl;
+        std::cout << "List: " << itr.nod->str << " " <<itr.nod->count <<std::endl;
     }
+
 
     // Counter::Iterator itr = map.begin();
     // std::cout << "runing: " << itr.nod->str << " " <<itr.nod->count <<std::endl;
