@@ -32,10 +32,10 @@ size_t Index::idx(std::string str) const{
 
 void Index::expand(){
     // std::cout << "running expand" <<std::endl;
-    capacity = 2 * capacity;
+    capacity = capacity * capacity;
     item * new_arr = new item[capacity];
     
-    for (size_t i = 0; i< (capacity/2); i++){
+    for (size_t i = 0; i< (capacity/4); i++){
         if (arr[i].node!=nullptr){
             // std::cout<< arr[i]._key <<std::endl;
             size_t index = idx(arr[i]._key);
@@ -72,7 +72,7 @@ void Index::insert(std::string key, int count){
     // std::cout << "running set: " << key << " "<<count <<std::endl;
     
     // std::cout << "running"  << key << " " << count<<std::endl;
-    if(size >= (capacity/2)){
+    if(size >= (capacity/4)){
     
         expand();
         // std::cout << "expand:" << capacity <<std::endl;
