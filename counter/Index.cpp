@@ -126,7 +126,7 @@ void Index::insert(std::string key, int count){
     // std::cout << "running set: " << key << " "<<count <<std::endl;
     
     // std::cout << "running"  << key << " " << count<<std::endl;
-    if(size > (capacity/4)){
+    if(size >= (capacity/4)){
         expand();
         // std::cout << "expand:" << capacity <<std::endl;
         // return;
