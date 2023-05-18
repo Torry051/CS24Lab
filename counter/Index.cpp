@@ -23,8 +23,8 @@ Index::Index(size_t val){
 
 size_t Index::idx(std::string str) const{
     size_t result=0;
-    if (str.length()>0){
-        result = str[0];
+    if (str.length()>0 && str[0] != ' '){
+        result = str[-1];
     }
     result = result % (capacity);
     return result;
