@@ -48,8 +48,9 @@ void Index::expand(){
                 // }
             }
             else{
+                int n = 1;
                 while(new_arr[index].node != nullptr){
-                    index = index + (index +1)*2;
+                    index = index + n*n;
                     if (index >= capacity){
                         index = index % capacity;
                     }
@@ -57,6 +58,7 @@ void Index::expand(){
                 }
                 new_arr[index].node = arr[i].node;
                 new_arr[index]._key = arr[i]._key;
+                n=n+1;
                 // if (arr[i]._key == "french hens"){
                 //     std::cout << "Index2: " << index << std::endl;
                 // }
@@ -93,8 +95,9 @@ void Index::insert(std::string key, int count){
         tot = tot + count;
     }
     else {
+        int n = 1;
         while(arr[index].node!=nullptr){
-            index = index + (1+index)*2;
+            index = index + n*n;
             
             if(index >= capacity){
                 index = index % capacity;
@@ -103,6 +106,7 @@ void Index::insert(std::string key, int count){
             if(arr[index]._key == key){
                 break;
             }
+            n= n + 1;
         }
         if (arr[index]._key == key){
             tot =tot -arr[index].node->count;
@@ -130,9 +134,10 @@ int Index::search(std::string k) const{
         return arr[index].node->count;
     }
     else {
+        int n = 1;
         while(arr[index].node!=nullptr){
             // std::cout << index << std::endl;
-            index = index + (1+index)*2;
+            index = index + n*n;
             if (index >= capacity){
                 index = index % capacity;
             }
@@ -140,6 +145,7 @@ int Index::search(std::string k) const{
             if (arr[index]._key == k){
                 return arr[index].node->count;
             }
+            n = n+1;
         }
         // std::cout << "index" << std::endl;
         return 0;
@@ -165,8 +171,9 @@ void Index::remove(std::string k) {
         tot = tot - count;
     }
     else{
+        int n = 1;
         while(arr[index].node!=nullptr){
-            index = index + (1+index)*2;
+            index = index + n*n;
             if(index>= capacity){
                 index = index % capacity;
             }
@@ -179,6 +186,7 @@ void Index::remove(std::string k) {
                 tot = tot - count;
                 return;
             } 
+            n=n+1;
         }
         std::cout << "wrong1: "<< index <<std::endl;
         std::cout << capacity << arr[13]._key <<std::endl;
@@ -197,9 +205,9 @@ void Index::increment(std::string k, int by){
         insert(k,by);
     }
     else {
-     
+        int n = 1;
         while(arr[index].node!=nullptr){
-            index = index + (index +1)*2;
+            index = index + n*n;
             if (index >= capacity){
                 index = index % capacity;
             }
@@ -209,6 +217,7 @@ void Index::increment(std::string k, int by){
                 tot = tot+by;
                 return;
             }
+            n=n+1;
         }
         // std::cout << "inside3 : "<<size <<std::endl;
         // int val = 0;
@@ -236,8 +245,9 @@ void Index::decrement(std::string k, int by){
 
     }
     else {
+        int n = 1;
         while(arr[index].node!=nullptr){
-            index = index + (index +1)*2;
+            index = index + n*n;
             if (index >= capacity){
                 index = index % capacity;
             }
@@ -248,6 +258,7 @@ void Index::decrement(std::string k, int by){
                 tot = tot -by;
                 return;
             }
+            n=n+1;
         }
 
 
