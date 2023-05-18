@@ -86,7 +86,7 @@ void Index::expand(){
 
     // Node * curr = _data->head;
     
-    for (size_t i = 0; i< j; i++){
+    for (size_t i = 0; i< j ; i++){
     // while(curr !=nullptr){
         if (arr[i].node!=nullptr){
             // std::cout<< arr[i]._key <<std::endl;
