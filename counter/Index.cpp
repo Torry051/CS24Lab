@@ -31,23 +31,69 @@ size_t Index::idx(std::string str) const{
     return result;
 }
 
-void Index::expand(std::string k, int c){
+// void Index::expand(std::string k, int c){
+// // void Index::expand(){
+//     // std::cout << "running expand" <<std::endl;
+//     size_t j = capacity;
+//     capacity = capacity * capacity;
+//     item * new_arr = new item[capacity];
+//     // _data->insert(c,k);
+
+//     Node * curr = _data->head;
+    
+//     // for (size_t i = 0; i< j; i++){
+//     while(curr !=nullptr){
+//         // if (arr[i].node!=nullptr){
+//             // std::cout<< arr[i]._key <<std::endl;
+//             size_t index = idx(curr->str);
+//             if (new_arr[index].node==nullptr){
+//                 new_arr[index].node = curr;
+//                 new_arr[index]._key = curr->str;
+//                 // if (arr[i]._key == "french hens"){
+//                 //     std::cout << "Index1: " << index << " " << capacity<< std::endl;
+//                 // }
+//             }
+//             else{
+//                 int n = 1;
+//                 while(new_arr[index].node != nullptr){
+//                     index = index + n*n;
+//                     if (index >= capacity){
+//                         index = index % capacity;
+//                     }
+
+//                 }
+//                 new_arr[index].node = curr;
+//                 new_arr[index]._key = curr->str;
+//                 n=n+1;
+//                 // if (arr[i]._key == "french hens"){
+//                 //     std::cout << "Index2: " << index << std::endl;
+//                 }
+//             // }
+//         // }
+//     }
+//     delete [] arr;
+//     arr = new_arr;
+//     new_arr = nullptr;
+//     this->size += 1;
+// }
+void Index::expand(){
+// void Index::expand(){
     // std::cout << "running expand" <<std::endl;
-    // size_t j = capacity;
+    size_t j = capacity;
     capacity = capacity * capacity;
     item * new_arr = new item[capacity];
-    _data->insert(c,k);
+    // _data->insert(c,k);
 
-    Node * curr = _data->head;
+    // Node * curr = _data->head;
     
-    // for (size_t i = 0; i< j; i++){
-    while(curr !=nullptr){
-        // if (arr[i].node!=nullptr){
+    for (size_t i = 0; i< j; i++){
+    // while(curr !=nullptr){
+        if (arr[i].node!=nullptr){
             // std::cout<< arr[i]._key <<std::endl;
-            size_t index = idx(curr->str);
+            size_t index = idx(arr[i]._key);
             if (new_arr[index].node==nullptr){
-                new_arr[index].node = curr;
-                new_arr[index]._key = curr->str;
+                new_arr[index].node = arr[i].node;
+                new_arr[index]._key = arr[i]._key;
                 // if (arr[i]._key == "french hens"){
                 //     std::cout << "Index1: " << index << " " << capacity<< std::endl;
                 // }
@@ -61,8 +107,8 @@ void Index::expand(std::string k, int c){
                     }
 
                 }
-                new_arr[index].node = curr;
-                new_arr[index]._key = curr->str;
+                new_arr[index].node = arr[i].node;
+                new_arr[index]._key = arr[i]._key;
                 n=n+1;
                 // if (arr[i]._key == "french hens"){
                 //     std::cout << "Index2: " << index << std::endl;
@@ -73,17 +119,17 @@ void Index::expand(std::string k, int c){
     delete [] arr;
     arr = new_arr;
     new_arr = nullptr;
-    this->size += 1;
+    // this->size += 1;
 }
-
+}
 void Index::insert(std::string key, int count){
     // std::cout << "running set: " << key << " "<<count <<std::endl;
     
     // std::cout << "running"  << key << " " << count<<std::endl;
     if(size > (capacity/4)){
-        expand(key,count);
+        expand();
         // std::cout << "expand:" << capacity <<std::endl;
-        return;
+        // return;
     }
     size_t index = idx(key);
     // std::cout << "index: " << index  << "capacity: " << capacity<<std::endl;

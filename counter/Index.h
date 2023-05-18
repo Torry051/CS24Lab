@@ -30,7 +30,8 @@ class Index{
     Index();
     Index(size_t val);
     ~Index();
-    void expand(std::string, int );
+    // void expand(std::string, int );
+    void expand();
     void insert(std::string key, int count);
     size_t idx(std::string) const;
     int search(std::string k) const;
