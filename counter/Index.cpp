@@ -49,12 +49,11 @@ void Index::expand(){
             }
             else{
                 while(new_arr[index].node != nullptr){
-                    if (index < capacity-1){
-                        index += 1;
+                    index = index + (index +1)*2;
+                    if (index >= capacity){
+                        index = index -capacity;
                     }
-                    else{
-                        index = 0;
-                    }
+
                 }
                 new_arr[index].node = arr[i].node;
                 new_arr[index]._key = arr[i]._key;
@@ -74,7 +73,6 @@ void Index::insert(std::string key, int count){
     
     // std::cout << "running"  << key << " " << count<<std::endl;
     if(size >= (capacity/4)){
-    
         expand();
         // std::cout << "expand:" << capacity <<std::endl;
     }
@@ -96,12 +94,11 @@ void Index::insert(std::string key, int count){
     }
     else {
         while(arr[index].node!=nullptr){
-            if(index < capacity-1){
-                index+=1;
+            index = index + (1+index)*2;
+            
+            if(index >= capacity){
+                index = index - capacity;
             }
-            else{
-                index = 0;
-            } 
 
             if(arr[index]._key == key){
                 break;
@@ -135,12 +132,10 @@ int Index::search(std::string k) const{
     else {
         while(arr[index].node!=nullptr){
             // std::cout << index << std::endl;
-            if(index < capacity-1){
-                index+=1;
+            index = index + (1+index)*2;
+            if (index >= capacity){
+                index = index - capacity;
             }
-            else{
-                index = 0;
-            } 
 
             if (arr[index]._key == k){
                 return arr[index].node->count;
@@ -171,11 +166,9 @@ void Index::remove(std::string k) {
     }
     else{
         while(arr[index].node!=nullptr){
-            if(index < capacity-1){
-                index+=1;
-            }
-            else{
-                index = 0;
+            index = index + (1+index)*2;
+            if(index>= capacity){
+                index = index - capacity;
             }
             if (arr[index]._key == k){
                 Node * curr = arr[index].node;
@@ -201,23 +194,14 @@ void Index::increment(std::string k, int by){
         tot = tot + by;
     }
     else if (arr[index].node == nullptr){
-        // int val = 0;
-        // for(size_t i =0; i<k.length();i++){
-        //     val += k[i];
-        // }
-
         insert(k,by);
-  
-
     }
     else {
      
         while(arr[index].node!=nullptr){
-            if (index < (capacity -1)){
-                index = index +1;
-            }
-            else{
-                index = 0;
+            index = index + (index +1)*2;
+            if (index >= capacity){
+                index = index -capacity;
             }
 
             if (arr[index]._key == k){
@@ -253,12 +237,11 @@ void Index::decrement(std::string k, int by){
     }
     else {
         while(arr[index].node!=nullptr){
-            if (index < (capacity -1)){
-                index = index +1;
+            index = index + (index +1)*2;
+            if (index >= capacity){
+                index = index -capacity;
             }
-            else{
-                index = 0;
-            }
+
 
             if (arr[index]._key == k){
                 _data->decre(k,by,arr[index].node);
