@@ -24,30 +24,30 @@ int main(){
     // map.dec("e", -115);
     // map.inc("dsd", -147);
     // map.dec("raissa",115);
-    // map.set("partridge in a pear tree",1);
-    // map.set("turtle doves",2);
-    // map.set("french hens",3);
-    // map.set("calling birds",4);
-    // map.set("golden rings",5);
-    // map.set("geese a-laying",6);
-    // map.set("swans a-swimming",7);
-    // map.set("maids a-milking",8);
-    // map.set("ladies dancing",9);
-    // map.set("lords a-leaping",10);
-    // map.set("pipers piping",11);
-    // map.set("drummers drumming",12);
+    map.set("partridge in a pear tree",1);
+    map.set("turtle doves",2);
+    map.set("french hens",3);
+    map.set("calling birds",4);
+    map.set("golden rings",5);
+    map.set("geese a-laying",6);
+    map.set("swans a-swimming",7);
+    map.set("maids a-milking",8);
+    map.set("ladies dancing",9);
+    map.set("lords a-leaping",10);
+    map.set("pipers piping",11);
+    map.set("drummers drumming",12);
 
-    // map.del("partridge in a pear tree");
-    // map.del("turtle doves");
-    // map.del("french hens");
-    // map.del("calling birds");
-    map.inc("for the Elven-kings",1);
-    map.inc("for the Elven-kings");
-    map.inc("for the Elven-kings");
-    map.inc("for the Dwarf-lords",7);
-    map.inc("for mortal men",-2);
-    map.inc("for mortal men",11);
-    map.inc("for the Dark Lord");
+    map.del("partridge in a pear tree");
+    map.del("turtle doves");
+    map.del("french hens");
+    map.del("calling birds");
+    // map.inc("for the Elven-kings",1);
+    // map.inc("for the Elven-kings");
+    // map.inc("for the Elven-kings");
+    // map.inc("for the Dwarf-lords",7);
+    // map.inc("for mortal men",-2);
+    // map.inc("for mortal men",11);
+    // map.inc("for the Dark Lord");
 
 
 
