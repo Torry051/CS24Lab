@@ -32,10 +32,11 @@ size_t Index::idx(std::string str) const{
 
 void Index::expand(){
     // std::cout << "running expand" <<std::endl;
+    size_t j = capacity;
     capacity = capacity * capacity;
     item * new_arr = new item[capacity];
     
-    for (size_t i = 0; i< (capacity/capacity); i++){
+    for (size_t i = 0; i< j; i++){
         if (arr[i].node!=nullptr){
             // std::cout<< arr[i]._key <<std::endl;
             size_t index = idx(arr[i]._key);
@@ -69,7 +70,7 @@ void Index::expand(){
 }
 
 void Index::insert(std::string key, int count){
-    std::cout << "running set: " << key << " "<<count <<std::endl;
+    // std::cout << "running set: " << key << " "<<count <<std::endl;
     
     // std::cout << "running"  << key << " " << count<<std::endl;
     if(size >= (capacity/4)){
@@ -125,6 +126,7 @@ int Index::search(std::string k) const{
     size_t index = idx(k);
     // std::cout << index << std::endl;
     if (arr[index].node == nullptr){
+        // std::cout << index <<" " <<capacity<<std::endl;
         return 0;
     }
     else if (arr[index]._key == k){
@@ -191,7 +193,7 @@ void Index::remove(std::string k) {
 }
 
 void Index::increment(std::string k, int by){
-    std::cout << "running inc" << k<< ": "<< by<<std::endl;
+    // std::cout << "running inc" << k<< ": "<< by<<std::endl;
     size_t index = idx(k);
     // std::cout << "inside : "<<size <<std::endl;
     if (arr[index]._key == k){

@@ -86,9 +86,14 @@ int main(){
     // map.del("turtle doves");
     // map.del("french hens");
     // map.del("calling birds");
-    map.set("for the Elven-kings",1);
-    map.inc("for the Elven-kings",2);
-    // map.inc("for the Elven-kings");
+    map.inc("for the Elven-kings",1);
+    map.inc("for the Elven-kings");
+    map.inc("for the Elven-kings");
+    map.inc("for the Dwarf-lords",7);
+    map.inc("for mortal men",-2);
+    map.inc("for mortal men",11);
+    map.inc("for the Dark Lord");
+
     
  
 
@@ -101,6 +106,8 @@ int main(){
     
     // std::cout << map.count() <<std::endl;
     std::cout << map.total() <<std::endl;
+    std::cout << map.get("for the Elven-kings") <<std::endl;
+
     for(Counter::Iterator itr = map.begin();itr != map.end();++itr){
         // std::cout << "tail: " << map.table._data->tail->str << " " <<map.table._data->tail->count <<std::endl;
         // std::cout << "tail: " << map.end().nod->str << " " <<map.end().nod->count<<std::endl;
