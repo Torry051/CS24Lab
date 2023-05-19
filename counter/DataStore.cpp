@@ -44,6 +44,7 @@ void DataStore::remove(std::string k,Node* curr){
     if(curr==head && curr==tail){
             curr->str="";
             delete curr;
+            curr = nullptr;
             head = nullptr;
             tail = nullptr;
     }
@@ -51,6 +52,7 @@ void DataStore::remove(std::string k,Node* curr){
             curr->str = "";
             Node * Next = curr->next;
             delete curr;
+            curr = nullptr;
             Next->last = nullptr;
             head = Next;
     }
@@ -58,6 +60,7 @@ void DataStore::remove(std::string k,Node* curr){
             curr->str = "";
             Node * Last = curr->last;
             delete curr;
+            curr=nullptr;
             Last->next = nullptr;
             tail = Last;
     }
@@ -66,6 +69,7 @@ void DataStore::remove(std::string k,Node* curr){
             Node * Last = curr->last;
             Node * Next = curr->next;
             delete curr;
+            curr=nullptr;
             Last->next = Next;
             Next->last = Last;
     }
@@ -88,13 +92,13 @@ DataStore::~DataStore(){
         // std::cout << "running231" <<std::endl;
         return;
     }
-    else if (head == nullptr){
-        return;
-    }
-    else if (head->str ==""){
-        // std::cout << "123" <<std::endl;
-        return;
-    }
+    // else if (head == nullptr){
+    //     return;
+    // }
+    // else if (head->str ==""){
+    //     // std::cout << "123" <<std::endl;
+    //     return;
+    // }
     else if (head == tail && tail != nullptr){
         
         head->str = "";

@@ -16,6 +16,8 @@ struct item{
     };
     ~item(){
         // std::cout << "running" << std::endl;
+        item_D->head=nullptr;
+        item_D->tail=nullptr;
         delete item_D;
         
     }
