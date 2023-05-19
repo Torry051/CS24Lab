@@ -61,7 +61,7 @@ void Index::insert(std::string key, int count){
                 arr[index].item_D->ins(_data->tail);
                 tot = tot + count;
                 size = size + 1;
-                break;
+                return;
             }
             curr = curr->i_next;
         }
