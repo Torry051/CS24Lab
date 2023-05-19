@@ -15,7 +15,9 @@ struct item{
         item_D = new DataStore;
     };
     ~item(){
-        delete item_D;
+        // std::cout << "running" << std::endl;
+        // delete item_D;
+        
     }
 };
 

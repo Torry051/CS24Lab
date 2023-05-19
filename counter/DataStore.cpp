@@ -85,6 +85,7 @@ DataStore::~DataStore(){
         return;
     }
     else if (head->str ==""){
+        // std::cout << "123" <<std::endl;
         return;
     }
     else if (head == tail && tail != nullptr){
