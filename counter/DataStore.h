@@ -17,7 +17,7 @@ struct Node {
     Node * last;
     Node * i_next;
     Node * i_last;
-    Node():count(0),next(nullptr),last(nullptr),i_next(nullptr),i_last(nullptr){};
+    Node():count(0),next(nullptr),last(nullptr),i_next(nullptr),i_last(nullptr),str(""){};
     Node(int val,std::string k):count(val),str(k),next(nullptr),last(nullptr),i_next(nullptr),i_last(nullptr){};
 
 };

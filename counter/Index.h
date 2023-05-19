@@ -14,6 +14,9 @@ struct item{
         _key = "";
         item_D = new DataStore;
     };
+    ~item(){
+        delete item_D;
+    }
 };
 
 

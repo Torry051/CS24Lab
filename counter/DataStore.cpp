@@ -84,6 +84,9 @@ DataStore::~DataStore(){
         // std::cout << "running231" <<std::endl;
         return;
     }
+    else if (head->str ==""){
+        return;
+    }
     else if (head == tail && tail != nullptr){
         delete head;
         head = nullptr;
@@ -97,7 +100,7 @@ DataStore::~DataStore(){
             if(curr == nullptr){
                 break;
             }
-            // std::cout << "deleting: "<< curr->str << curr->count <<std::endl;
+            // std::cout << "deleting: "<< curr->str << ": "<< curr->count <<std::endl;
             // std::cout << "running31" <<std::endl;
             delete curr;
             curr =nullptr;
