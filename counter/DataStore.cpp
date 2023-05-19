@@ -88,6 +88,9 @@ DataStore::~DataStore(){
         // std::cout << "running231" <<std::endl;
         return;
     }
+    else if (head == nullptr){
+        return;
+    }
     else if (head->str ==""){
         // std::cout << "123" <<std::endl;
         return;
