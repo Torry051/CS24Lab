@@ -21,9 +21,9 @@ public:
 
   public:
     Iterator():nod(nullptr){};
-    Iterator(Node *n):nod(n){
+    Iterator(Node *n):nod(n){};
       // std::cout << "running: " << nod->str <<std::endl;
-    };
+    
     ~Iterator();
     const std::string& key() const;
     int value() const;
