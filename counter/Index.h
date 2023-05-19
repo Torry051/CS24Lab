@@ -14,7 +14,7 @@ struct item{
         _key = "";
         item_D = new DataStore;
     };
-}
+};
 
 
 class Index{
