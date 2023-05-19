@@ -56,22 +56,25 @@ void Index::insert(std::string key, int count){
         Node * curr = arr[index].item_D->head;
         while (curr != nullptr){
             if (curr->str == key){
-                break;
+                tot = tot - curr->count;
+                curr->count = count;
+                tot = tot + count;
+                return;
             }
             curr = curr->i_next;
         }
-        if (curr == nullptr){
+        // if (curr == nullptr){
             _data->insert(count,key);
 
             arr[index].item_D->ins(_data->tail);
             tot = tot + count;
             size = size + 1;
-        }
-        else{
-            tot = tot - curr->count;
-            curr->count = count;
-            tot = tot + count;
-        }
+        // }
+        // else{
+        //     tot = tot - curr->count;
+        //     curr->count = count;
+        //     tot = tot + count;
+        // }
 
     }
 
@@ -92,14 +95,15 @@ int Index::search(std::string k) const{
         Node * curr = arr[index].item_D->head;
         while (curr != nullptr){
             if (curr->str == k){
+                return curr->count;
                 break;
             }
             curr= curr->i_next;
         }
 
         if (curr != nullptr){
-            return curr->count;
-        }
+        //     return curr->count;
+        // }
         return 0;
     }
     std::cout << "wrong" <<std::endl;
