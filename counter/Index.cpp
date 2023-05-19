@@ -6,9 +6,9 @@
 
 
 Index::Index(){
-    arr = new item[110];
+    arr = new item[120];
     size = 0;
-    capacity = 110;
+    capacity = 120;
     _data = new DataStore;
     tot = 0;
 }
