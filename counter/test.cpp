@@ -37,10 +37,13 @@ int main(){
     map.set("pipers piping",11);
     map.set("drummers drumming",12);
 
-    map.del("partridge in a pear tree");
-    map.del("turtle doves");
-    map.del("french hens");
-    map.del("calling birds");
+    // map.del("partridge in a pear tree");
+    // map.del("turtle doves");
+    // map.del("french hens");
+    // map.del("calling birds");
+    map.del("drummers drumming");
+    map.del("pipers piping");
+    map.del("lords a-leaping");
     // map.inc("for the Elven-kings",1);
     // map.inc("for the Elven-kings");
     // map.inc("for the Elven-kings");

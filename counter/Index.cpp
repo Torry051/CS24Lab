@@ -6,9 +6,9 @@
 
 
 Index::Index(){
-    arr = new item[10];
+    arr = new item[100];
     size = 0;
-    capacity = 10;
+    capacity = 100;
     _data = new DataStore;
     tot = 0;
 }
@@ -139,16 +139,16 @@ void Index::remove(std::string k) {
             if(curr->str == k){
                 size = size -1;
                 tot = tot - curr->count;
-                if (curr->next == nullptr){
+                if (curr->i_next == nullptr){
                     Node * temp = curr->i_last;
-                    temp->next = nullptr;
+                    temp->i_next = nullptr;
                     arr[index].item_D->tail = temp;
                 }
                 else{
                     Node * temp = curr->i_last;
                     Node * n = curr->i_next;
-                    temp->next = n;
-                    n->last = temp;
+                    temp->i_next = n;
+                    n->i_last = temp;
                 }
                 _data->remove(k,curr);
                 return;
