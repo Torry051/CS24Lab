@@ -13,6 +13,9 @@ struct item{
     item(){
         item_D = new DataStore;
     };
+    ~item(){
+        delete item_D;
+    }
 };
 
 
