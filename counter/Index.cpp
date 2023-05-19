@@ -32,23 +32,22 @@ size_t Index::idx(std::string str) const{
 
 
 void Index::insert(std::string key, int count){
-    // std::cout << "running set: " << key << " "<<count <<std::endl;
-    
     // std::cout << "running"  << key << " " << count<<std::endl;
     size_t index = idx(key);
-    
-    // std::cout << "index: " << index  << " key: " << key<<std::endl;
 
     if(arr[index].item_D->head == nullptr){
-        // std::cout << "running: " << key << std::endl;
+       
         _data->insert(count,key);
+        // std::cout << "running: " << key << std::endl;
         arr[index].item_D->ins(_data->tail);
+        
         arr[index]._key = key;
         // std::cout << index <<" " << key<<  " " << count<<std::endl;
         tot += count;
         this->size+=1;
     }
     else if (arr[index]._key == key){
+        // std::cout << "running: " << key << std::endl;
         tot = tot - arr[index].item_D->head->count;
         arr[index].item_D->head->count = count;
         tot = tot + count;
@@ -62,7 +61,6 @@ void Index::insert(std::string key, int count){
             curr = curr->i_next;
         }
         if (curr == nullptr){
-            // std::cout << "running: " <<key <<": "<< count<< std::endl;
             _data->insert(count,key);
 
             arr[index].item_D->ins(_data->tail);
@@ -76,7 +74,7 @@ void Index::insert(std::string key, int count){
         }
 
     }
-    // std::cout << "\n";
+
 
 }
 
@@ -111,22 +109,27 @@ int Index::search(std::string k) const{
 void Index::remove(std::string k) {
   
     size_t index = idx(k);
-   
     if (arr[index].item_D->head == nullptr){
         std::cout << "wrong: "<< index <<std::endl;
         return;
     }
     else if (arr[index]._key == k){
         Node * curr = arr[index].item_D->head;
+        
         if (curr->i_next == nullptr){
             arr[index].item_D->head = nullptr;
             arr[index].item_D->tail = nullptr;
             arr[index]._key = "";
+            arr[index].item_D->S = 0;
+
         }
         else{
             arr[index].item_D->head = curr->i_next;
             arr[index].item_D->head->i_last = nullptr;
-            arr[index]._key = arr[index].item_D->head->str;
+            arr[index]._key = curr->i_next->str;
+
+
+            arr[index].item_D->S += -1;
         }
         
         size = size -1;
@@ -143,12 +146,14 @@ void Index::remove(std::string k) {
                     Node * temp = curr->i_last;
                     temp->i_next = nullptr;
                     arr[index].item_D->tail = temp;
+                    arr[index].item_D->S += -1;
                 }
                 else{
                     Node * temp = curr->i_last;
                     Node * n = curr->i_next;
                     temp->i_next = n;
                     n->i_last = temp;
+                    arr[index].item_D->S += -1;
                 }
                 _data->remove(k,curr);
                 return;
@@ -169,8 +174,9 @@ void Index::increment(std::string k, int by){
         tot = tot + by;
     }
     else if (arr[index].item_D->head==nullptr){
+        // std::cout << "yes" <<std::endl;
         insert(k,by);
-        arr[index].item_D->ins(_data->tail);
+        // arr[index].item_D->ins(_data->tail);
     }
     else{
         Node * curr = arr[index].item_D->head;
@@ -182,8 +188,9 @@ void Index::increment(std::string k, int by){
             }
             curr = curr->i_next;
         }
+        
         insert(k,by);
-        arr[index].item_D->ins(_data->tail);
+        // arr[index].item_D->ins(_data->tail);
     }
 
 }

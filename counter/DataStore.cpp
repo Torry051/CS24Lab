@@ -27,10 +27,13 @@ void DataStore::ins(Node * n){
     if(S==0){
         head = n;
         tail = n;
+        n->i_next = nullptr;
+        n->i_last = nullptr;
         S =1;
     }
     else{
         // std::cout << "inside: " << D->tail->str << std::endl;
+
         Node * curr = tail;
         tail = n;
         tail->i_last = curr;
