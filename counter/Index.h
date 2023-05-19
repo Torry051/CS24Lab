@@ -11,12 +11,10 @@ struct item{
     std::string _key;
     DataStore * item_D;
     item(){
+        _key = "";
         item_D = new DataStore;
     };
-    ~item(){
-        delete item_D;
-    }
-};
+}
 
 
 class Index{

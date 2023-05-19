@@ -77,6 +77,7 @@ void DataStore::decre(std::string k, int by ,Node* curr){
 }
 
 DataStore::~DataStore(){
+
     // std::cout << "desc" <<std::endl;
     // std::cout << "running2" <<std::endl;
     if (head == tail && head == nullptr){
@@ -89,13 +90,17 @@ DataStore::~DataStore(){
         tail = nullptr;
     }
     else{
-        // std::cout << "running231" <<std::endl;
         Node * curr = head;
         Node * temp = curr->next;
         // std::cout << "running231" <<std::endl;
         while(curr != nullptr){
+            if(curr == nullptr){
+                break;
+            }
+            // std::cout << "deleting: "<< curr->str << curr->count <<std::endl;
             // std::cout << "running31" <<std::endl;
             delete curr;
+            curr =nullptr;
             if(temp == nullptr){
                 // std::cout << "running21" <<std::endl;
                 tail = nullptr;
