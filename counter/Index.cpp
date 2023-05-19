@@ -64,19 +64,18 @@ void Index::insert(std::string key, int count){
             curr = curr->i_next;
         }
         // if (curr == nullptr){
-            _data->insert(count,key);
+        _data->insert(count,key);
 
-            arr[index].item_D->ins(_data->tail);
-            tot = tot + count;
-            size = size + 1;
+        arr[index].item_D->ins(_data->tail);
+        tot = tot + count;
+        size = size + 1;
         // }
         // else{
         //     tot = tot - curr->count;
         //     curr->count = count;
         //     tot = tot + count;
         // }
-
-    }
+     }
 
 
 }
@@ -96,13 +95,13 @@ int Index::search(std::string k) const{
         while (curr != nullptr){
             if (curr->str == k){
                 return curr->count;
-                break;
+                // break;
             }
             curr= curr->i_next;
         }
 
-        if (curr != nullptr){
-        //     return curr->count;
+        // if (curr != nullptr){
+            // return curr->count;
         // }
         return 0;
     }
