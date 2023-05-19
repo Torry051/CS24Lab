@@ -9,12 +9,10 @@
 // The Index is in charge of getting pairs from the DataStore by key.
 struct item{
     std::string _key;
-    Node * node;
-    item():node(nullptr){};
-    ~item(){
-        if (node )
-        node = nullptr;
-    }
+    DataStore * item_D;
+    item(){
+        item_D = new DataStore;
+    };
 };
 
 
@@ -30,8 +28,6 @@ class Index{
     Index();
     Index(size_t val);
     ~Index();
-    void expand(std::string, int );
-    // void expand();
     void insert(std::string key, int count);
     size_t idx(std::string) const;
     int search(std::string k) const;

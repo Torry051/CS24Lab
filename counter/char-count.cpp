@@ -62,7 +62,7 @@ int main(int argc, char** argv) {
     Counter counter;
 
     while(stream.get(c)) {
-      // std::cout << "working: "<< c << std::endl;
+      std::cout << "working: "<< c << std::endl;
       if(isspace(c)) {
         inc = !inc;
         continue;

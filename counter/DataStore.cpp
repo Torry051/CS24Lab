@@ -23,6 +23,22 @@ void DataStore::insert(int val,std::string k){
     
 }
 
+void DataStore::ins(Node * n){
+    if(S==0){
+        head = n;
+        tail = n;
+        S =1;
+    }
+    else{
+        // std::cout << "inside: " << D->tail->str << std::endl;
+        Node * curr = tail;
+        tail = n;
+        tail->i_last = curr;
+        curr->i_next = tail;
+        S+=1;
+    }
+}
+
 
 void DataStore::remove(std::string k,Node* curr){
     if(curr==head && curr==tail){
