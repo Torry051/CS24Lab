@@ -109,8 +109,7 @@ int Index::search(std::string k) const{
 }
 
 void Index::remove(std::string k) {
-    // std::cout << "rem: "<< k <<std::endl;
-    int count = 0;
+  
     size_t index = idx(k);
    
     if (arr[index].item_D->head == nullptr){
