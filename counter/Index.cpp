@@ -6,9 +6,9 @@
 
 
 Index::Index(){
-    arr = new item[120];
+    arr = new item[95];
     size = 0;
-    capacity = 120;
+    capacity = 95;
     _data = new DataStore;
     tot = 0;
 }
@@ -56,21 +56,22 @@ void Index::insert(std::string key, int count){
         Node * curr = arr[index].item_D->head;
         while (curr != nullptr){
             if (curr->str == key){
-                _data->insert(count,key);
-
-                arr[index].item_D->ins(_data->tail);
-                tot = tot + count;
-                size = size + 1;
-                return;
+                break;
             }
             curr = curr->i_next;
         }
+        if (curr == nullptr){
+            _data->insert(count,key);
 
-   
-        tot = tot - curr->count;
-        curr->count = count;
-        tot = tot + count;
-      
+            arr[index].item_D->ins(_data->tail);
+            tot = tot + count;
+            size = size + 1;
+        }
+        else{
+            tot = tot - curr->count;
+            curr->count = count;
+            tot = tot + count;
+        }
 
     }
 
