@@ -42,23 +42,27 @@ void DataStore::ins(Node * n){
 
 void DataStore::remove(std::string k,Node* curr){
     if(curr==head && curr==tail){
+            curr->str="";
             delete curr;
             head = nullptr;
             tail = nullptr;
     }
     else if (curr == head){
+            curr->str = "";
             Node * Next = curr->next;
             delete curr;
             Next->last = nullptr;
             head = Next;
     }
     else if (curr == tail){
+            curr->str = "";
             Node * Last = curr->last;
             delete curr;
             Last->next = nullptr;
             tail = Last;
     }
     else {
+            curr->str = "";
             Node * Last = curr->last;
             Node * Next = curr->next;
             delete curr;
@@ -89,11 +93,14 @@ DataStore::~DataStore(){
         return;
     }
     else if (head == tail && tail != nullptr){
+        
+        head->str = "";
         delete head;
         head = nullptr;
         tail = nullptr;
     }
     else{
+        // std::cout << "321" <<std::endl;
         Node * curr = head;
         Node * temp = curr->next;
         // std::cout << "running231" <<std::endl;
@@ -103,6 +110,7 @@ DataStore::~DataStore(){
             }
             // std::cout << "deleting: "<< curr->str << ": "<< curr->count <<std::endl;
             // std::cout << "running31" <<std::endl;
+            curr->str = "";
             delete curr;
             curr =nullptr;
             if(temp == nullptr){
