@@ -16,8 +16,7 @@ public:
         float       score;
     };
 
-// private:
-public:
+private:
     Entry* mData;
     size_t mCapacity;
     size_t mCount;
