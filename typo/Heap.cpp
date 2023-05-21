@@ -220,5 +220,7 @@ const Heap::Entry& Heap::top() const{
         }
         i = i-1;
     }
+    std::cout << "wrong" <<std::endl;
+    return mData[mCapacity-1]; 
 
 }
