@@ -29,7 +29,8 @@ Heap::Heap(Heap&& other){
 }
 
 Heap::~Heap(){
-    std::cout << "desctructer" <<std::endl;
+    // std::cout << "desctructer" <<std::endl;
+    delete [] mData;
 }
 
 size_t  Heap::capacity() const{
