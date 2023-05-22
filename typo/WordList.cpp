@@ -54,6 +54,9 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
 
     while(result.top().score < cutoff){
         Heap::Entry E = result.pop();
+        if (result.count()==0){
+            break;
+        }
     }
     // std::cout << "check: "<<result.count() <<std::endl;
     return result;
