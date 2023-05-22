@@ -26,7 +26,7 @@ WordList::WordList(std::istream& stream){
 }
 
 Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float cutoff) const{
-    Heap heap(mWords.size());
+    Heap result(maxcount);
     std::string str;
 
     for (size_t i = 0; i < mWords.size(); i++){
@@ -38,22 +38,30 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
             scores += 1/(10*d*d+1);
         }
         scores = scores/(str.length());
-        heap.push(str,scores);
+        
+        if (result.count() < maxcount){
+            result.push(str,scores);
+        }
+        else {
+            if(result.top().score < scores){
+                result.pushpop(str,scores);
+            }
+        }
     }
     // std::cout << heap.count() << std::endl;
     
-    while(heap.count()>maxcount){
-        heap.pop(); 
-    }
-    // std::cout << "running1: "<< maxcount <<std::endl;
-    Heap result(maxcount);
-    for(size_t z = 0; z < maxcount; z++){
-        if (heap.count()==0){
-            break;
-        }
-        Heap::Entry E = heap.pop();
-        result.push(E.value,E.score);
-    }
+    // while(heap.count()>maxcount){
+    //     heap.pop(); 
+    // }
+    // // std::cout << "running1: "<< maxcount <<std::endl;
+    // Heap result(maxcount);
+    // for(size_t z = 0; z < maxcount; z++){
+    //     if (heap.count()==0){
+    //         break;
+    //     }
+    //     Heap::Entry E = heap.pop();
+    //     result.push(E.value,E.score);
+    // }
     // std::cout << "running2 " <<std::endl;
     for (size_t i =0; i< cutoff; i++){
         if(result.count()==0){
