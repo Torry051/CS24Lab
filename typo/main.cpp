@@ -67,8 +67,6 @@ int main(int argc, char** argv) {
             auto points = read_points(line);
             auto heap   = wordlist->correct(points, maxcount, cutoff);
 
-            // std::cout << "check: " <<std::endl;
-
             std::vector<Heap::Entry> entries;
             while(heap.count() > 0) {
                 entries.push_back(heap.pop());

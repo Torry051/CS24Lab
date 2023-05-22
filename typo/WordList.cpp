@@ -45,7 +45,7 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
     while(heap.count()>maxcount){
         heap.pop(); 
     }
-    std::cout << "running1: "<< maxcount <<std::endl;
+    // std::cout << "running1: "<< maxcount <<std::endl;
     Heap result(maxcount);
     for(size_t z = 0; z < maxcount; z++){
         if (heap.count()==0){
@@ -54,7 +54,7 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
         Heap::Entry E = heap.pop();
         result.push(E.value,E.score);
     }
-    std::cout << "running2 " <<std::endl;
+    // std::cout << "running2 " <<std::endl;
     for (size_t i =0; i< cutoff; i++){
         if(result.count()==0){
             break;
@@ -62,6 +62,6 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
         Heap::Entry E = result.pop();
         // std::cout << "running: " << result.count() <<std::endl;
     }
-    std::cout << "check: "<<result.count() <<std::endl;
+    // std::cout << "check: "<<result.count() <<std::endl;
     return result;
 }
