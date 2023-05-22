@@ -1,4 +1,6 @@
 #include "WordList.h"
+#include <iostream>
+#include <cmath>
 
 WordList::WordList(std::istream& stream){
     std::string line;
@@ -17,6 +19,10 @@ WordList::WordList(std::istream& stream){
             mWords.push_back(line);
         }
     }
+    // for (size_t i = 0; i<mWords.size(); i++){
+    //     std::cout << mWords.at(i) <<std::endl;
+    // }
+    // std::cout << "ending: "<< mWords.size() <<std::endl;
 }
 
 Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float cutoff) const{
@@ -29,24 +35,35 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
         float scores = 0;
         for (size_t j = 0; j < str.length(); j++){
             float d = 0;
-            d = (points.at(index).x - QWERTY[str[j]-'a'].x) * (points.at(index).x - QWERTY[str[j]-'a'].x) + (points.at(index).y - QWERTY[str[j]-'a'].y) * (points.at(index).y - QWERTY[str[j]-'a'].y);
+            d = sqrt((points.at(index).x - QWERTY[str[j]-'a'].x) * (points.at(index).x - QWERTY[str[j]-'a'].x) + (points.at(index).y - QWERTY[str[j]-'a'].y) * (points.at(index).y - QWERTY[str[j]-'a'].y));
             scores += 1/(10*d*d+1);
             index = index + 1;
         }
         scores = scores/(str.length());
         heap.push(str,scores);
     }
-
+    // std::cout << heap.count() << std::endl;
+    
     while(heap.count()>maxcount){
         heap.pop(); 
     }
+    // std::cout << "running1: "<< maxcount <<std::endl;
     Heap result(maxcount);
     for(size_t z = 0; z < maxcount; z++){
+        if (heap.count()==0){
+            break;
+        }
         Heap::Entry E = heap.pop();
         result.push(E.value,E.score);
     }
+    // std::cout << "running " <<std::endl;
     for (size_t i =0; i< cutoff; i++){
+        if(result.count()==0){
+            break;
+        }
         Heap::Entry E = result.pop();
+        // std::cout << "running: " << result.count() <<std::endl;
     }
+    // std::cout << "check: "<<result.count() <<std::endl;
     return result;
 }
