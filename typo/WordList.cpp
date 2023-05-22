@@ -47,7 +47,7 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
         //         result.pushpop(str,scores);
         //     }
         // }
-    }
+    // }
     // std::cout << heap.count() << std::endl;
     
     // while(heap.count()>maxcount){
