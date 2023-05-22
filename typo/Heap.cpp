@@ -24,9 +24,10 @@ Heap::Heap(const Heap& other){
 }
 
 Heap::Heap(Heap&& other){
-    mData = other.mData;
-    this->mCapacity = other.mCapacity;
-    this->mCount = other.mCount;
+    // mData = other.mData;
+    // this->mCapacity = other.mCapacity;
+    // this->mCount = other.mCount;
+    *this = other;
 }
 
 Heap::~Heap(){
