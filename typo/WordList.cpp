@@ -32,6 +32,9 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
     for (size_t i = 0; i < mWords.size(); i++){
         str = mWords.at(i);
         float scores = 0;
+        if (str.length()!=points.size()){
+            continue;
+        }
         for (size_t j = 0; j < points.size(); j++){
             float d = 0;
             d = sqrt((points.at(j).x - QWERTY[str[j]-'a'].x) * (points.at(j).x - QWERTY[str[j]-'a'].x) + (points.at(j).y - QWERTY[str[j]-'a'].y) * (points.at(j).y - QWERTY[str[j]-'a'].y));
