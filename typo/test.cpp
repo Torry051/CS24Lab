@@ -13,6 +13,7 @@ int main() {
     heap.push("rai", 0.78);
     heap.push("xer", 0.85);
     heap.push("t",0.79);
+    // Heap heap2(&heap);
     //  Heap::Entry test = heap.pop();
     Heap::Entry test = heap.pushpop("rasss",0.8);
     for (size_t i = 0; i< 8; i++){

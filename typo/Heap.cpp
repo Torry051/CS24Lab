@@ -9,6 +9,7 @@ Heap::Heap(size_t capacity){
     for (size_t i=0; i< mCapacity; i++){
         mData[i].value = "";
         mData[i].score = 99;
+
     }
 
 }
@@ -23,6 +24,7 @@ Heap::Heap(const Heap& other){
 }
 
 Heap::Heap(Heap&& other){
+    std::cout << "running" <<std::endl;
     mData = other.mData;
     this->mCapacity = other.mCapacity;
     this->mCount = other.mCount;
@@ -84,6 +86,7 @@ Heap::Entry  Heap::pop(){
         }
 
         if (mData[i].score > mData[i*2+1].score || mData[i].score > mData[i*2+2].score){
+            
             if(mData[i*2+1].score <= mData[i*2+2].score){
                 std::string str = mData[i].value;
                 float score = mData[i].score;
@@ -167,6 +170,7 @@ Heap::Entry  Heap::pushpop(const std::string& value, float score){
 }
 
 void    Heap::push(const std::string& value, float score){
+    std::cout << "pushing" <<std::endl;
     size_t index = 0;
     if(mCount == mCapacity){
         throw std::overflow_error("overflow error");
