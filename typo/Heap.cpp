@@ -24,10 +24,9 @@ Heap::Heap(const Heap& other){
 }
 
 Heap::Heap(Heap&& other){
-    std::cout << "running" <<std::endl;
-    mData = other.mData;
-    this->mCapacity = other.mCapacity;
-    this->mCount = other.mCount;
+    // mData = other.mData;
+    // this->mCapacity = other.mCapacity;
+    // this->mCount = other.mCount;
 }
 
 Heap::~Heap(){
@@ -170,7 +169,6 @@ Heap::Entry  Heap::pushpop(const std::string& value, float score){
 }
 
 void    Heap::push(const std::string& value, float score){
-    std::cout << "pushing" <<std::endl;
     size_t index = 0;
     if(mCount == mCapacity){
         throw std::overflow_error("overflow error");
