@@ -28,16 +28,14 @@ WordList::WordList(std::istream& stream){
 Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float cutoff) const{
     Heap heap(mWords.size());
     std::string str;
-    size_t index = 0;
 
     for (size_t i = 0; i < mWords.size(); i++){
         str = mWords.at(i);
         float scores = 0;
         for (size_t j = 0; j < str.length(); j++){
             float d = 0;
-            d = sqrt((points.at(index).x - QWERTY[str[j]-'a'].x) * (points.at(index).x - QWERTY[str[j]-'a'].x) + (points.at(index).y - QWERTY[str[j]-'a'].y) * (points.at(index).y - QWERTY[str[j]-'a'].y));
+            d = sqrt((points.at(j).x - QWERTY[str[j]-'a'].x) * (points.at(j).x - QWERTY[str[j]-'a'].x) + (points.at(j).y - QWERTY[str[j]-'a'].y) * (points.at(j).y - QWERTY[str[j]-'a'].y));
             scores += 1/(10*d*d+1);
-            index = index + 1;
         }
         scores = scores/(str.length());
         heap.push(str,scores);
