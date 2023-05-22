@@ -27,7 +27,7 @@ Heap::Heap(Heap&& other){
     // mData = other.mData;
     // this->mCapacity = other.mCapacity;
     // this->mCount = other.mCount;
-    *this = other;
+    this = other;
 }
 
 Heap::~Heap(){
