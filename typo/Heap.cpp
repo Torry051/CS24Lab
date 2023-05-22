@@ -24,9 +24,9 @@ Heap::Heap(const Heap& other){
 }
 
 Heap::Heap(Heap&& other){
-    // mData = other.mData;
-    // this->mCapacity = other.mCapacity;
-    // this->mCount = other.mCount;
+    mData = other.mData;
+    this->mCapacity = other.mCapacity;
+    this->mCount = other.mCount;
 }
 
 Heap::~Heap(){
@@ -44,6 +44,9 @@ size_t  Heap::count() const{
 
 const Heap::Entry& Heap::lookup(size_t index) const{
     if (index >= mCapacity){
+        throw std::out_of_range("out of range");
+    }
+    if (mData[index].value == ""){
         throw std::out_of_range("out of range");
     }
     return mData[index];
@@ -213,17 +216,7 @@ const Heap::Entry& Heap::top() const{
     if (mCount == 0){
         throw std::underflow_error("underflow error");
     }
-    if (mCount == 1){
-        return mData[0];
-    }
-    size_t i = mCapacity-1;
-    while(i!=0){
-        if(mData[i].value !=""){
-            return mData[i];
-        }
-        i = i-1;
-    }
-    std::cout << "wrong" <<std::endl;
-    return mData[mCapacity-1]; 
+    return mData[0];
+
 
 }
