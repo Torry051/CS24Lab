@@ -70,7 +70,7 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
         if(result.count()==0){
             break;
         }
-    Heap::Entry E = result.pop();
+        Heap::Entry E = result.pop();
         // std::cout << "running: " << result.count() <<std::endl;
     }
     // std::cout << "check: "<<result.count() <<std::endl;
