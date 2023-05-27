@@ -4,59 +4,83 @@
 #include <fstream>
 #include <iostream>
 
-int main(int argc, char** argv) {
-  if(argc != 2) {
-    std::cerr << "USAGE: " << argv[0] << " [words-file]\n";
-    return 1;
-  }
+int main(int argc, char **argv)
+{
+	if (argc != 2)
+	{
+		std::cerr << "USAGE: " << argv[0] << " [words-file]\n";
+		return 1;
+	}
 
-  Dictionary* dictionary = nullptr;
+	Dictionary *dictionary = nullptr;
 
-  try {
-    std::ifstream file(argv[1]);
-    if(file.fail()) {
-      std::cerr << "Could not open file: " << argv[1] << '\n';
-      return 1;
-    }
+	try
+	{
+		std::ifstream file(argv[1]);
+		if (file.fail())
+		{
+			std::cerr << "Could not open file: " << argv[1] << '\n';
+			return 1;
+		}
 
-    dictionary = Dictionary::create(file);
-  }
-  catch(const std::exception& e) {
-    std::cerr << "Error reading words file: " << e.what() << '\n';
-    return 1;
-  }
+		dictionary = Dictionary::create(file);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Error reading words file: " << e.what() << '\n';
+		return 1;
+	}
 
-  while(true) {
-    std::string from;
-    std::string to;
+	// can be deleted, this is only printing out the dictionary after the constructor to show how it works
+	dictionary->print();
 
-    std::cout << "From: ";
-    if(!std::getline(std::cin, from)) {
-      break;
-    }
+	while (true)
+	{
+		std::string from;
+		std::string to;
 
-    std::cout << "To:   ";
-    if(!std::getline(std::cin, to)) {
-      break;
-    }
+		std::cout << "From: ";
+		if (!std::getline(std::cin, from))
+		{
+			break;
+		}
 
-    try {
-      std::vector<std::string> chain = dictionary->hop(from, to);
-      for(const std::string& word: chain) {
-        std::cout << " - " << word << '\n';
-      }
-    }
-    catch(const NoChain& e) {
-      std::cout << "No chain.\n";
-    }
-    catch(const InvalidWord& e) {
-      std::cout << "Invalid word: " << e.what() << '\n';
-    }
-    catch(const std::exception& e) {
-      std::cerr << "ERROR: " << e.what() << '\n';
-    }
-  }
+		std::cout << "To:   ";
+		if (!std::getline(std::cin, to))
+		{
+			break;
+		}
 
-  delete dictionary;
-  return 0;
+		// can be deleted, this is printing the map that stores it's connections
+		std::map<std::string, std::string> chain = dictionary->link(from, to);
+		std::vector<std::string> result = dictionary->hop(from,to);
+		std::cout << "result" <<std::endl;
+		for(size_t i = 0; i < result.size();i++){
+			std::cout << result.at(i) <<std::endl;
+		}
+		/*try
+		{
+
+			std::vector<std::string> chain = dictionary->hop(from, to);
+			for (const std::string &word : chain)
+			{
+				std::cout << " - " << word << '\n';
+			}
+		}
+		catch (const NoChain &e)
+		{
+			std::cout << "No chain.\n";
+		}
+		catch (const InvalidWord &e)
+		{
+			std::cout << "Invalid word: " << e.what() << '\n';
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << "ERROR: " << e.what() << '\n';
+		}*/
+	}
+
+	/*delete dictionary;*/
+	return 0;
 }

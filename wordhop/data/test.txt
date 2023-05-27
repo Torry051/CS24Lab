@@ -1,0 +1,5 @@
+car
+can
+cap
+map
+dog
