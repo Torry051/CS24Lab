@@ -190,7 +190,7 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
     }
     result.push_back(to);
 
-    return chain;
+    return result;
 }
 //-------------------------------------------------------------------------------------------------
 /*void Dictionary::print() const
