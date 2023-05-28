@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 	}
 
 	// can be deleted, this is only printing out the dictionary after the constructor to show how it works
-	dictionary->print();
+	// dictionary->print();
 
 	while (true)
 	{
@@ -52,13 +52,13 @@ int main(int argc, char **argv)
 		}
 
 		// can be deleted, this is printing the map that stores it's connections
-		std::map<std::string, std::string> chain = dictionary->link(from, to);
-		std::vector<std::string> result = dictionary->hop(from,to);
-		std::cout << "result" <<std::endl;
-		for(size_t i = 0; i < result.size();i++){
-			std::cout << result.at(i) <<std::endl;
-		}
-		/*try
+		// std::map<std::string, std::string> chain = dictionary->link(from, to);
+		// std::vector<std::string> result = dictionary->hop(from,to);
+		// std::cout << "result" <<std::endl;
+		// for(size_t i = 0; i < result.size();i++){
+		// 	std::cout << result.at(i) <<std::endl;
+		// }
+		try
 		{
 
 			std::vector<std::string> chain = dictionary->hop(from, to);
@@ -78,9 +78,9 @@ int main(int argc, char **argv)
 		catch (const std::exception &e)
 		{
 			std::cerr << "ERROR: " << e.what() << '\n';
-		}*/
+		}
 	}
 
-	/*delete dictionary;*/
+	delete dictionary;
 	return 0;
 }

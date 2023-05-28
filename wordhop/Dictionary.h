@@ -10,11 +10,12 @@
 #include <cstddef>
 #include <cctype>
 #include "Errors.h"
+#include <list>
 
 class Dictionary
 {
 	// Member Variables
-	std::map<std::string, std::vector<std::string> > graph;
+	std::map<std::string, std::vector<std::string>> graph;
 	// this is a map (as what professor burk mentioned this morning: a template string pointing to all it's neighbours)
 
 public:
@@ -25,7 +26,7 @@ public:
 	static Dictionary *create(std::istream &stream);
 
 	// testing print function, you should be able to see how the constructor works
-	void print() const;
+	// void print() const;
 
 public:
 	// The function that does all the work:

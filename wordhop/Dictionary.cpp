@@ -43,7 +43,7 @@ std::map<std::string, std::string> Dictionary::link(const std::string &from, con
     std::deque<std::string> queue;              // a queue(deque) to keep track of the bfs process
 
     std::string currword = from; // we need to start with "from"
-    std::string trace = " ";
+    // std::string trace = " ";
     queue.push_back(currword); // push the first word into queue
 
     while (queue.size())
@@ -59,11 +59,17 @@ std::map<std::string, std::string> Dictionary::link(const std::string &from, con
 
         for (size_t i = 0; i < currword.size(); i++)
         {
+            // bool exist = false;
             std::string template_word = currword;
             template_word[i] = '_';                                        // loop through each template word
             for (size_t j = 0; j < this->graph[template_word].size(); j++) // loop through all neighbours (1st level)
             {
                 std::string neighbour = this->graph[template_word].at(j);
+
+                /*if (currword == neighbour)
+                {
+                    exist = true;
+                }*/
 
                 // make sure we are not inserting the same element into the queue as well
                 // bool in_queue = 0;
@@ -77,77 +83,126 @@ std::map<std::string, std::string> Dictionary::link(const std::string &from, con
                 {
                     // std::cout << neighbour << " : ";
                     queue.push_back(neighbour);
-                    visited[neighbour] = currword;   
+                    visited[neighbour] = currword;
                 }
                 // in_queue = 0;
             }
+            /*if (exist == false)
+            {
+                throw InvalidWord("Word Not xist");
+            }*/
         }
         // std::cout << "next: " <<std::endl;
 
         // update the dictionary fo tracing
         // visited[currword] = trace;
-        // trace = currword; 
-
-        
+        // trace = currword;
 
         // move forward in the queue
         queue.pop_front();
-    }
-    for (auto i = visited.begin(); i != visited.end(); i++)
-    {
-        std::cout << "after change:" << i->first << " before change:" << i->second;
-        std::cout << "\n";
     }
     return visited;
 }
 
 std::vector<std::string> Dictionary::hop(const std::string &from, const std::string &to)
 {
+    if (from.size() != to.size())
+    {
+        throw InvalidWord("invalid word");
+    }
+
+    // not sure if this happens
+    if (from == to)
+    {
+        std::string error = "Repeared Word: " + from;
+        throw std::runtime_error(error);
+    }
+
+    // if from or to is not in graph at the very beginning, we do not need link
+    std::string check_string = from;
+    check_string[0] = '_';
+    if (this->graph.count(check_string) == 0)
+    {
+        throw InvalidWord("from word does not exist");
+    }
+    bool word_exist = 0;
+    for (size_t i = 0; i < this->graph[check_string].size(); i++)
+    {
+        if (this->graph[check_string].at(i) == from)
+        {
+            word_exist = 1;
+        }
+    }
+    if (word_exist == 0)
+    {
+        throw InvalidWord("from word does not exist");
+    }
+
+    check_string = to;
+    check_string[0] = '_';
+    if (this->graph.count(check_string) == 0)
+    {
+        throw InvalidWord("to word does not exist");
+    }
+    word_exist = 0;
+    for (size_t i = 0; i < this->graph[check_string].size(); i++)
+    {
+        if (this->graph[check_string].at(i) == to)
+        {
+            word_exist = 1;
+        }
+    }
+    if (word_exist == 0)
+    {
+        throw InvalidWord("to word does not exist");
+    }
+
     std::vector<std::string> chain;
     std::vector<std::string> result;
     std::map<std::string, std::string> Map;
     Map = link(from, to);
     std::string curr = to;
+    /*for (auto i = Map.begin(); i != Map.end(); i++)
+    {
+        std::cout << "after change:" << i->first << " before change:" << i->second;
+        std::cout << "\n";
+    }*/
 
     bool exist = false;
 
-    for(auto itr = Map.begin(); itr != Map.end(); itr++){
-        if (itr->first == to){
+    for (auto itr = Map.begin(); itr != Map.end(); itr++)
+    {
+        if (itr->first == to)
+        {
             exist = true;
         }
     }
 
-    if (exist == false){
+    if (exist == false)
+    {
+        // std::cout << "no connect" << std::endl;
         throw NoChain();
     }
 
-    if(from.size() != to.size()){
-        throw InvalidWord("invalid word");
-    }
-
-    if(from == to){
-        throw NoChain();
-    }
-  
-    while(Map[curr]!=from){
+    while (Map[curr] != from)
+    {
         chain.push_back(Map[curr]);
         curr = Map[curr];
     }
 
     result.push_back(from);
 
-    for (size_t i = 0; i < chain.size(); i++){
-        size_t j = chain.size() - 1-i;
-        result.push_back(chain.at(j));
+    for (size_t i = 0; i < chain.size(); i++)
+    {
+        size_t j = chain.size() - 1 - i;
+        result.push_back(chain.at(j)); // list may be better
     }
     result.push_back(to);
 
-
     return result;
-    // I believe what should be done here is simply trace back: use the "to" to find the track of changes (shouldn't be hard)
 }
 //-------------------------------------------------------------------------------------------------
-void Dictionary::print() const
+/*void Dictionary::print() const
 {
     for (auto i = this->graph.begin(); i != this->graph.end(); i++)
     {
@@ -158,4 +213,4 @@ void Dictionary::print() const
         }
         std::cout << "\n";
     }
-}
+}*/
