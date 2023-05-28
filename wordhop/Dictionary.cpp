@@ -108,16 +108,8 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
 {
     if (from.size() != to.size())
     {
-        throw InvalidWord("invalid word");
+        throw NoChain();
     }
-
-    // not sure if this happens
-    if (from == to)
-    {
-        std::string error = "Repeared Word: " + from;
-        throw std::runtime_error(error);
-    }
-
     // if from or to is not in graph at the very beginning, we do not need link
     std::string check_string = from;
     check_string[0] = '_';
@@ -167,7 +159,11 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
         std::cout << "after change:" << i->first << " before change:" << i->second;
         std::cout << "\n";
     }*/
-
+    if (from == to)
+    {
+        result.push_back(from);
+        return result;
+    }
     bool exist = false;
 
     for (auto itr = Map.begin(); itr != Map.end(); itr++)

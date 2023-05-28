@@ -51,7 +51,6 @@ int main(int argc, char **argv)
 			break;
 		}
 
-		// can be deleted, this is printing the map that stores it's connections
 		// std::map<std::string, std::string> chain = dictionary->link(from, to);
 		// std::vector<std::string> result = dictionary->hop(from,to);
 		// std::cout << "result" <<std::endl;
