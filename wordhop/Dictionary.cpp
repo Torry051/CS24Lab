@@ -40,22 +40,16 @@ Dictionary *Dictionary::create(std::istream &stream)
 std::map<std::string, std::string> Dictionary::link(const std::string &from, const std::string &to)
 {
     std::map<std::string, std::string> visited; // a map with key of the word and a word of how we got there
-    std::deque<std::string> queue;              // a queue(deque) to keep track of the bfs process
+    std::queue<std::string> queue;              // a queue(deque) to keep track of the bfs process
 
     std::string currword = from; // we need to start with "from"
     // std::string trace = " ";
-    queue.push_back(currword); // push the first word into queue
+    queue.push(currword); // push the first word into queue
 
     while (queue.size())
     {
         currword = queue.front(); // update the next word for our search
         // std::cout << currword << std::endl;
-
-        // if (visited.count(currword) > 0)
-        // {
-        //     queue.pop_front();
-        //     continue;
-        // }
 
         for (size_t i = 0; i < currword.size(); i++)
         {
@@ -70,36 +64,23 @@ std::map<std::string, std::string> Dictionary::link(const std::string &from, con
                 {
                     exist = true;
                 }
-
-                // make sure we are not inserting the same element into the queue as well
-                // bool in_queue = 0;
-                // for (size_t k = 0; k < queue.size(); k++)
-                // {
-                //     if (queue.at(k) == neighbour)
-                //         in_queue = 1;
-                // }
-                // if (in_queue == 0 && visited.count(neighbour) == 0)
                 if (visited.count(neighbour) == 0)
                 {
                     // std::cout << neighbour << " : ";
-                    queue.push_back(neighbour);
+                    queue.push(neighbour);
                     visited[neighbour] = currword;
                 }
-                // in_queue = 0;
             }
             if (exist == false)
             {
                 throw InvalidWord("Word Not xist");
             }
         }
-        // std::cout << "next: " <<std::endl;
-
-        // update the dictionary fo tracing
-        // visited[currword] = trace;
-        // trace = currword;
-
+        if (currword == to){
+            break;
+        }
         // move forward in the queue
-        queue.pop_front();
+        queue.pop();
     }
     return visited;
 }

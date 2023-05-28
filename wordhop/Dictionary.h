@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <deque>
+#include <queue>
 #include <cstddef>
 #include <cctype>
 #include "Errors.h"
