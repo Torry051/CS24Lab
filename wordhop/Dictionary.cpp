@@ -140,7 +140,7 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
     }
 
     std::vector<std::string> chain;
-    // std::vector<std::string> result;
+    std::vector<std::string> result;
     std::map<std::string, std::string> Map;
     Map = link(from, to);
     std::string curr = to;
@@ -153,8 +153,8 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
     {
         // result.push_back(from);
         // return result;
-        chain.push_back(from);
-        return chain;
+        result.push_back(from);
+        return result;
     }
     // bool exist = false;
 
@@ -176,19 +176,19 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
 
     while (Map[curr] != from)
     {
-        chain.insert(chain.begin(),Map[curr]);
+        chain.push_back(Map[curr]);
         curr = Map[curr];
     }
 
-    chain.insert(chain.begin(),from);
-    chain.push_back(to);
+    result.push_back(from);
+    
 
-    // for (size_t i = 0; i < chain.size(); i++)
-    // {
-    //     size_t j = chain.size() - 1 - i;
-    //     result.push_back(chain.at(j)); // list may be better
-    // }
-    // result.push_back(to);
+    for (size_t i = 0; i < chain.size(); i++)
+    {
+        size_t j = chain.size() - 1 - i;
+        result.push_back(chain.at(j)); // list may be better
+    }
+    result.push_back(to);
 
     return chain;
 }
