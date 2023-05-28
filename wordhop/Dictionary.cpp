@@ -59,17 +59,17 @@ std::map<std::string, std::string> Dictionary::link(const std::string &from, con
 
         for (size_t i = 0; i < currword.size(); i++)
         {
-            // bool exist = false;
+            bool exist = false;
             std::string template_word = currword;
             template_word[i] = '_';                                        // loop through each template word
             for (size_t j = 0; j < this->graph[template_word].size(); j++) // loop through all neighbours (1st level)
             {
                 std::string neighbour = this->graph[template_word].at(j);
 
-                /*if (currword == neighbour)
+                if (currword == neighbour)
                 {
                     exist = true;
-                }*/
+                }
 
                 // make sure we are not inserting the same element into the queue as well
                 // bool in_queue = 0;
@@ -87,10 +87,10 @@ std::map<std::string, std::string> Dictionary::link(const std::string &from, con
                 }
                 // in_queue = 0;
             }
-            /*if (exist == false)
+            if (exist == false)
             {
                 throw InvalidWord("Word Not xist");
-            }*/
+            }
         }
         // std::cout << "next: " <<std::endl;
 
@@ -113,22 +113,22 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
     // if from or to is not in graph at the very beginning, we do not need link
     std::string check_string = from;
     check_string[0] = '_';
-    if (this->graph.count(check_string) == 0)
-    {
-        throw InvalidWord("from word does not exist");
-    }
+    // if (this->graph.count(check_string) == 0)
+    // {
+    //     throw InvalidWord("from word does not exist");
+    // }
     bool word_exist = 0;
-    for (size_t i = 0; i < this->graph[check_string].size(); i++)
-    {
-        if (this->graph[check_string].at(i) == from)
-        {
-            word_exist = 1;
-        }
-    }
-    if (word_exist == 0)
-    {
-        throw InvalidWord("from word does not exist");
-    }
+    // for (size_t i = 0; i < this->graph[check_string].size(); i++)
+    // {
+    //     if (this->graph[check_string].at(i) == from)
+    //     {
+    //         word_exist = 1;
+    //     }
+    // }
+    // if (word_exist == 0)
+    // {
+    //     throw InvalidWord("from word does not exist");
+    // }
 
     check_string = to;
     check_string[0] = '_';
@@ -150,7 +150,7 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
     }
 
     std::vector<std::string> chain;
-    std::vector<std::string> result;
+    // std::vector<std::string> result;
     std::map<std::string, std::string> Map;
     Map = link(from, to);
     std::string curr = to;
@@ -161,8 +161,10 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
     }*/
     if (from == to)
     {
-        result.push_back(from);
-        return result;
+        // result.push_back(from);
+        // return result;
+        chain.push_back(from);
+        return chain;
     }
     bool exist = false;
 
@@ -182,20 +184,21 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
 
     while (Map[curr] != from)
     {
-        chain.push_back(Map[curr]);
+        chain.insert(chain.begin(),Map[curr]);
         curr = Map[curr];
     }
 
-    result.push_back(from);
+    chain.insert(chain.begin(),from);
+    chain.push_back(to);
 
-    for (size_t i = 0; i < chain.size(); i++)
-    {
-        size_t j = chain.size() - 1 - i;
-        result.push_back(chain.at(j)); // list may be better
-    }
-    result.push_back(to);
+    // for (size_t i = 0; i < chain.size(); i++)
+    // {
+    //     size_t j = chain.size() - 1 - i;
+    //     result.push_back(chain.at(j)); // list may be better
+    // }
+    // result.push_back(to);
 
-    return result;
+    return chain;
 }
 //-------------------------------------------------------------------------------------------------
 /*void Dictionary::print() const
