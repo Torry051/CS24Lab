@@ -148,21 +148,23 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
         chain.push_back(from);
         return chain;
     }
-    bool exist = false;
+    // bool exist = false;
 
-    for (auto itr = Map.begin(); itr != Map.end(); itr++)
-    {
-        if (itr->first == to)
-        {
-            exist = true;
-        }
-    }
-
-    if (exist == false)
-    {
-        // std::cout << "no connect" << std::endl;
+    // for (auto itr = Map.begin(); itr != Map.end(); itr++)
+    // {
+    //     if (itr->first == to)
+    //     {
+    //         exist = true;
+    //     }
+    // }
+    if(Map.count(to)==0){
         throw NoChain();
     }
+    // if (exist == false)
+    // {
+    //     // std::cout << "no connect" << std::endl;
+    //     throw NoChain();
+    // }
 
     while (Map[curr] != from)
     {
