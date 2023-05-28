@@ -27,6 +27,14 @@ Dictionary::Dictionary(std::istream &stream)
                 this->graph[template_word].push_back(word);
             }
         }
+        // for (size_t i = 0; i<word.size(); i++){
+        //     std::string template_word = word;
+        //     if(islower(template_word[i]) == 0){
+        //         continue;
+        //     }
+        //     template_word[i] = '_'; // generate all template words
+        //     this->graph[template_word].push_back(word);
+        // }
         is_valid = 1; // reset to valid for next loop
     }
 }
@@ -95,10 +103,10 @@ std::vector<std::string> Dictionary::hop(const std::string &from, const std::str
     // if from or to is not in graph at the very beginning, we do not need link
     std::string check_string = from;
     check_string[0] = '_';
-    // if (this->graph.count(check_string) == 0)
-    // {
-    //     throw InvalidWord("from word does not exist");
-    // }
+    if (this->graph.count(check_string) == 0)
+    {
+        throw InvalidWord("from word does not exist");
+    }
     bool word_exist = 0;
     // for (size_t i = 0; i < this->graph[check_string].size(); i++)
     // {
