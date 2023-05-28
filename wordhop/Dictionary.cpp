@@ -50,6 +50,9 @@ std::map<std::string, std::string> Dictionary::link(const std::string &from, con
     {
         currword = queue.front(); // update the next word for our search
         // std::cout << currword << std::endl;
+        if (currword == to){
+            break;
+        }
 
         for (size_t i = 0; i < currword.size(); i++)
         {
@@ -76,9 +79,7 @@ std::map<std::string, std::string> Dictionary::link(const std::string &from, con
                 throw InvalidWord("Word Not xist");
             }
         }
-        if (currword == to){
-            break;
-        }
+    
         // move forward in the queue
         queue.pop();
     }
