@@ -54,24 +54,34 @@ std::map<std::string, Word*> Dictionary::link(const std::string &from, const std
     // std::string trace = " ";
     queue.push(currword); // push the first word into queue
 
+    // size_t i = 0;
+
     while (queue.size())
     {
         currword = queue.front(); // update the next word for our search
         // std::cout << currword << std::endl;
         if (currword == to){
-            break;
+            return visited;
         }
+        // std::cout << currword << std::endl;
 
         for(size_t i=0; i< new_graph[currword]->neighbours.size();i++){
         
             std::string neighbour = new_graph[currword]->neighbours.at(i)->str;
-            queue.push(neighbour);
+            
             if(visited.count(neighbour)==0){
                 visited[neighbour]= new_graph[currword];
+                queue.push(neighbour);
             }
 
         }
         queue.pop();
+
+        // i++;
+
+        // if(i>25){
+        //     break;
+        // }
 
     }
     return visited;
