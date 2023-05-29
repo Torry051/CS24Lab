@@ -12,15 +12,28 @@
 #include "Errors.h"
 #include <list>
 
+
+struct Word{
+	std::string str;
+	std::vector<Word * > neighbours;
+
+	Word(std::string s){
+		str = s;
+	};
+};
 class Dictionary
 {
 	// Member Variables
-	std::map<std::string, std::vector<std::string>> graph;
+	public:
+	std::map<std::string, std::vector<Word * >> graph;
+	std::vector<Word *> allwords;
+	std::map<std::string, Word *> new_graph;
 	// this is a map (as what professor burk mentioned this morning: a template string pointing to all it's neighbours)
 
 public:
 	// default constructor
 	Dictionary(std::istream &);
+	~Dictionary();
 
 	// The create function used by the autograder:
 	static Dictionary *create(std::istream &stream);
@@ -33,7 +46,7 @@ public:
 	std::vector<std::string> hop(const std::string &from, const std::string &to);
 
 	// a helper that generates a map with all changes, traced therefore can find the chain (this is what professor Burk said)
-	std::map<std::string, std::string> link(const std::string &from, const std::string &to);
+	std::map<std::string, Word*> link(const std::string &from, const std::string &to);
 };
 
 #endif

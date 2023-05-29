@@ -31,6 +31,42 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
+	// std::cout << "Graph: " << std::endl;
+
+	// for (auto itr = dictionary->graph.begin(); itr != dictionary->graph.end(); itr++){
+	// 	std::cout << itr->first << ": ";
+	// 	for (size_t i = 0; i < itr->second.size(); i++){
+	// 		std::cout<<itr->second.at(i)->str << " " <<std::endl;
+	// 		std::cout << "neighbours: ";
+	// 		for (size_t j = 0; j<itr->second.at(i)->neighbours.size();j++){
+	// 			std::cout<<itr->second.at(i)->neighbours.at(j)->str << " ";
+	// 		}
+	// 		std::cout << "\n";
+	// 	}
+	// 	std::cout << "\n"; 	
+	// }
+	
+
+	// for (auto itr = dictionary->new_graph.begin(); itr!= dictionary->new_graph.end(); itr++){
+	// 	std::cout << itr->first <<": ";
+	// 	std::cout << "neighbours: ";
+	// 	for (size_t z =0; z < itr->second->neighbours.size();z++){
+	// 		std::cout << itr->second->neighbours.at(z)->str << " ";
+	// 	}
+	// 	std::cout << "\n";
+	// }
+	// std::cout << dictionary->allwords.size() <<std::endl;
+
+	// for (size_t j = 0; j < dictionary->allwords.size(); j++){
+	// 	std::cout << dictionary->allwords.at(j)->str << std::endl;
+	// 	std::cout << "neighbours: ";
+	// 	for (size_t i = 0; i< dictionary->allwords.at(j)->neighbours.size();i++){
+	// 		std::cout << dictionary->allwords.at(j)->neighbours.at(i)->str << " ";
+	// 	}
+	// 	std::cout << "\n";
+	// }
+
+
 	// can be deleted, this is only printing out the dictionary after the constructor to show how it works
 	// dictionary->print();
 
