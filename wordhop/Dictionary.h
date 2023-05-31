@@ -6,29 +6,30 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <queue>
 #include <cstddef>
 #include <cctype>
 #include "Errors.h"
 #include <list>
+#include <time.h>
 
-
-struct Word{
+struct Word
+{
 	std::string str;
-	std::vector<Word * > neighbours;
+	std::vector<Word *> neighbours;
 
-	Word(std::string s){
+	Word(std::string s)
+	{
 		str = s;
 	};
 };
 class Dictionary
 {
 	// Member Variables
-	public:
-	std::map<std::string, std::vector<Word * >> graph;
-	std::vector<Word *> allwords;
-	std::map<std::string, Word *> new_graph;
-	// this is a map (as what professor burk mentioned this morning: a template string pointing to all it's neighbours)
+public:
+	std::unordered_map<std::string, std::vector<Word *>> graph; // a graph with template strings as keys, and pointers in a vector to Words. which is it's neightbour
+	std::unordered_map<std::string, Word *> new_graph;		  // a graph with string itself as keys and only to it's cloest neighbours
 
 public:
 	// default constructor
@@ -38,15 +39,18 @@ public:
 	// The create function used by the autograder:
 	static Dictionary *create(std::istream &stream);
 
-	// testing print function, you should be able to see how the constructor works
-	// void print() const;
+	// test print, only to see how it works
+	/*void print_graph() const;
+	void print_allwords() const;
+	void print_newgraph() const;*/
 
 public:
 	// The function that does all the work:
 	std::vector<std::string> hop(const std::string &from, const std::string &to);
 
 	// a helper that generates a map with all changes, traced therefore can find the chain (this is what professor Burk said)
-	std::map<std::string, Word*> link(const std::string &from, const std::string &to);
+	std::unordered_map<std::string, Word *> link(const std::string &from, const std::string &to);
 };
 
 #endif
+// dhwuid
