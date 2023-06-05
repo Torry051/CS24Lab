@@ -15,7 +15,8 @@ void Database::insert(const Report *report)
 {
 	if (this->data.count(report->id) == 0)
 	{
-		this->data[report->id] = report;
+		// this->data[report->id] = report;
+		this->data.insert({report->id, report});
 	}
 	else
 	{	
