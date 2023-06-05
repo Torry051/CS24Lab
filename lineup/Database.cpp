@@ -8,7 +8,7 @@ Database *Database::create()
 }
 Database::Database()
 {
-	;
+	this->data.reserve(1000000);
 }
 
 void Database::insert(const Report *report)
