@@ -8,7 +8,7 @@ Database *Database::create()
 }
 Database::Database()
 {
-	this->data.reserve(400000);
+	// this->data.reserve(400000);
 }
 
 void Database::insert(const Report *report)
@@ -62,7 +62,7 @@ void Database::remove(unsigned int id)
 	}
 	else
 	{
-		delete data[id];
+		// delete data[id];
 		this->data.erase(id);
 	}
 }
