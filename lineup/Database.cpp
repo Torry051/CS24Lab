@@ -62,7 +62,8 @@ void Database::remove(unsigned int id)
 	}
 	else
 	{
-		// delete data[id];
+		
+		delete data[id];
 		this->data.erase(id);
 	}
 }
