@@ -18,14 +18,17 @@ void Database::insert(const Report *report)
 		this->data[report->id] = report;
 	}
 	else
-	{
+	{	
+
 		throw DuplicateReport(report->id);
 	}
 }
 
 Database::~Database()
 {
-	;
+	for(auto curr = data.begin(); curr != data.end(); curr++ ){
+		delete curr->second;
+	}
 }
 
 std::vector<const Report *> Database::search(float age, float height, float weight) const
