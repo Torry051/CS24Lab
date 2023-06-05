@@ -37,11 +37,11 @@ std::vector<const Report *> Database::search(float age, float height, float weig
 		{
 			continue;
 		}
-		if (height < pair->second->height.min || age > pair->second->height.max)
+		if (height < pair->second->height.min || height > pair->second->height.max)
 		{
 			continue;
 		}
-		if (weight < pair->second->weight.min || age > pair->second->weight.max)
+		if (weight < pair->second->weight.min || weight > pair->second->weight.max)
 		{
 			continue;
 		}
@@ -58,6 +58,7 @@ void Database::remove(unsigned int id)
 	}
 	else
 	{
+		delete data[id];
 		this->data.erase(id);
 	}
 }
