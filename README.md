@@ -1,7 +1,7 @@
 # CS 24
 _Spring 2023_
 
-CS24 is a course to learn hwo to make and use data structure. And the following table shows my projects during these course.
+CS24 is a course to learn how to make and use data structure. And the following table shows my projects during these course.
 
 
 
