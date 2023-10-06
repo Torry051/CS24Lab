@@ -5,8 +5,6 @@ _Spring 2023_
 
 ## Assignments
 
-_Assignments are due before midnight Pacific Time_
-
 | Name                 | Due
 |----------------------|------------
 | [Welcome](welcome)   | April 11th
